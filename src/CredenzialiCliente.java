@@ -1,9 +1,9 @@
-public class Credenziali {
+public class CredenzialiCliente {
     private String username;
     private String password;
     private int cliente;
 
-    public Credenziali(String username, String password, int c) {
+    public CredenzialiCliente(String username, String password, int c) {
         this.username = username;
         this.password=password;
         cliente=c;

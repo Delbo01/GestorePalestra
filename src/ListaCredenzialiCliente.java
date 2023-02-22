@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ListaCredenziali {
-    private List<Credenziali> elencoCredenziali=new ArrayList<>();
+public class ListaCredenzialiCliente {
+    private List<CredenzialiCliente> elencoCredenziali=new ArrayList<>();
 
     public void addCredenziali(String username, String password, int clinete){
-        Credenziali c= new Credenziali(username,password,clinete);
+        CredenzialiCliente c= new CredenzialiCliente(username,password,clinete);
         elencoCredenziali.add(c);
     }
 
@@ -18,7 +18,7 @@ public class ListaCredenziali {
     }
 
     public boolean checkCredenziali(String username, String password){
-        for (Credenziali credenziali : elencoCredenziali) {
+        for (CredenzialiCliente credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
                 return true;
         }
@@ -26,7 +26,7 @@ public class ListaCredenziali {
     }
 
     public Integer getCliente(String username, String password){
-        for (Credenziali credenziali : elencoCredenziali) {
+        for (CredenzialiCliente credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
                 return credenziali.getCliente();
         }

@@ -1,11 +1,13 @@
 public class GestoreLogin {
-    private ListaCredenziali listaCredenziali;
+    private ListaCredenzialiCliente listaCredenziali;
+    private ListaCredenzialiIstruttore listaCredenzialiIstruttore;
 
-    public GestoreLogin(ListaCredenziali listaCredenziali) {
+    public GestoreLogin(ListaCredenzialiCliente listaCredenziali, ListaCredenzialiIstruttore l) {
         this.listaCredenziali = listaCredenziali;
+        listaCredenzialiIstruttore=l;
     }
 
-    public Integer login(String username, String password){
+    public Integer loginCliente(String username, String password){
         if(listaCredenziali.checkCredenziali(username, password)==true){
             int cliente=listaCredenziali.getCliente(username, password);
             System.out.println("credenziali giuste"+" "+cliente);
@@ -15,12 +17,30 @@ public class GestoreLogin {
         return null;
     }
 
-    public void registra(String username, String password, int cliente){
+    public void registraCliente(String username, String password, int cliente){
         listaCredenziali.addCredenziali(username, password, cliente);
     }
 
-    public void remove(String username, String password){
+    public void removeCredenzialiCliente(String username, String password){
         listaCredenziali.removeCredenziali(username,password);
+    }
+
+    public Integer loginIstruttore(String username, String password){
+        if(listaCredenzialiIstruttore.checkCredenziali(username, password)==true){
+            int istruttore=listaCredenzialiIstruttore.getIstruttore(username, password);
+            System.out.println("credenziali giuste"+" "+istruttore);
+            return istruttore;
+        }
+        else System.out.println("credenziali non trovate");
+        return null;
+    }
+
+    public void registraIstruttore(String username, String password, int istruttore){
+        listaCredenzialiIstruttore.addCredenziali(username,password,istruttore);
+    }
+
+    public void removeCredenzialiIstruttore(String username, String password){
+        listaCredenzialiIstruttore.removeCredenziali(username,password);
     }
 }
 
