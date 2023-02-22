@@ -1,5 +1,7 @@
 package GestoreLogin;
 
+import Cliente.Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -7,7 +9,7 @@ import java.util.Objects;
 public class ListaCredenzialiCliente {
     private List<CredenzialiCliente> elencoCredenziali=new ArrayList<>();
 
-    public void addCredenziali(String username, String password, int clinete){
+    public void addCredenziali(String username, String password, Cliente clinete){
         CredenzialiCliente c= new CredenzialiCliente(username,password,clinete);
         elencoCredenziali.add(c);
     }
@@ -27,7 +29,7 @@ public class ListaCredenzialiCliente {
         return false;
     }
 
-    public Integer getCliente(String username, String password){
+    public Cliente getCliente(String username, String password){
         for (CredenzialiCliente credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
                 return credenziali.getCliente();

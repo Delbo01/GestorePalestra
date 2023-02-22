@@ -1,11 +1,13 @@
 package GestoreLogin;
 
+import Cliente.Cliente;
+
 public class CredenzialiCliente {
     private String username;
     private String password;
-    private int cliente;
+    private Cliente cliente;
 
-    public CredenzialiCliente(String username, String password, int c) {
+    public CredenzialiCliente(String username, String password, Cliente c) {
         this.username = username;
         this.password=password;
         cliente=c;
@@ -19,7 +21,7 @@ public class CredenzialiCliente {
         return password;
     }
 
-    public int getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 }

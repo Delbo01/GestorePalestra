@@ -1,5 +1,7 @@
 package GestoreLogin;
 
+import Cliente.Cliente;
+
 public class GestoreLogin {
     private ListaCredenzialiCliente listaCredenziali;
     private ListaCredenzialiIstruttore listaCredenzialiIstruttore;
@@ -9,9 +11,9 @@ public class GestoreLogin {
         listaCredenzialiIstruttore=l;
     }
 
-    public Integer loginCliente(String username, String password){
+    public Cliente loginCliente(String username, String password){
         if(listaCredenziali.checkCredenziali(username, password)==true){
-            int cliente=listaCredenziali.getCliente(username, password);
+            Cliente cliente=listaCredenziali.getCliente(username, password);
             System.out.println("credenziali giuste"+" "+cliente);
             return cliente;
         }
@@ -19,7 +21,7 @@ public class GestoreLogin {
         return null;
     }
 
-    public void registraCliente(String username, String password, int cliente){
+    public void registraCliente(String username, String password, Cliente cliente){
         listaCredenziali.addCredenziali(username, password, cliente);
     }
 
