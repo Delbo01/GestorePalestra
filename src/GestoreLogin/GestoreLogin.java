@@ -1,3 +1,5 @@
+package GestoreLogin;
+
 public class GestoreLogin {
     private ListaCredenzialiCliente listaCredenziali;
     private ListaCredenzialiIstruttore listaCredenzialiIstruttore;

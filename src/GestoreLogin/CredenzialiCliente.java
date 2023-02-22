@@ -1,3 +1,5 @@
+package GestoreLogin;
+
 public class CredenzialiCliente {
     private String username;
     private String password;

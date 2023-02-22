@@ -1,3 +1,5 @@
+package GestoreLogin;
+
 public class CredenzialiIstruttore {
     private String username;
     private String password;

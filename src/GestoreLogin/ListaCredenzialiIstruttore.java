@@ -1,12 +1,14 @@
+package GestoreLogin;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ListaCredenzialiCliente {
-    private List<CredenzialiCliente> elencoCredenziali=new ArrayList<>();
+public class ListaCredenzialiIstruttore {
+    private List<CredenzialiIstruttore> elencoCredenziali=new ArrayList<>();
 
-    public void addCredenziali(String username, String password, int clinete){
-        CredenzialiCliente c= new CredenzialiCliente(username,password,clinete);
+    public void addCredenziali(String username, String password, int i){
+        CredenzialiIstruttore c= new CredenzialiIstruttore(username,password,i);
         elencoCredenziali.add(c);
     }
 
@@ -18,17 +20,17 @@ public class ListaCredenzialiCliente {
     }
 
     public boolean checkCredenziali(String username, String password){
-        for (CredenzialiCliente credenziali : elencoCredenziali) {
+        for (CredenzialiIstruttore credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
                 return true;
         }
         return false;
     }
 
-    public Integer getCliente(String username, String password){
-        for (CredenzialiCliente credenziali : elencoCredenziali) {
+    public Integer getIstruttore(String username, String password){
+        for (CredenzialiIstruttore credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
-                return credenziali.getCliente();
+                return credenziali.getIstruttore();
         }
         return null;
     }

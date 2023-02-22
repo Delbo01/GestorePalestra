@@ -1,3 +1,7 @@
+import GestoreLogin.GestoreLogin;
+import GestoreLogin.ListaCredenzialiIstruttore;
+import GestoreLogin.ListaCredenzialiCliente;
+
 public class Main {
         public static void main(String[] args) {
             ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
