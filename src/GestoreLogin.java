@@ -6,7 +6,7 @@ public class GestoreLogin {
     }
 
     public Integer login(String username, String password){
-        if(listaCredenziali.chechkCredenziali(username, password)==true){
+        if(listaCredenziali.checkCredenziali(username, password)==true){
             int cliente=listaCredenziali.getCliente(username, password);
             System.out.println("credenziali giuste"+" "+cliente);
             return cliente;

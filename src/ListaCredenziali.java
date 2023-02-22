@@ -17,7 +17,7 @@ public class ListaCredenziali {
         }
     }
 
-    public boolean chechkCredenziali(String username, String password){
+    public boolean checkCredenziali(String username, String password){
         for (Credenziali credenziali : elencoCredenziali) {
             if (Objects.equals(credenziali.getUsername(), username) & Objects.equals(credenziali.getPassword(), password))
                 return true;
