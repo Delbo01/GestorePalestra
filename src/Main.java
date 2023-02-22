@@ -8,9 +8,9 @@ public class Main {
             gestoreLogin.registra("gianni","Mafg_00",2);
             gestoreLogin.registra("matteo","Qwerty",3);
 
-            gestoreLogin.login("marco","Abcjh4_20");
-            gestoreLogin.login("matteo","Qwerty");
-            gestoreLogin.login("leo","Qwerty");
+            Integer c=gestoreLogin.login("marco","Abcjh4_20");
+            Integer c2=gestoreLogin.login("matteo","Qwerty");
+            Integer c3=gestoreLogin.login("leo","Qwerty");
         }
 
 }

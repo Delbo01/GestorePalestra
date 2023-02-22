@@ -18,5 +18,9 @@ public class GestoreLogin {
     public void registra(String username, String password, int cliente){
         listaCredenziali.addCredenziali(username, password, cliente);
     }
+
+    public void remove(String username, String password){
+        listaCredenziali.removeCredenziali(username,password);
+    }
 }
 
