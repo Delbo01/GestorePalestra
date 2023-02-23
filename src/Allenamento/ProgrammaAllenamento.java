@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class ProgrammaAllenamento {
     private ArrayList<Esercizio> esercizi= new ArrayList<>();
     private int nEsercizi=0;
+    private String durata;
+
+    public ProgrammaAllenamento(String durata) {
+        this.durata = durata;
+    }
 
     public void addEsercizio(Esercizio e){
         esercizi.add(e);
@@ -21,8 +26,9 @@ public class ProgrammaAllenamento {
         System.out.print(esercizi.get(pos).getTempoRecupero()+" secondi di recupero ");
         if (esercizi.get(pos).getNote()!=null){
             System.out.print("note: ");
-            System.out.println(esercizi.get(pos).getNote());
-        }else System.out.println();
+            System.out.print(esercizi.get(pos).getNote());
+        }
+        System.out.println(" durata programma "+durata);
     }
 
     public void visualizzaProgramma(){
@@ -30,4 +36,13 @@ public class ProgrammaAllenamento {
             visualizzaEsercizio(i);
         }
     }
+
+    public ArrayList<Esercizio> getEsercizi() {
+        return esercizi;
+    }
+
+    public int getnEsercizi() {
+        return nEsercizi;
+    }
+
 }
