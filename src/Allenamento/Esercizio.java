@@ -45,4 +45,11 @@ public class Esercizio {
     public void setCarico(float carico) {
         this.carico = carico;
     }
+
+    public void startTimer() throws InterruptedException{
+        Thread t= new Thread(timer);
+        t.start();
+        t.join();
+        t.interrupt();
+    }
 }

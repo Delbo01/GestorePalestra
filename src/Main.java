@@ -30,7 +30,7 @@ public class Main {
             Integer i2= gestoreLogin.loginIstruttore("vvvv","qwertyuugugiop");
 
 */
-              /*
+
               Esercizio e1= new Esercizio("panca piana",4,10,90,null);
               Esercizio e2= new Esercizio("distensioni con manubri su panca inclinata", 4, 8,90,"panca inclinata a 45 gradi");
               Esercizio e3= new Esercizio("croci ai cavi",3,12,60,null);
@@ -60,7 +60,10 @@ public class Main {
               scheda.addProgramma(programmaAllenamento2);
 
               scheda.visualizzaScheda();
-              */
+              scheda.setCarico(0,1,40);
+              scheda.visualizzaProgramma(0);
+
+
         }
 
 }

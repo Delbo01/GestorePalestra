@@ -15,6 +15,7 @@ public class Timer implements Runnable {
                 System.out.println(i);
                 Thread.sleep(1000);
             }
+            System.out.println("Timer finito");
         }catch (InterruptedException e){
             System.out.println("Timer finito");
         }

@@ -29,6 +29,8 @@ public class Scheda {
             System.out.println("Programma "+(i+1)+":");
             programma.get(i).visualizzaProgramma();
         }
-
+    }
+    public void setCarico(int prog,int es, float carico){
+        programma.get(prog).getEsercizio(es).setCarico(carico);
     }
 }

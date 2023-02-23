@@ -23,7 +23,8 @@ public class ProgrammaAllenamento {
     public void visualizzaEsercizio(int pos){
         System.out.print(esercizi.get(pos).getNome()+" : ");
         System.out.print(esercizi.get(pos).getSerie()+"X"+esercizi.get(pos).getReps()+" con ");
-        System.out.print(esercizi.get(pos).getTempoRecupero()+" secondi di recupero ");
+        System.out.print(esercizi.get(pos).getTempoRecupero()+" secondi di recupero");
+        System.out.print(" con "+esercizi.get(pos).getCarico()+"kg ");
         if (esercizi.get(pos).getNote()!=null){
             System.out.print("note: ");
             System.out.println(esercizi.get(pos).getNote());
@@ -43,6 +44,10 @@ public class ProgrammaAllenamento {
 
     public int getnEsercizi() {
         return nEsercizi;
+    }
+
+    public Esercizio getEsercizio(int pos){
+        return esercizi.get(pos);
     }
 
 }
