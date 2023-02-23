@@ -4,16 +4,15 @@ public class Esercizio {
     private String nome;
     private int serie;
     private int reps;
-    private float carico;
+    private float carico=0;
     private int tempoRecupero;
     private String note;
     private Timer timer;
 
-    public Esercizio(String nome, int serie, int reps, float carico, int tempoRecupero, String note) {
+    public Esercizio(String nome, int serie, int reps, int tempoRecupero, String note) {
         this.nome = nome;
         this.serie = serie;
         this.reps = reps;
-        this.carico = carico;
         this.tempoRecupero = tempoRecupero;
         this.note = note;
         this.timer=new Timer(tempoRecupero);

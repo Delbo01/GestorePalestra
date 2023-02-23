@@ -25,7 +25,10 @@ public class Scheda {
         programma.get(pos).visualizzaProgramma();
     }
     public void visualizzaScheda(){
-        for (int i=0;i<nProg; i++)
+        for (int i=0;i<nProg; i++){
+            System.out.println("Programma "+(i+1)+":");
             programma.get(i).visualizzaProgramma();
+        }
+
     }
 }

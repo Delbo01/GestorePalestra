@@ -26,15 +26,15 @@ public class ProgrammaAllenamento {
         System.out.print(esercizi.get(pos).getTempoRecupero()+" secondi di recupero ");
         if (esercizi.get(pos).getNote()!=null){
             System.out.print("note: ");
-            System.out.print(esercizi.get(pos).getNote());
-        }
-        System.out.println(" durata programma "+durata);
+            System.out.println(esercizi.get(pos).getNote());
+        }else System.out.println();
     }
 
     public void visualizzaProgramma(){
         for (int i=0;i<nEsercizi;i++){
             visualizzaEsercizio(i);
         }
+        System.out.println(" durata programma "+durata);
     }
 
     public ArrayList<Esercizio> getEsercizi() {
