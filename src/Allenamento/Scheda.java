@@ -25,6 +25,7 @@ public class Scheda {
         programma.get(pos).visualizzaProgramma();
     }
     public void visualizzaScheda(){
+        System.out.println("Obbiettivo scheda: "+obbiettivo);
         for (int i=0;i<nProg; i++){
             System.out.println("Programma "+(i+1)+":");
             programma.get(i).visualizzaProgramma();
@@ -32,5 +33,9 @@ public class Scheda {
     }
     public void setCarico(int prog,int es, float carico){
         programma.get(prog).getEsercizio(es).setCarico(carico);
+    }
+
+    public void startTimer(int prog, int es) throws InterruptedException{
+        programma.get(prog).getEsercizio(es).startTimer();
     }
 }

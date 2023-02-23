@@ -46,7 +46,7 @@ public class ProgrammaAllenamento {
         return nEsercizi;
     }
 
-    public Esercizio getEsercizio(int pos){
+     Esercizio getEsercizio(int pos){
         return esercizi.get(pos);
     }
 

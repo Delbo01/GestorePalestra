@@ -62,6 +62,7 @@ public class Main {
               scheda.visualizzaScheda();
               scheda.setCarico(0,1,40);
               scheda.visualizzaProgramma(0);
+              scheda.startTimer(0,1);
 
 
         }
