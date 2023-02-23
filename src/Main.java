@@ -3,10 +3,11 @@ import GestoreLogin.GestoreLogin;
 import GestoreLogin.ListaCredenzialiIstruttore;
 import GestoreLogin.ListaCredenzialiCliente;
 import Cliente.Generalita;
+import Allenamento.Timer;
 
 public class Main {
-        public static void main(String[] args) {
-            ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
+        public static void main(String[] args) throws InterruptedException{
+            /*ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
             ListaCredenzialiIstruttore listaCredenzialiIstruttore= new ListaCredenzialiIstruttore();
 
             GestoreLogin gestoreLogin= new GestoreLogin(listaCredenziali, listaCredenzialiIstruttore);
@@ -25,6 +26,7 @@ public class Main {
             Integer i= gestoreLogin.loginIstruttore("vvvv","a");
             Integer i2= gestoreLogin.loginIstruttore("vvvv","qwertyuugugiop");
 
+*/
         }
 
 }
