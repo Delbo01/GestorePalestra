@@ -7,6 +7,9 @@ import Allenamento.Timer;
 import Allenamento.ProgrammaAllenamento;
 import Allenamento.Esercizio;
 import Allenamento.Scheda;
+import IstruttoreCalendario.Calendario;
+import IstruttoreCalendario.Corso;
+import IstruttoreCalendario.Istruttore;
 
 public class Main {
         public static void main(String[] args) throws InterruptedException{
@@ -45,7 +48,7 @@ public class Main {
               Esercizio ee1=new Esercizio("squat",5,8,120,null);
               Esercizio ee2=new Esercizio("leg exstension",4,12,60,"prime sei reps da eseguire con fermo in isometria di 2 secondi");
               Esercizio ee3= new Esercizio("leg curl",4,10,60,null);
-              Esercizio ee4= new Esercizio("affondi bulgari",3,12,90,null);
+              Esercizio ee4= new Esercizio("affondi bulgari",3,12,2,null);
 
               ProgrammaAllenamento programmaAllenamento2= new ProgrammaAllenamento("1 ora");
               programmaAllenamento2.addEsercizio(e1);
@@ -63,6 +66,13 @@ public class Main {
               scheda.setCarico(0,1,40);
               scheda.visualizzaProgramma(0);
               scheda.startTimer(0,1);
+
+              Calendario ca = new Calendario(2022);
+              Generalita is = new Generalita("djefjndsfjk","luigi","rossi");
+              Istruttore lio = new Istruttore(is,ca);
+              Corso co = new Corso("Cardio",10,"22:00","05:00",lio);
+              lio.inserisciCorso(1,22,co);
+              ca.vediCorsiMensili(1);
 
 
         }
