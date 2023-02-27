@@ -18,5 +18,11 @@ public class Abbonamento {
         this.dataFine = dataFine;
         this.corsi = corsi;
     }
-
+    public void visualizzaAbbonamento(){
+        System.out.println("Abboamneto "+nome+"con: ");
+        System.out.println("Data inizio: "+dataInizio);
+        System.out.println("Data fine: "+dataFine);
+        System.out.println("Prezzo: "+prezzo);
+        System.out.println("Corsi: "+corsi);
+    }
 }

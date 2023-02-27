@@ -10,7 +10,7 @@ import Allenamento.Scheda;
 
 public class Main {
         public static void main(String[] args) throws InterruptedException{
-            /*ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
+            ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
             ListaCredenzialiIstruttore listaCredenzialiIstruttore= new ListaCredenzialiIstruttore();
 
             GestoreLogin gestoreLogin= new GestoreLogin(listaCredenziali, listaCredenzialiIstruttore);
@@ -29,7 +29,7 @@ public class Main {
             Integer i= gestoreLogin.loginIstruttore("vvvv","a");
             Integer i2= gestoreLogin.loginIstruttore("vvvv","qwertyuugugiop");
 
-*/
+
 
               Esercizio e1= new Esercizio("panca piana",4,10,90,null);
               Esercizio e2= new Esercizio("distensioni con manubri su panca inclinata", 4, 8,90,"panca inclinata a 45 gradi");
@@ -59,10 +59,16 @@ public class Main {
               scheda.addProgramma(programmaAllenamento1);
               scheda.addProgramma(programmaAllenamento2);
 
-              scheda.visualizzaScheda();
-              scheda.setCarico(0,1,40);
-              scheda.visualizzaProgramma(0);
-              scheda.startTimer(0,1);
+              //scheda.visualizzaScheda();
+              //scheda.setCarico(0,1,40);
+              //scheda.visualizzaProgramma(0);
+              //scheda.startTimer(0,1);
+
+
+              cliente.setScheda(scheda);
+              cliente.creaAbbonamento(3,"trimestrale",180,"1/1/2023","1/4/2023",true);
+              cliente.visualizzaScheda();
+              cliente.vediAbbonamento();
 
 
         }

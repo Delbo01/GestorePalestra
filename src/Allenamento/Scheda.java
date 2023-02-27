@@ -26,6 +26,7 @@ public class Scheda {
     }
     public void visualizzaScheda(){
         System.out.println("Obbiettivo scheda: "+obbiettivo);
+        System.out.println("numero di programmi della scheda: "+nProg);
         for (int i=0;i<nProg; i++){
             System.out.println("Programma "+(i+1)+":");
             programma.get(i).visualizzaProgramma();
