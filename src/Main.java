@@ -3,7 +3,6 @@ import GestoreLogin.GestoreLogin;
 import GestoreLogin.ListaCredenzialiIstruttore;
 import GestoreLogin.ListaCredenzialiCliente;
 import Cliente.Generalita;
-import Allenamento.Timer;
 import Allenamento.ProgrammaAllenamento;
 import Allenamento.Esercizio;
 import Allenamento.Scheda;
@@ -22,15 +21,12 @@ public class Main {
             Cliente cliente= new Cliente(g,186,87);
             gestoreLogin.registraCliente("Leonardo","Abcjh4_20",cliente);
 
-            gestoreLogin.registraIstruttore("gianni", "hjgyucajcaye", 4);
-            gestoreLogin.registraIstruttore("franco", "xzxzxz", 5);
-            gestoreLogin.registraIstruttore("vvvv", "a", 6);
-
-
+            Generalita gi= new Generalita("nrdcrt00p02d612f", "Cristiano", "Narducci");
+            Istruttore istruttore= new Istruttore(gi,null);
+            gestoreLogin.registraIstruttore("narducci","qwerty",istruttore);
 
             Cliente c=gestoreLogin.loginCliente("Leonardo","Abcjh4_20");
-            Integer i= gestoreLogin.loginIstruttore("vvvv","a");
-            Integer i2= gestoreLogin.loginIstruttore("vvvv","qwertyuugugiop");
+            Istruttore i= gestoreLogin.loginIstruttore("narducci","qwerty");
 
 
 

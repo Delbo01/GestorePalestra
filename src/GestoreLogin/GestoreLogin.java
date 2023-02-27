@@ -1,6 +1,7 @@
 package GestoreLogin;
 
 import Cliente.Cliente;
+import IstruttoreCalendario.Istruttore;
 
 public class GestoreLogin {
     private ListaCredenzialiCliente listaCredenziali;
@@ -29,9 +30,9 @@ public class GestoreLogin {
         listaCredenziali.removeCredenziali(username,password);
     }
 
-    public Integer loginIstruttore(String username, String password){
+    public Istruttore loginIstruttore(String username, String password){
         if(listaCredenzialiIstruttore.checkCredenziali(username, password)==true){
-            int istruttore=listaCredenzialiIstruttore.getIstruttore(username, password);
+            Istruttore istruttore=listaCredenzialiIstruttore.getIstruttore(username, password);
             System.out.println("credenziali giuste"+" "+istruttore);
             return istruttore;
         }
@@ -39,7 +40,7 @@ public class GestoreLogin {
         return null;
     }
 
-    public void registraIstruttore(String username, String password, int istruttore){
+    public void registraIstruttore(String username, String password, Istruttore istruttore){
         listaCredenzialiIstruttore.addCredenziali(username,password,istruttore);
     }
 

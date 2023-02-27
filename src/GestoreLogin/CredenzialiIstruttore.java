@@ -1,11 +1,13 @@
 package GestoreLogin;
 
+import IstruttoreCalendario.Istruttore;
+
 public class CredenzialiIstruttore {
     private String username;
     private String password;
-    private int istruttore;
+    private Istruttore istruttore;
 
-    public CredenzialiIstruttore(String username, String password, int istruttore) {
+    public CredenzialiIstruttore(String username, String password, Istruttore istruttore) {
         this.password=password;
         this.istruttore=istruttore;
         this.username = username;
@@ -19,7 +21,7 @@ public class CredenzialiIstruttore {
         return password;
     }
 
-    public int getIstruttore() {
+    public Istruttore getIstruttore() {
         return istruttore;
     }
 }
