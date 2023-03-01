@@ -10,7 +10,6 @@ import Allenamento.Scheda;
 import IstruttoreCalendario.Calendario;
 import IstruttoreCalendario.Corso;
 import IstruttoreCalendario.Istruttore;
-import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 
 public class Main {
@@ -68,7 +67,7 @@ public class Main {
 
 
               cliente.setScheda(scheda);
-              cliente.creaAbbonamento(3,"trimestrale",180,"1/1/2023","1/4/2023",true);
+              cliente.ottieniAbbonamento(3,"trimestrale",180,"1/1/2023","1/4/2023",true);
               cliente.visualizzaScheda();
               cliente.vediAbbonamento();
 

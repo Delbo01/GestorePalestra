@@ -13,16 +13,21 @@ public class Cliente {
     private Scheda scheda=null;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     private Istruttore pt=null;
+    private GestoreAbbonamenti gestoreAbbonamenti;
 
-    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda) {
+    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestoreAbbonamenti gestoreAbbonamenti) {
         this.generalità = new Generalita(generalità);
         this.altezza = altezza;
         this.peso = peso;
         this.gestoreRichiestaScheda= gestoreRichiestaScheda;
     }
 
-    public void creaAbbonamento(int durata, String nome, int prezzo, String dataInizio, String dataFine, boolean corsi){
-        this.abbonamento=new Abbonamento(durata,nome,prezzo,dataInizio,dataFine,corsi);
+    public void vediAbbonamneti(){
+        gestoreAbbonamenti.vediAbbonamneti();
+    }
+
+    public void ottieniAbbonamento(int index, String dataInizio, String dataFine, boolean corsi){
+        this.abbonamento=gestoreAbbonamenti.ottieniAbbonamneto(index,dataInizio,dataFine,corsi);
     }
 
     public void setScheda(Scheda scheda) {

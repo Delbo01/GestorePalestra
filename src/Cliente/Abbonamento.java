@@ -18,11 +18,40 @@ public class Abbonamento {
         this.dataFine = dataFine;
         this.corsi = corsi;
     }
+    public Abbonamento(Abbonamento a){
+        this.durata=a.getDurata();
+        this.prezzo=a.getPrezzo();
+        this.nome=a.getNome();
+    }
     public void visualizzaAbbonamento(){
         System.out.println("Abboamneto "+nome+"con: ");
         System.out.println("Data inizio: "+dataInizio);
         System.out.println("Data fine: "+dataFine);
         System.out.println("Prezzo: "+prezzo);
         System.out.println("Corsi: "+corsi);
+    }
+
+    public int getDurata() {
+        return durata;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getPrezzo() {
+        return prezzo;
+    }
+
+    public void setDataInizio(String dataInizio) {
+        this.dataInizio = dataInizio;
+    }
+
+    public void setDataFine(String dataFine) {
+        this.dataFine = dataFine;
+    }
+
+    public void setCorsi(boolean corsi) {
+        this.corsi = corsi;
     }
 }

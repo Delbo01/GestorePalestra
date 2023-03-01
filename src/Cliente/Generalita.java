@@ -14,7 +14,7 @@ public class Generalita {
     public Generalita(Generalita g){
         this.nome=g.getNome();
         this.cognome=g.getCognome();
-        this.cf=g.cf;
+        this.cf=g.getCf();
     }
 
     public String getCf() {
