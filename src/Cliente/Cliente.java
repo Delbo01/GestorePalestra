@@ -14,7 +14,7 @@ public class Cliente {
     private Scheda scheda = null;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     private GestorePT gestorePT;
-    private Istruttore personalTrainer = null;
+    private Istruttore pt = null;
     private GestoreAbbonamenti gestoreAbbonamenti;
 
 
@@ -61,8 +61,8 @@ public class Cliente {
     public void richiediPersonalTrainer() {
         Istruttore trainer = gestorePT.ottieniPT();
         if (trainer != null) {
-            personalTrainer = trainer;
-            System.out.println(personalTrainer.getGeneralita().getNome() + "\n");
+            pt = trainer;
+            System.out.println(pt.getGeneralita().getNome() + "\n");
         } else
             System.out.println("Nessun Allenatore disponibile al momento\n");
     }
@@ -70,14 +70,14 @@ public class Cliente {
     public void richiediPersonalTrainer(String allenatore) {
         Istruttore trainer = gestorePT.ottieniPT(allenatore);
         if (trainer != null)
-            personalTrainer = trainer;
+            pt = trainer;
         else
             System.out.println("L'allenatore non ha disponibilità al momento\n");
     }
 
     public void rimuoviPersonalTrainer() {
-        if (personalTrainer != null) {
-            gestorePT.rimuoviAssistito(personalTrainer);
+        if (pt != null) {
+            gestorePT.rimuoviAssistito(pt);
         } else
             System.out.println("Errore non è presente alcun personal trainer\n");
     }

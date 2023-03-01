@@ -1,12 +1,15 @@
 package IstruttoreCalendario;
 
 import Cliente.Generalita;
+import GestioneRichieste.GestoreRichiestaScheda;
 
 public class Istruttore {
     private Generalita generalita;
     private int numeroAssistiti = 0;
     private Calendario calendario;
     private GestorePT gestorePT;
+    private GestoreRichiestaScheda gestoreRichiestaScheda;
+    private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
 
 
     public Istruttore(Generalita gen,Calendario calendario,GestorePT gestore){
@@ -28,11 +31,16 @@ public class Istruttore {
     }
     public void diventaPT(){
         gestorePT.inserisciPT(this);
+        gestoreRichiestaSchedaPT=new GestoreRichiestaScheda();
     }
     void incrementaAssistiti(){
         numeroAssistiti++;
     }
     void rimuoviAssistito(){
         numeroAssistiti--;
+    }
+
+    public GestoreRichiestaScheda getGestoreRichiestaSchedaPT() {
+        return gestoreRichiestaSchedaPT;
     }
 }
