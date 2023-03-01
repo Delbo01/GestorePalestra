@@ -1,4 +1,5 @@
 import Cliente.Cliente;
+import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
 import GestoreLogin.ListaCredenzialiIstruttore;
 import GestoreLogin.ListaCredenzialiCliente;
@@ -9,6 +10,8 @@ import Allenamento.Scheda;
 import IstruttoreCalendario.Calendario;
 import IstruttoreCalendario.Corso;
 import IstruttoreCalendario.Istruttore;
+import GestioneRichieste.GestoreRichiestaScheda;
+import GestioneRichieste.Richiesta;
 
 public class Main {
         public static void main(String[] args) throws InterruptedException{
@@ -74,6 +77,12 @@ public class Main {
               Corso co = new Corso("Cardio",10,"22:00","05:00",istruttore);
               istruttore.inserisciCorso(1,22,co);
               ca.vediCorsiMensili(1);
+
+            GestoreRichiestaScheda gestoreRichiestaScheda= new GestoreRichiestaScheda();
+
+            Richiesta r=new Richiesta("ipetrofia",3,"1:30",cliente,istruttore);
+            gestoreRichiestaScheda.addRichiesta(r);
+            gestoreRichiestaScheda.ottieniRichiesta();
 
 
         }
