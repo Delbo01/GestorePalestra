@@ -24,7 +24,7 @@ public class MeseCalendario {
         mese.get(giorno).rimuoviCorso(corso);
     }
     void vediCorsiGiornalieri(int giorno){
-        GiornoCalendario corsi = mese.get(giorno);
+        GiornoCalendario corsi = mese.get(giorno );
         corsi.vediTuttiCorsi();
     }
 
@@ -41,9 +41,9 @@ public class MeseCalendario {
         mese.clear();
     }
     boolean prenotaCorso(int giorno,Corso corso){
-        return mese.get(giorno).prenotaCorso(corso);
+        return mese.get(giorno - 1).prenotaCorso(corso);
     }
     boolean rimuoviPrenotazioneCorso(int giorno,Corso corso){
-        return mese.get(giorno).rimuoviPrenotazione(corso);
+        return mese.get(giorno - 1).rimuoviPrenotazione(corso);
     }
 }
