@@ -5,10 +5,10 @@ public class Corso {
     private int postiDisponibili;
     private String orarioInizio;
     private String orarioFine;
-    private Istruttore istruttore;
+    private String istruttore;
     private int numeroClientiPrenotati = 0;
 
-    public Corso(String nome, int postiDisponibili, String orarioInizio, String orarioFine, Istruttore istruttore) {
+    public Corso(String nome, int postiDisponibili, String orarioInizio, String orarioFine, String istruttore) {
         this.nome = nome;
         this.postiDisponibili = postiDisponibili;
         this.orarioInizio = orarioInizio;
@@ -41,7 +41,7 @@ public class Corso {
         return orarioFine;
     }
 
-    public Istruttore getIstruttore() {
+    public String getIstruttore() {
         return istruttore;
     }
 
