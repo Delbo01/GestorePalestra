@@ -1,6 +1,8 @@
 package Cliente;
 
 import Allenamento.Scheda;
+import IstruttoreCalendario.GestorePT;
+import IstruttoreCalendario.Istruttore;
 
 public class Cliente {
     private Generalita generalità;
@@ -8,22 +10,23 @@ public class Cliente {
     private float peso;
     private Abbonamento abbonamento= null;
     private Scheda scheda=null;
+    private GestorePT gestorePT;
+    private Istruttore personalTrainer;
 
-    public Cliente(Generalita generalità, float altezza, float peso) {
+    public Cliente(Generalita generalità, float altezza, float peso, GestorePT gestorePT) {
         this.generalità = new Generalita(generalità);
         this.altezza = altezza;
         this.peso = peso;
+        this.gestorePT = gestorePT;
     }
-
     public void creaAbbonamento(int durata, String nome, int prezzo, String dataInizio, String dataFine, boolean corsi){
         this.abbonamento=new Abbonamento(durata,nome,prezzo,dataInizio,dataFine,corsi);
     }
-
     public void setScheda(Scheda scheda) {
         this.scheda = scheda;
     }
     public void visualizzaScheda(){
-        if (scheda!=null)
+        if (scheda != null)
             scheda.visualizzaScheda();
         else System.out.println("nessuna scheda da visualizzare");
     }
@@ -31,5 +34,27 @@ public class Cliente {
         if (abbonamento!= null){
             abbonamento.visualizzaAbbonamento();
         }else System.out.println("nessun abbonamneto da visualizzare");
+    }
+    public void richiediPersonalTrainer(){
+        Istruttore trainer = gestorePT.ottieniPT();
+        if(trainer != null) {
+            personalTrainer = trainer;
+            System.out.println(personalTrainer.getGeneralita().getNome() + "\n");
+        }
+        else
+            System.out.println("Nessun Allenatore disponibile al momento\n");
+    }
+    public void richiediPersonalTrainer(String allenatore){
+        Istruttore trainer = gestorePT.ottieniPT(allenatore);
+        if(trainer != null)
+            personalTrainer = trainer;
+        else
+            System.out.println("L'allenatore non ha disponibilità al momento\n");
+    }
+    public void rimuoviPersonalTrainer(){
+        if(personalTrainer != null){
+            gestorePT.rimuoviAssistito(personalTrainer);
+        }else
+            System.out.println("Errore non è presente alcun personal trainer\n");
     }
 }

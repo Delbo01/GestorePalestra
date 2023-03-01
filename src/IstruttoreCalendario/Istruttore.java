@@ -1,17 +1,18 @@
 package IstruttoreCalendario;
 
 import Cliente.Generalita;
-import GestoreLogin.CredenzialiIstruttore;
 
 public class Istruttore {
     private Generalita generalita;
     private int numeroAssistiti = 0;
     private Calendario calendario;
+    private GestorePT gestorePT;
 
 
-    public Istruttore(Generalita gen,Calendario calendario){
+    public Istruttore(Generalita gen,Calendario calendario,GestorePT gestore){
         generalita = gen;
         this.calendario = calendario;
+        gestorePT = gestore;
     }
     public Generalita getGeneralita() {
         return generalita;
@@ -21,5 +22,17 @@ public class Istruttore {
     }
     public void rimuoviCorso(int mese,int giorno,Corso corso){
         calendario.rimuoviCorso(mese,giorno,corso);
+    }
+    public int getNumeroAssistiti() {
+        return numeroAssistiti;
+    }
+    public void diventaPT(){
+        gestorePT.inserisciPT(this);
+    }
+    void incrementaAssistiti(){
+        numeroAssistiti++;
+    }
+    void rimuoviAssistito(){
+        numeroAssistiti--;
     }
 }
