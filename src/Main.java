@@ -1,4 +1,5 @@
 import Cliente.Cliente;
+import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
 import GestoreLogin.ListaCredenzialiIstruttore;
 import GestoreLogin.ListaCredenzialiCliente;
@@ -10,6 +11,8 @@ import IstruttoreCalendario.Calendario;
 import IstruttoreCalendario.Corso;
 import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
+import GestioneRichieste.GestoreRichiestaScheda;
+import GestioneRichieste.Richiesta;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -70,6 +73,12 @@ public class Main {
         cliente.creaAbbonamento(3, "trimestrale", 180, "1/1/2023", "1/4/2023", true);
         cliente.visualizzaScheda();
         cliente.vediAbbonamento();
+
+            GestoreRichiestaScheda gestoreRichiestaScheda= new GestoreRichiestaScheda();
+
+            Richiesta r=new Richiesta("ipetrofia",3,"1:30",cliente,istruttore);
+            gestoreRichiestaScheda.addRichiesta(r);
+            gestoreRichiestaScheda.ottieniRichiesta();
 
 
         Generalita is = new Generalita("djefjndsfjk", "luigi", "rossi");
