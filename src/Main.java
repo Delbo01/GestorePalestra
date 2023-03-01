@@ -14,6 +14,7 @@ public class Main {
         public static void main(String[] args) throws InterruptedException{
             ListaCredenzialiCliente listaCredenziali = new ListaCredenzialiCliente();
             ListaCredenzialiIstruttore listaCredenzialiIstruttore= new ListaCredenzialiIstruttore();
+            Calendario ca = new Calendario(2022);
 
             GestoreLogin gestoreLogin= new GestoreLogin(listaCredenziali, listaCredenzialiIstruttore);
 
@@ -22,11 +23,11 @@ public class Main {
             gestoreLogin.registraCliente("Leonardo","Abcjh4_20",cliente);
 
             Generalita gi= new Generalita("nrdcrt00p02d612f", "Cristiano", "Narducci");
-            Istruttore istruttore= new Istruttore(gi,null);
-            gestoreLogin.registraIstruttore("narducci","qwerty",istruttore);
+            Istruttore i= new Istruttore(gi,ca);
+            gestoreLogin.registraIstruttore("narducci","qwerty",i);
 
             Cliente c=gestoreLogin.loginCliente("Leonardo","Abcjh4_20");
-            Istruttore i= gestoreLogin.loginIstruttore("narducci","qwerty");
+            Istruttore istruttore= gestoreLogin.loginIstruttore("narducci","qwerty");
 
 
 
@@ -69,11 +70,9 @@ public class Main {
               cliente.visualizzaScheda();
               cliente.vediAbbonamento();
 
-              Calendario ca = new Calendario(2022);
-              Generalita is = new Generalita("djefjndsfjk","luigi","rossi");
-              Istruttore lio = new Istruttore(is,ca);
-              Corso co = new Corso("Cardio",10,"22:00","05:00",lio);
-              lio.inserisciCorso(1,22,co);
+
+              Corso co = new Corso("Cardio",10,"22:00","05:00",istruttore);
+              istruttore.inserisciCorso(1,22,co);
               ca.vediCorsiMensili(1);
 
 
