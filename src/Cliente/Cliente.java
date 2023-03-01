@@ -1,6 +1,9 @@
 package Cliente;
 
 import Allenamento.Scheda;
+import GestioneRichieste.GestoreRichiestaScheda;
+import GestioneRichieste.Richiesta;
+import IstruttoreCalendario.Istruttore;
 
 public class Cliente {
     private Generalita generalità;
@@ -8,11 +11,14 @@ public class Cliente {
     private float peso;
     private Abbonamento abbonamento= null;
     private Scheda scheda=null;
+    private GestoreRichiestaScheda gestoreRichiestaScheda;
+    private Istruttore pt=null;
 
-    public Cliente(Generalita generalità, float altezza, float peso) {
+    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda) {
         this.generalità = new Generalita(generalità);
         this.altezza = altezza;
         this.peso = peso;
+        this.gestoreRichiestaScheda= gestoreRichiestaScheda;
     }
 
     public void creaAbbonamento(int durata, String nome, int prezzo, String dataInizio, String dataFine, boolean corsi){
@@ -31,5 +37,12 @@ public class Cliente {
         if (abbonamento!= null){
             abbonamento.visualizzaAbbonamento();
         }else System.out.println("nessun abbonamneto da visualizzare");
+    }
+
+    public void richiediScheda(String obbiettivo,int nProg, String durataProg ){
+        Richiesta richiesta= new Richiesta(obbiettivo,nProg,durataProg,this,pt);
+        if (pt==null)
+            gestoreRichiestaScheda.addRichiesta(richiesta);
+        else pt.getGestoreRichiestaSchedaPT().addRichiesta(richiesta);
     }
 }
