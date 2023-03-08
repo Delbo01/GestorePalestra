@@ -6,7 +6,7 @@ public class GestoreAbbonamenti {
     private ArrayList<Abbonamento> abbonamenti= new ArrayList<>();
 
     public void addAbbonamneti(int durata, String nome, int prezzo){
-        Abbonamento abb= new Abbonamento(durata,nome,prezzo,"N.D","N.D",false);
+        Abbonamento abb= new Abbonamento(durata,nome,prezzo,false);
         abbonamenti.add(abb);
     }
     public Boolean rimuoviAbbonamneti(int durata, String nome, int prezzo){
@@ -26,10 +26,8 @@ public class GestoreAbbonamenti {
             i++;
         }
     }
-    public Abbonamento ottieniAbbonamneto(int index,String dataInizio, String dataFine, boolean corsi){
+    public Abbonamento ottieniAbbonamneto(int index, boolean corsi){
         Abbonamento abbonamento= new Abbonamento(abbonamenti.get(index));
-        abbonamento.setDataInizio(dataInizio);
-        abbonamento.setDataFine(dataFine);
         abbonamento.setCorsi(corsi);
         return abbonamento;
     }

@@ -54,8 +54,8 @@ public class Cliente {
         gestoreAbbonamenti.vediAbbonamenti();
     }
 
-    public void ottieniAbbonamento(int index, String dataInizio, String dataFine, boolean corsi) {
-        this.abbonamento = gestoreAbbonamenti.ottieniAbbonamneto(index, dataInizio, dataFine, corsi);
+    public void ottieniAbbonamento(int index, boolean corsi) {
+        this.abbonamento = gestoreAbbonamenti.ottieniAbbonamneto(index, corsi);
     }
 
     public void richiediPersonalTrainer() {

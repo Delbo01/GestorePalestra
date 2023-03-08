@@ -1,21 +1,23 @@
 package Cliente;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Abbonamento {
     private int durata;
     private String nome;
     private int prezzo;
-    private String dataInizio;
-    private String dataFine;
+    private GregorianCalendar dataInizio=new GregorianCalendar();
+    private GregorianCalendar dataFine;
     private boolean corsi;
 
-    public Abbonamento(int durata, String nome, int prezzo, String dataInizio, String dataFine, boolean corsi) {
+    public Abbonamento(int durata, String nome, int prezzo, boolean corsi) {
         this.durata = durata;
         this.nome = nome;
         this.prezzo = prezzo;
-        this.dataInizio = dataInizio;
-        this.dataFine = dataFine;
+        GregorianCalendar date=dataInizio;
+        date.add(dataInizio.get(GregorianCalendar.MONTH), durata);
+        dataFine=date;
         this.corsi = corsi;
     }
     public Abbonamento(Abbonamento a){
@@ -42,15 +44,6 @@ public class Abbonamento {
     public int getPrezzo() {
         return prezzo;
     }
-
-    public void setDataInizio(String dataInizio) {
-        this.dataInizio = dataInizio;
-    }
-
-    public void setDataFine(String dataFine) {
-        this.dataFine = dataFine;
-    }
-
     public void setCorsi(boolean corsi) {
         this.corsi = corsi;
     }
