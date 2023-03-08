@@ -26,7 +26,7 @@ public class GestoreAbbonamenti {
             i++;
         }
     }
-    public Abbonamento ottieniAbbonamneto(int index, boolean corsi){
+    public Abbonamento getAbbonamneto(int index, boolean corsi){
         Abbonamento abbonamento= new Abbonamento(abbonamenti.get(index));
         abbonamento.setCorsi(corsi);
         return abbonamento;

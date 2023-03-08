@@ -55,7 +55,7 @@ public class Cliente {
     }
 
     public void ottieniAbbonamento(int index, boolean corsi) {
-        this.abbonamento = gestoreAbbonamenti.ottieniAbbonamneto(index, corsi);
+        this.abbonamento = gestoreAbbonamenti.getAbbonamneto(index, corsi);
     }
 
     public void richiediPersonalTrainer() {

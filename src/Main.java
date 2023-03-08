@@ -13,10 +13,11 @@ import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
+import Controller.*;
 
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-}
+    }
 }
