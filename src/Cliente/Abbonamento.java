@@ -15,7 +15,7 @@ public class Abbonamento {
         this.durata = durata;
         this.nome = nome;
         this.prezzo = prezzo;
-        GregorianCalendar date=dataInizio;
+        GregorianCalendar date=new GregorianCalendar();
         date.add(dataInizio.get(GregorianCalendar.MONTH), durata);
         dataFine=date;
         this.corsi = corsi;
@@ -27,8 +27,8 @@ public class Abbonamento {
     }
     public void visualizzaAbbonamento(){
         System.out.println("Abboamneto "+nome+"con: ");
-        System.out.println("Data inizio: "+dataInizio);
-        System.out.println("Data fine: "+dataFine);
+        System.out.println("Data inizio: "+dataInizio.get(GregorianCalendar.DATE)+"/"+(dataInizio.get(GregorianCalendar.MONTH)+1)+"/"+dataInizio.get(GregorianCalendar.YEAR));
+        System.out.println("Data fine: "+dataFine.get(GregorianCalendar.DATE)+"/"+(dataFine.get(GregorianCalendar.MONTH)+1)+"/"+dataFine.get(GregorianCalendar.YEAR));
         System.out.println("Prezzo: "+prezzo);
         System.out.println("Corsi: "+corsi);
     }

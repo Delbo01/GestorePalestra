@@ -14,9 +14,9 @@ import IstruttoreCalendario.Istruttore;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-    }
-
+}
 }
