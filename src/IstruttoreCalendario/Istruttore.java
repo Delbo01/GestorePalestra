@@ -3,11 +3,11 @@ package IstruttoreCalendario;
 import Allenamento.Esercizio;
 import Allenamento.ProgrammaAllenamento;
 import Allenamento.Scheda;
-import Cliente.Cliente;
 import Cliente.Generalita;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Istruttore {
@@ -53,29 +53,62 @@ public class Istruttore {
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
+        String ne = null;
+        int stop;
+        int nr = 0;
+        int tr = 0;
+        int ns = 0;
         String durata = richiesta.getDurataProg();
         Scheda scheda = new Scheda(generalita.getNome(),ob);
         for(int i = 0; i < np; i++){
             ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
             System.out.println("Programma nr " + (i + 1));
-            int end;
             do {
                 System.out.println("Scegli l'esercizio per questo programma");
-                String ne = sc.nextLine();
+                ne = sc.nextLine();
                 System.out.println("Numero di serie");
-                int ns = sc.nextInt();
+                Boolean exit = false;
+                while(!exit){
+                    try {
+                        ns = sc.nextInt();
+                        exit = true;
+
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
+                exit = false;
                 System.out.println("Numero di Ripetioni");
-                int nr = sc.nextInt();
+                while (!exit){
+                    try {
+                        nr = sc.nextInt();
+                        exit = true;
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
+                exit = false;
                 System.out.println("Scegli il tempo di recupero in minuti");
-                int tr = sc.nextInt();
+                while (!exit){
+                    try {
+                        tr = sc.nextInt();
+                        exit = true;
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
                 System.out.println("inserisci note aggiuntive");
                 String note = sc.nextLine();
                 Esercizio e = new Esercizio(ne, ns, nr, tr, note);
                 prog.addEsercizio(e);
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
-                end = sc.nextInt();
-            }while (end == 1);
+                stop = sc.nextInt();
+            }while (stop == 1);
         }
+        sc.close();
         richiesta.getCliente().setScheda(scheda);
     }
     public void ottiniRichiestaSchedaPT(){
@@ -83,30 +116,64 @@ public class Istruttore {
         Richiesta richiesta = gestoreRichiestaSchedaPT.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
+        String ne = null;
+        int stop;
+        int nr = 0;
+        int tr = 0;
+        int ns = 0;
         String durata = richiesta.getDurataProg();
         Scheda scheda = new Scheda(generalita.getNome(),ob);
         for(int i = 0; i < np; i++){
             ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
-            System.out.println("Programma nr " + (i + 1));
-            int end;
+            System.out.println("Programma nr " + (i + 1)+"\n");
             do {
                 System.out.println("Scegli l'esercizio per questo programma");
-                String ne = sc.nextLine();
-                System.out.println("Numero di serie");
-                int ns = sc.nextInt();
+                ne = sc.nextLine();
+                System.out.println("Numero di serie\n");
+                Boolean exit = false;
+                while(!exit){
+                    try {
+                        ns = sc.nextInt();
+                        exit = true;
+
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
+                exit = false;
                 System.out.println("Numero di Ripetioni");
-                int nr = sc.nextInt();
+                while (!exit){
+                    try {
+                        nr = sc.nextInt();
+                        exit = true;
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
+                exit = false;
                 System.out.println("Scegli il tempo di recupero in minuti");
-                int tr = sc.nextInt();
+                while (!exit){
+                    try {
+                        tr = sc.nextInt();
+                        exit = true;
+                    }catch (InputMismatchException e){
+                        System.out.println("INSERIRE NUMERO INTERO");
+                        sc.nextLine();
+                    }
+                }
                 System.out.println("inserisci note aggiuntive");
                 String note = sc.nextLine();
                 Esercizio e = new Esercizio(ne, ns, nr, tr, note);
                 prog.addEsercizio(e);
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
-                end = sc.nextInt();
-            }while (end == 1);
+                stop = sc.nextInt();
+            }while (stop == 1);
         }
+        sc.close();
         richiesta.getCliente().setScheda(scheda);
+
     }
 
     public GestoreRichiestaScheda getGestoreRichiestaSchedaPT() {
