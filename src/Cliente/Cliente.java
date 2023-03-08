@@ -51,7 +51,7 @@ public class Cliente {
     }
 
     public void vediAbbonamneti() {
-        gestoreAbbonamenti.vediAbbonamneti();
+        gestoreAbbonamenti.vediAbbonamenti();
     }
 
     public void ottieniAbbonamento(int index, String dataInizio, String dataFine, boolean corsi) {

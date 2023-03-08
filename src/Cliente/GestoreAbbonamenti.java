@@ -18,7 +18,7 @@ public class GestoreAbbonamenti {
         }
         return false;
     }
-    public void vediAbbonamneti(){
+    public void vediAbbonamenti(){
         int i=1;
         for (Abbonamento a:abbonamenti){
             System.out.println("Abbonamneto n:"+i);
