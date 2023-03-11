@@ -1,23 +1,40 @@
-import Cliente.Cliente;
-import GestioneRichieste.GestoreRichiestaScheda;
-import GestoreLogin.GestoreLogin;
-import GestoreLogin.ListaCredenzialiIstruttore;
-import GestoreLogin.ListaCredenzialiCliente;
-import Cliente.Generalita;
-import Allenamento.ProgrammaAllenamento;
-import Allenamento.Esercizio;
-import Allenamento.Scheda;
-import IstruttoreCalendario.Calendario;
-import IstruttoreCalendario.Corso;
-import IstruttoreCalendario.GestorePT;
-import IstruttoreCalendario.Istruttore;
-import GestioneRichieste.GestoreRichiestaScheda;
-import GestioneRichieste.Richiesta;
+import Cliente.*;
+import IstruttoreCalendario.*;
+import GestioneRichieste.*;
+import GestoreLogin.*;
 import Controller.*;
+
+import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException{
+        Calendario calendario = new Calendario(2023);
+        GestorePT gestorePT = new GestorePT(10);
+        GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
+        gestoreAbbonamenti.addAbbonamneti(3,"trimestrale",180);
+        gestoreAbbonamenti.addAbbonamneti(6,"semestrale",360);
+        gestoreAbbonamenti.addAbbonamneti(12,"annuale",720);
+        GestoreRichiestaScheda gestoreRichiestaScheda = new GestoreRichiestaScheda();
+        ListaCredenzialiCliente listaCredenzialiCliente = new ListaCredenzialiCliente();
+        ListaCredenzialiIstruttore listaCredenzialiIstruttore = new ListaCredenzialiIstruttore();
+        GestoreLogin gestoreLogin = new GestoreLogin(listaCredenzialiCliente, listaCredenzialiIstruttore);
+
+        Scanner sc = new Scanner(System.in);
+
+
+        ControllerLogin controllerlogin = new ControllerLogin(gestoreLogin, gestoreAbbonamenti, gestoreRichiestaScheda, gestorePT, calendario);
+
+        controllerlogin.registraCliente(sc);
+
+        Cliente c=controllerlogin.loginCliente(sc);
+        ControllerCliente controllerCliente= new ControllerCliente(c);
+
+        controllerCliente.vediAbbonamenti();
+        controllerCliente.ottieniAbbonamento(sc);
+
+        controllerCliente.richiediScheda(sc);
+        sc.close();
 
     }
 }

@@ -24,8 +24,7 @@ public class ControllerCliente {
         cliente.visualizzaScheda();
     }
 
-    public void richiediScheda(){
-        Scanner sc= new Scanner(System.in);
+    public void richiediScheda(Scanner sc){
         System.out.println("Inserisci i seguenti parametri:");
         System.out.println("->obiettivo :");
         String obbiettivo=sc.nextLine();
@@ -43,7 +42,6 @@ public class ControllerCliente {
         }
         System.out.println("->durata programmi :");
         String durata= sc.nextLine();
-        sc.close();
         cliente.richiediScheda(obbiettivo,nP,durata);
     }
 
@@ -51,8 +49,7 @@ public class ControllerCliente {
         cliente.vediAbbonamneti();
     }
 
-    public void ottieniAbbonamento(){
-        Scanner sc= new Scanner(System.in);
+    public void ottieniAbbonamento(Scanner sc){
         System.out.println("Quale abbonamneti vuoi sottoscrivere ?");
         Boolean fine=false;
         int i=0;
@@ -82,8 +79,7 @@ public class ControllerCliente {
     public void richiediPersonalTrainer(){
         cliente.richiediPersonalTrainer();
     }
-    public void richiediPersonalTrainer(String allenatore){
-        Scanner sc = new Scanner(System.in);
+    public void richiediPersonalTrainer(Scanner sc){
         System.out.println("Chi vorresti come PT ?");
         String pt =sc.nextLine();
         cliente.richiediPersonalTrainer(pt);
