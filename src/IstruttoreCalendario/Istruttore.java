@@ -24,7 +24,7 @@ public class Istruttore {
     public void inserisciCorso(int mese,int giorno,Corso corso){
         calendario.inserisciCorso(mese,giorno,corso);
     }
-    public void rimuoviCorso(int mese,int giorno,Corso corso){
+    public void rimuoviCorso(int mese,int giorno,String corso){
         calendario.rimuoviCorso(mese,giorno,corso);
     }
     public int getNumeroAssistiti() {

@@ -15,8 +15,14 @@ public class GiornoCalendario {
     void inserisciCorso(Corso corso){
         corsi.add(corso);
     }
-    boolean rimuoviCorso(Corso corso){
-        return corsi.remove(corso);
+    boolean rimuoviCorso(String corso){
+        for(Corso c : corsi){
+            if(c.getNome().equals(corso)){
+                return corsi.remove(c);
+            }
+        }
+        System.out.println("Corso non presente");
+        return false;
     }
 
     boolean rimuoviPrenotazione(Corso corso){

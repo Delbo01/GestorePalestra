@@ -16,7 +16,7 @@ public class Calendario {
     void inserisciCorso(int mese,int giorno,Corso corso){
         calendario.get((mese - 1)).inserisciCorso(giorno - 1,corso);
     }
-    void rimuoviCorso(int mese,int giorno,Corso corso){
+    void rimuoviCorso(int mese,int giorno,String corso){
         calendario.get(mese - 1).rimuoviCorso(giorno - 1,corso);
     }
     public void vediCorsiGiornalieri(int mese,int giorno){
