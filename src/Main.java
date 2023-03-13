@@ -12,6 +12,7 @@ public class Main {
         Calendario calendario = new Calendario(2023);
         GestorePT gestorePT = new GestorePT(10);
         GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
+        gestoreAbbonamenti.addAbbonamneti(1,"mensile",60);
         gestoreAbbonamenti.addAbbonamneti(3,"trimestrale",180);
         gestoreAbbonamenti.addAbbonamneti(6,"semestrale",360);
         gestoreAbbonamenti.addAbbonamneti(12,"annuale",720);

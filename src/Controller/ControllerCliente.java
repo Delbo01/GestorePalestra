@@ -74,7 +74,7 @@ public class ControllerCliente {
                 sc.nextLine();
             }
         }
-        cliente.ottieniAbbonamento(i,corsi);
+        cliente.ottieniAbbonamento(i-1,corsi);
     }
     public void richiediPersonalTrainer(){
         cliente.richiediPersonalTrainer();
