@@ -34,6 +34,7 @@ public class ControllerCliente {
         while(!fine){
             try {
                 nP = sc.nextInt();
+                sc.nextLine();
                 fine=true;
             }catch (InputMismatchException e){
                 System.out.println(" per favore iniserisci un intero");
@@ -56,6 +57,7 @@ public class ControllerCliente {
         while (!fine){
             try{
                 i= sc.nextInt();
+                sc.nextLine();
                 fine=true;
             }catch (InputMismatchException e){
                 System.out.println("per favore inserire un intero");
@@ -68,6 +70,7 @@ public class ControllerCliente {
         while(!fine){
             try {
                 corsi=sc.nextBoolean();
+                sc.nextLine();
                 fine=true;
             }catch (InputMismatchException e){
                 System.out.println("per favore inserisci un Boolean");

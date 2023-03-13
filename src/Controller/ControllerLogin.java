@@ -56,6 +56,7 @@ public class ControllerLogin {
         while (!fine) {
             try {
                 altezza = sc.nextFloat();
+                sc.nextLine();
                 fine = true;
             } catch (InputMismatchException e) {
                 System.out.println("Inserisci un numero");
@@ -68,6 +69,7 @@ public class ControllerLogin {
         while (!fine) {
             try {
                 peso = sc.nextFloat();
+                sc.nextLine();
                 fine = true;
             } catch (InputMismatchException e) {
                 System.out.println("Inserisci un numero");
