@@ -111,12 +111,13 @@ public class Istruttore {
         sc.close();
         richiesta.getCliente().setScheda(scheda);
     }
-    public void ottiniRichiestaSchedaPT(){
+    public void ottieniRichiestaSchedaPT(){
         Scanner sc = new Scanner(System.in);
         Richiesta richiesta = gestoreRichiestaSchedaPT.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
         String ne = null;
+        boolean number = true;
         int stop;
         int nr = 0;
         int tr = 0;
@@ -127,8 +128,14 @@ public class Istruttore {
             ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
             System.out.println("Programma nr " + (i + 1)+"\n");
             do {
-                System.out.println("Scegli l'esercizio per questo programma");
-                ne = sc.nextLine();
+                while (number) {
+                    System.out.println("Scegli l'esercizio per questo programma");
+                    ne = sc.nextLine();
+                    number = ne.matches(".*\\d.*");
+                    if(number){
+                        System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
+                    }
+                }
                 System.out.println("Numero di serie\n");
                 Boolean exit = false;
                 while(!exit){
@@ -175,7 +182,6 @@ public class Istruttore {
         richiesta.getCliente().setScheda(scheda);
 
     }
-
     public GestoreRichiestaScheda getGestoreRichiestaSchedaPT() {
         return gestoreRichiestaSchedaPT;
     }
