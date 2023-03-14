@@ -21,7 +21,7 @@ public class GestoreAbbonamenti {
     public void vediAbbonamenti(){
         int i=1;
         for (Abbonamento a:abbonamenti){
-            System.out.println("Abbonamneto n:"+i);
+            System.out.println("Abbonamento n:"+i);
             a.visualizzaAbbonamento();
             i++;
         }

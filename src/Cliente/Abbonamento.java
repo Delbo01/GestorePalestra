@@ -26,7 +26,7 @@ public class Abbonamento {
         this.nome=a.getNome();
     }
     public void visualizzaAbbonamento(){
-        System.out.println("Abboamneto "+nome+"con: ");
+        System.out.println("Abbonamento "+nome+"con: ");
         System.out.println("Data inizio: "+dataInizio.get(GregorianCalendar.DATE)+"/"+(dataInizio.get(GregorianCalendar.MONTH)+1)+"/"+dataInizio.get(GregorianCalendar.YEAR));
         System.out.println("Data fine: "+dataFine.get(GregorianCalendar.DATE)+"/"+(dataFine.get(GregorianCalendar.MONTH)+1)+"/"+dataFine.get(GregorianCalendar.YEAR));
         System.out.println("Prezzo: "+prezzo);

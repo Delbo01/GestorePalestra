@@ -9,6 +9,8 @@ import GestioneRichieste.Richiesta;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Istruttore {
     private Generalita generalita;
@@ -17,6 +19,8 @@ public class Istruttore {
     private GestorePT gestorePT;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
+
+    final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
 
 
     public Istruttore(Generalita gen,Calendario calendario,GestorePT gestore,GestoreRichiestaScheda gestoreRichiestaScheda){
@@ -53,6 +57,7 @@ public class Istruttore {
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
         String ne = null;
+        boolean number = true;
         int stop;
         int nr = 0;
         int tr = 0;
@@ -63,8 +68,16 @@ public class Istruttore {
             ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
             System.out.println("Programma nr " + (i + 1));
             do {
-                System.out.println("Scegli l'esercizio per questo programma");
-                ne = sc.nextLine();
+                while (number) {
+                    System.out.println("Scegli l'esercizio per questo programma");
+                    ne = sc.nextLine();
+                    Matcher matcher = pattern.matcher(ne);
+                    number = matcher.find();
+                    if(number){
+                        System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
+                    }
+
+                }
                 System.out.println("Numero di serie");
                 Boolean exit = false;
                 while(!exit){
@@ -132,8 +145,9 @@ public class Istruttore {
                 while (number) {
                     System.out.println("Scegli l'esercizio per questo programma");
                     ne = sc.nextLine();
-                    number = ne.matches(".*\\d.*");//FIXME non funziona
-                    if(number){
+                    Matcher matcher = pattern.matcher(ne);
+                    number = matcher.find();
+                    if(number) {
                         System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
                     }
                 }
