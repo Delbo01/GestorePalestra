@@ -99,5 +99,11 @@ public class ControllerIstruttore {
         istruttore.diventaPT();
     }
 
+    public void ottieniRichiestaScheda(Scanner sc){
+        istruttore.ottieniRichiestaScheda(sc);
+    }
 
+    public void ottieniRichiestaSchedaPT(Scanner sc){
+        istruttore.ottieniRichiestaSchedaPT(sc);
+    }
 }

@@ -90,4 +90,6 @@ public class ControllerCliente {
     public void rimuoviPersonalTrainer(){
         cliente.rimuoviPersonalTrainer();
     }
+
+
 }

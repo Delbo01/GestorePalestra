@@ -36,6 +36,14 @@ public class Main {
         controllerCliente.ottieniAbbonamento(sc);
 
         controllerCliente.richiediScheda(sc);
+
+        controllerlogin.registraIstruttore(sc);
+        Istruttore i=controllerlogin.loginIstruttore(sc);
+
+        ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i);
+        controllerIstruttore.ottieniRichiestaScheda(sc);
+
+        controllerCliente.visualizzaScheda();
         sc.close();
 
     }

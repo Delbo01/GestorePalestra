@@ -48,8 +48,7 @@ public class Istruttore {
         numeroAssistiti--;
     }
 
-    void ottieniRichiestaScheda(){
-        Scanner sc = new Scanner(System.in);
+    public void ottieniRichiestaScheda(Scanner sc){
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
@@ -71,6 +70,7 @@ public class Istruttore {
                 while(!exit){
                     try {
                         ns = sc.nextInt();
+                        sc.nextLine();
                         exit = true;
 
                     }catch (InputMismatchException e){
@@ -83,6 +83,7 @@ public class Istruttore {
                 while (!exit){
                     try {
                         nr = sc.nextInt();
+                        sc.nextLine();
                         exit = true;
                     }catch (InputMismatchException e){
                         System.out.println("INSERIRE NUMERO INTERO");
@@ -94,6 +95,7 @@ public class Istruttore {
                 while (!exit){
                     try {
                         tr = sc.nextInt();
+                        sc.nextLine();
                         exit = true;
                     }catch (InputMismatchException e){
                         System.out.println("INSERIRE NUMERO INTERO");
@@ -106,13 +108,12 @@ public class Istruttore {
                 prog.addEsercizio(e);
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
                 stop = sc.nextInt();
+                sc.nextLine();
             }while (stop == 1);
         }
-        sc.close();
         richiesta.getCliente().setScheda(scheda);
     }
-    public void ottieniRichiestaSchedaPT(){
-        Scanner sc = new Scanner(System.in);
+    public void ottieniRichiestaSchedaPT(Scanner sc){
         Richiesta richiesta = gestoreRichiestaSchedaPT.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
@@ -131,7 +132,7 @@ public class Istruttore {
                 while (number) {
                     System.out.println("Scegli l'esercizio per questo programma");
                     ne = sc.nextLine();
-                    number = ne.matches(".*\\d.*");
+                    number = ne.matches(".*\\d.*");//FIXME non funziona
                     if(number){
                         System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
                     }
@@ -176,9 +177,9 @@ public class Istruttore {
                 prog.addEsercizio(e);
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
                 stop = sc.nextInt();
+                sc.nextLine();
             }while (stop == 1);
         }
-        sc.close();
         richiesta.getCliente().setScheda(scheda);
 
     }
