@@ -21,6 +21,7 @@ public class Main {
         ListaCredenzialiIstruttore listaCredenzialiIstruttore = new ListaCredenzialiIstruttore();
         GestoreLogin gestoreLogin = new GestoreLogin(listaCredenzialiCliente, listaCredenzialiIstruttore);
 
+
         Scanner sc = new Scanner(System.in);
 
 
