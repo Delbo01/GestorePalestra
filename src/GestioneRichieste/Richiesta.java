@@ -17,5 +17,16 @@ public class Richiesta {
         this.cliente = cliente;
         this.istruttore = istruttore;
     }
-
+    public String getObbiettivo() {
+        return obbiettivo;
+    }
+    public int getnProg() {
+        return nProg;
+    }
+    public String getDurataProg() {
+        return durataProg;
+    }
+    public Cliente getCliente() {
+        return cliente;
+    }
 }
