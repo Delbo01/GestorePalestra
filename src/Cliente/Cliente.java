@@ -7,6 +7,8 @@ import IstruttoreCalendario.Calendario;
 import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
 
+import java.util.Scanner;
+
 public class Cliente {
     private Generalita generalità;
     private float altezza;
@@ -34,9 +36,9 @@ public class Cliente {
         this.scheda = scheda;
     }
 
-    public void visualizzaScheda() {
+    public void visualizzaScheda(Scanner sc) {
         if (scheda != null)
-            scheda.visualizzaScheda();
+            scheda.visualizzaScheda(sc);
         else System.out.println("nessuna scheda da visualizzare");
     }
 
