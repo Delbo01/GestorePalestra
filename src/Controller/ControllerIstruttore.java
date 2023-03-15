@@ -75,7 +75,7 @@ public class ControllerIstruttore {
     }
 
     public void rimuoviCorso(Scanner sc) {
-        System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esmpio 9 per indicare Settembre): ");
+        System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esempio 9 per indicare Settembre): ");
         int mese = 0;
         Boolean fine = false;
         while (!fine) {
