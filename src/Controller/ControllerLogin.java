@@ -76,7 +76,7 @@ public class ControllerLogin {
                 sc.nextLine();
             }
         }
-        Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, gestoreAbbonamenti, gestorePT);
+        Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, gestoreAbbonamenti, gestorePT,calendario);
         gestoreLogin.registraCliente(username, password, cliente);
      }
     public void removeCredenzialiCliente(Scanner sc){
