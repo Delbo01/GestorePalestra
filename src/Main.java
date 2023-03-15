@@ -40,7 +40,7 @@ public class Main {
         controllerlogin.registraIstruttore(sc);
         Istruttore i=controllerlogin.loginIstruttore(sc);
 
-        ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i);
+        ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i,calendario);
         controllerIstruttore.ottieniRichiestaScheda(sc);
 
         controllerCliente.visualizzaScheda(sc);
