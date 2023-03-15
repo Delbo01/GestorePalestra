@@ -43,7 +43,7 @@ public class Main {
         ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i);
         controllerIstruttore.ottieniRichiestaScheda(sc);
 
-        controllerCliente.visualizzaScheda();
+        controllerCliente.visualizzaScheda(sc);
         sc.close();
 
     }

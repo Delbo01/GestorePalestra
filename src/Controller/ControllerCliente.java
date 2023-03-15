@@ -16,12 +16,12 @@ public class ControllerCliente {
         cliente.vediAbbonamneti();
     }
 
-    public void visualizzaScheda(){
-        cliente.visualizzaScheda();
+    public void visualizzaScheda(Scanner sc){
+        cliente.visualizzaScheda(sc);
     }
 
-    public void vediAbbonamento(){
-        cliente.visualizzaScheda();
+    public void vediAbbonamento(Scanner sc){
+        cliente.visualizzaScheda(sc);
     }
 
     public void richiediScheda(Scanner sc){
