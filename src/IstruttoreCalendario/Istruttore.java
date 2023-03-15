@@ -104,7 +104,7 @@ public class Istruttore {
                     }
                 }
                 exit = false;
-                System.out.println("Scegli il tempo di recupero in minuti");
+                System.out.println("Scegli il tempo di recupero in secondi");
                 while (!exit){
                     try {
                         tr = sc.nextInt();
@@ -122,6 +122,7 @@ public class Istruttore {
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
                 stop = sc.nextInt();
                 sc.nextLine();
+                number = true;
             }while (stop == 1);
         }
         richiesta.getCliente().setScheda(scheda);
@@ -192,6 +193,7 @@ public class Istruttore {
                 System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
                 stop = sc.nextInt();
                 sc.nextLine();
+                number = true;
             }while (stop == 1);
         }
         richiesta.getCliente().setScheda(scheda);
