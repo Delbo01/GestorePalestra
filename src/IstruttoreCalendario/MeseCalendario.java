@@ -40,10 +40,13 @@ public class MeseCalendario {
     void rimuoviCorsiMensili(){
         mese.clear();
     }
-    boolean prenotaCorso(int giorno,Corso corso){
+    boolean prenotaCorso(int giorno,String corso){
         return mese.get(giorno - 1).prenotaCorso(corso);
     }
-    boolean rimuoviPrenotazioneCorso(int giorno,Corso corso){
+    boolean rimuoviPrenotazioneCorso(int giorno,String corso){
         return mese.get(giorno - 1).rimuoviPrenotazione(corso);
+    }
+    public boolean checkCorsiGiornalieri(int giorno,String nomeCorso){
+        return mese.get(giorno - 1).checkCorsiGiornalieri(nomeCorso);
     }
 }

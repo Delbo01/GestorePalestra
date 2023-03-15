@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class ControllerIstruttore {
     private Istruttore istruttore;
+    private Calendario calendario;
 
-    public ControllerIstruttore(Istruttore istruttore){
+    public ControllerIstruttore(Istruttore istruttore,Calendario calendario){
         this.istruttore=istruttore;
+        this.calendario=calendario;
     }
 
     public void inserisciCorso(Scanner sc){
@@ -61,7 +63,9 @@ public class ControllerIstruttore {
         System.out.println("Inserisci il nome dell'istruttore del corso");
         String nomeIstruttore=sc.nextLine();
         Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,nomeIstruttore);
-        istruttore.inserisciCorso(mese,giorno,corso);
+        if (calendario.checkCorsiGiornalieri(mese,giorno,nomeCorso)==true)
+            System.out.println("Il corso è già presente nel calendario");
+        else istruttore.inserisciCorso(mese,giorno,corso);
     }
 
     public void rimuoviCorso(Scanner sc) {

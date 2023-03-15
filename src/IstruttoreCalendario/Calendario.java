@@ -26,11 +26,19 @@ public class Calendario {
     public void vediCorsiMensili(int mese){
         calendario.get(mese - 1).vediCorsiMensili();
     }
-    public boolean prenotaCorso(int mese,int giorno,Corso corso){
-        return calendario.get(mese - 1).prenotaCorso(giorno - 1,corso);
+    public boolean prenotaCorso(int mese, int giorno, String nomeCorso){
+        return calendario.get(mese - 1).prenotaCorso(giorno - 1, nomeCorso);
     }
-    public boolean rimuoviPrenotazioneCorso(int mese,int giorno,Corso corso){
+    public boolean rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
         return calendario.get(mese - 1).rimuoviPrenotazioneCorso(giorno - 1,corso);
+    }
+    public void vediCalendario(){
+        for(MeseCalendario mese : calendario){
+            mese.vediCorsiMensili();
+        }
+    }
+    public Boolean checkCorsiGiornalieri(int mese,int giorno, String nomeCorso){
+        return calendario.get(mese - 1).checkCorsiGiornalieri(giorno - 1,nomeCorso);
     }
 
 }

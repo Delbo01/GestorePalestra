@@ -94,4 +94,14 @@ public class Cliente {
     public void vediCorsiMensili(int mese){
         calendario.vediCorsiMensili(mese);
     }
+
+    public void prenotaCorso(int mese, int giorno,String corso){
+        calendario.prenotaCorso(mese,giorno,corso);
+    }
+    public void rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
+        calendario.rimuoviPrenotazioneCorso(mese,giorno,corso);
+    }
+    public void vediCalendario(){
+        calendario.vediCalendario();
+    }
 }

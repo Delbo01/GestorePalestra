@@ -136,4 +136,8 @@ public class ControllerCliente {
         }
         cliente.vediCorsiMensili(mese);
     }
+
+    public void vediCalendario(Scanner sc){
+        cliente.vediCalendario();
+    }
 }

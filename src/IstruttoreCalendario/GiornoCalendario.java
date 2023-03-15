@@ -25,12 +25,14 @@ public class GiornoCalendario {
         return false;
     }
 
-    boolean rimuoviPrenotazione(Corso corso){
-        int index = corsi.indexOf(corso);
-        if (index == -1){
-            return false;
+    boolean rimuoviPrenotazione(String corso){
+        for (Corso c : corsi){
+            if(c.getNome().equals(corso)){
+                return c.rimuoviPrenotazione();
+            }
         }
-        return corsi.get(index).rimuoviPrenotazione();
+        System.out.println("Corso non presente");
+        return false;
     }
     void vediCorso(Corso corso){
         int index = corsi.indexOf(corso);
@@ -55,12 +57,26 @@ public class GiornoCalendario {
         }
     }
 
-    boolean prenotaCorso(Corso corso){
-        int index = corsi.indexOf(corso);
-        return corsi.get(index).prenota();
+    boolean prenotaCorso(String corso){
+        for (Corso c : corsi){
+            if(c.getNome().equals(corso)){
+                return c.prenota();
+            }
+        }
+        System.out.println("Corso non presente");
+        return false;
     }
     void rimuoviTuttiCorsi(){
         corsi.clear();
+    }
+
+    public boolean checkCorsiGiornalieri(String nomeCorso){
+        for(Corso c : corsi){
+            if(c.getNome().equals(nomeCorso)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
