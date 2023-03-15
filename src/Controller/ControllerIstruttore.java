@@ -15,8 +15,12 @@ public class ControllerIstruttore {
     }
 
     public void inserisciCorso(Scanner sc){
-        System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esmpio 9 per indicare Settembre): ");
         int mese=0;
+        int giorno=0;
+        String nomeCorso;
+        boolean rip=false;
+        do{
+        System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esmpio 9 per indicare Settembre): ");
         Boolean fine=false;
         while (!fine){
             try{
@@ -29,7 +33,6 @@ public class ControllerIstruttore {
             }
         }
         System.out.println("Scegli il giorno del corso");
-        int giorno=0;
         fine=false;
         while (!fine){
             try{
@@ -42,10 +45,15 @@ public class ControllerIstruttore {
             }
         }
         System.out.println("Inserisci il nome del corso");
-        String nomeCorso=sc.nextLine();
+        nomeCorso=sc.nextLine();
+        rip=calendario.checkCorsiGiornalieri(mese,giorno,nomeCorso);
+        if (rip==true)
+            System.out.println("Il corso è già presente in questo giorno, scegliere un altro giorno o un altro nome per il corso");
+        }while(rip);
+
         System.out.println("Inserisci il numero di posti disponibili");
         int posti=0;
-        fine=false;
+        Boolean fine=false;
         while (!fine){
             try{
                 posti= sc.nextInt();
@@ -63,9 +71,7 @@ public class ControllerIstruttore {
         System.out.println("Inserisci il nome dell'istruttore del corso");
         String nomeIstruttore=sc.nextLine();
         Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,nomeIstruttore);
-        if (calendario.checkCorsiGiornalieri(mese,giorno,nomeCorso)==true)
-            System.out.println("Il corso è già presente nel calendario");
-        else istruttore.inserisciCorso(mese,giorno,corso);
+        istruttore.inserisciCorso(mese,giorno,corso);
     }
 
     public void rimuoviCorso(Scanner sc) {
