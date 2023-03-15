@@ -77,6 +77,34 @@ public class ControllerLogin {
             }
         }
         Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, gestoreAbbonamenti, gestorePT,calendario);
+        cliente.vediAbbonamneti();
+        System.out.println("Quale abbonamento vuoi sottoscrivere ?");
+        fine=false;
+        int i=0;
+        while (!fine){
+            try{
+                i= sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserire un intero");
+                sc.nextLine();
+            }
+        }
+        System.out.println("Vuoi poter frequentare i corsi ?");
+        fine=false;
+        Boolean corsi=true;
+        while(!fine){
+            try {
+                corsi=sc.nextBoolean();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un Boolean");
+                sc.nextLine();
+            }
+        }
+        cliente.ottieniAbbonamento(i-1,corsi);
         gestoreLogin.registraCliente(username, password, cliente);
      }
     public void removeCredenzialiCliente(Scanner sc){
