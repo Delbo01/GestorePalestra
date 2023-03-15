@@ -3,6 +3,7 @@ package Cliente;
 import Allenamento.Scheda;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
+import IstruttoreCalendario.Calendario;
 import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
 
@@ -16,15 +17,17 @@ public class Cliente {
     private GestorePT gestorePT;
     private Istruttore pt = null;
     private GestoreAbbonamenti gestoreAbbonamenti;
+    private Calendario calendario;
 
 
-    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
+    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT,Calendario calendario){
         this.generalità = new Generalita(generalità);
         this.altezza = altezza;
         this.peso = peso;
         this.gestoreRichiestaScheda = gestoreRichiestaScheda;
         this.gestorePT = gestorePT;
         this.gestoreAbbonamenti = gestoreAbbonamenti;
+        this.calendario = calendario;
     }
 
     public void setScheda(Scheda scheda) {
@@ -80,5 +83,13 @@ public class Cliente {
             gestorePT.rimuoviAssistito(pt);
         } else
             System.out.println("Errore non è presente alcun personal trainer\n");
+    }
+
+    public void vediCorsiGiornalieri(int mese, int giorno){
+        calendario.vediCorsiGiornalieri(mese,giorno);
+    }
+
+    public void vediCorsiMensili(int mese){
+        calendario.vediCorsiMensili(mese);
     }
 }

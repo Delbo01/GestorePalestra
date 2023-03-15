@@ -91,5 +91,49 @@ public class ControllerCliente {
         cliente.rimuoviPersonalTrainer();
     }
 
+    public void vediCorsiGiornalieri(Scanner sc){
+        System.out.println("Inserisci il mese");
+        int mese=0;
+        boolean fine=false;
+        while(!fine){
+            try {
+                mese=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        fine=false;
+        int giorno=0;
+        while(!fine){
+            try {
+                giorno=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        cliente.vediCorsiGiornalieri(mese,giorno);
+    }
 
+    public void vediCorsiMensili(Scanner sc){
+        System.out.println("Inserisci il mese");
+        int mese=0;
+        boolean fine=false;
+        while(!fine){
+            try {
+                mese=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        cliente.vediCorsiMensili(mese);
+    }
 }
