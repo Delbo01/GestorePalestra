@@ -137,7 +137,7 @@ public class ControllerCliente {
         cliente.vediCorsiMensili(mese);
     }
 
-    public void vediCalendario(Scanner sc){
+    public void vediCalendario(){
         cliente.vediCalendario();
     }
     public void prenotaCorso(Scanner sc){
@@ -202,4 +202,35 @@ public class ControllerCliente {
         String nomeCorso=sc.nextLine();
         cliente.rimuoviPrenotazioneCorso(mese,giorno,nomeCorso);
     }
+    public void vediCorsiEPrenotaOCancella(Scanner sc){
+        System.out.println("Inserisre 1 per vedre i corsi dell'intero calendario, inserire 2 per vedere i cordi di un mese a scelta oppure inserire 3 per vedere i corsi di un giorno a scelta: ");
+        int scelta=sc.nextInt();
+        sc.nextLine();
+        boolean rip=true;
+        do{
+            rip=false;
+            if (scelta==1) {
+            vediCalendario();
+            }else if (scelta==2){
+            vediCorsiMensili(sc);}
+            else if (scelta==3){
+            vediCorsiGiornalieri(sc);
+            }else {
+            System.out.println("Scelta non valida");
+            rip=true;
+        }
+        }while (rip);
+        System.out.println("Vuoi prenotare un corso o vuoi cancellare la prenotazione da un corso? (1/2)");
+        scelta=sc.nextInt();
+        sc.nextLine();
+        if (scelta==1){
+            prenotaCorso(sc);}
+        else if (scelta==2){
+            rimuoviPrenotazioneCorso(sc);
+        }
+        else {
+            System.out.println("Scelta non valida");
+        }
+    }
 }
+
