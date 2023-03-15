@@ -140,4 +140,64 @@ public class ControllerCliente {
     public void vediCalendario(Scanner sc){
         cliente.vediCalendario();
     }
+    public void prenotaCorso(Scanner sc){
+        System.out.println("Inserisci il mese");
+        int mese=0;
+        boolean fine=false;
+        while(!fine){
+            try {
+                mese=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        fine=false;
+        int giorno=0;
+        while(!fine){
+            try {
+                giorno=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        System.out.println("Inserisci il nome del corso");
+        String nomeCorso=sc.nextLine();
+        cliente.prenotaCorso(mese,giorno,nomeCorso);
+    }
+    public void rimuoviPrenotazioneCorso(Scanner sc){
+        System.out.println("Inserisci il mese");
+        int mese=0;
+        boolean fine=false;
+        while(!fine){
+            try {
+                mese=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        fine=false;
+        int giorno=0;
+        while(!fine){
+            try {
+                giorno=sc.nextInt();
+                sc.nextLine();
+                fine=true;
+            }catch (InputMismatchException e){
+                System.out.println("per favore inserisci un intero");
+                sc.nextLine();
+            }
+        }
+        System.out.println("Inserisci il nome del corso");
+        String nomeCorso=sc.nextLine();
+        cliente.rimuoviPrenotazioneCorso(mese,giorno,nomeCorso);
+    }
 }
