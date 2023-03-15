@@ -51,7 +51,7 @@ public class ControllerCliente {
     }
 
     public void ottieniAbbonamento(Scanner sc){
-        System.out.println("Quale abbonamneti vuoi sottoscrivere ?");
+        System.out.println("Quale abbonamento vuoi sottoscrivere ?");
         Boolean fine=false;
         int i=0;
         while (!fine){
