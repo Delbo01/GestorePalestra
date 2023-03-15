@@ -158,6 +158,7 @@ public class ControllerCliente {
         int giorno=0;
         while(!fine){
             try {
+                System.out.println("Inserisci il giorno");
                 giorno=sc.nextInt();
                 sc.nextLine();
                 fine=true;
@@ -188,6 +189,7 @@ public class ControllerCliente {
         int giorno=0;
         while(!fine){
             try {
+                System.out.println("Inserisci il giorno");
                 giorno=sc.nextInt();
                 sc.nextLine();
                 fine=true;
