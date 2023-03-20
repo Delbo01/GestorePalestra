@@ -20,8 +20,8 @@ public class MeseCalendario {
     void inserisciCorso(int giorno,Corso corso){
         mese.get(giorno).inserisciCorso(corso);
     }
-    void rimuoviCorso(int giorno,String corso){
-        mese.get(giorno).rimuoviCorso(corso);
+    boolean rimuoviCorso(int giorno,String corso){
+        return mese.get(giorno).rimuoviCorso(corso);
     }
     void vediCorsiGiornalieri(int giorno){
         GiornoCalendario corsi = mese.get(giorno );

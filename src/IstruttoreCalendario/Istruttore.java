@@ -35,8 +35,12 @@ public class Istruttore {
     public void inserisciCorso(int mese,int giorno,Corso corso){
         calendario.inserisciCorso(mese,giorno,corso);
     }
-    public void rimuoviCorso(int mese,int giorno,String corso){
-        calendario.rimuoviCorso(mese,giorno,corso);
+    public boolean rimuoviCorso(int mese,int giorno,String corso){
+        if(calendario.rimuoviCorso(mese,giorno,corso)){
+            System.out.println("Corso rimosso");
+            return true;
+        }
+        return false;
     }
     public int getNumeroAssistiti() {
         return numeroAssistiti;
