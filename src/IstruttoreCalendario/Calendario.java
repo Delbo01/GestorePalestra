@@ -9,8 +9,9 @@ public class Calendario {
     public Calendario(int anno){
         this.anno = anno;
         String[] mesi = {"Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"};
+        int[] giorni = {31,28,31,30,31,30,31,31,30,31,30,31};
         for(int i = 0; i < 12;i++){
-            calendario.add(new MeseCalendario(30,mesi[i],i));
+            calendario.add(new MeseCalendario(giorni[i],mesi[i],i));
         }
     }
 
