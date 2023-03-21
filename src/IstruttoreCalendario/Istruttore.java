@@ -3,9 +3,11 @@ package IstruttoreCalendario;
 import Allenamento.Esercizio;
 import Allenamento.ProgrammaAllenamento;
 import Allenamento.Scheda;
+import Calendario.Calendario;
 import Cliente.Generalita;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
+import Calendario.Corso;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -32,7 +34,7 @@ public class Istruttore {
     public Generalita getGeneralita() {
         return generalita;
     }
-    public void inserisciCorso(int mese,int giorno,Corso corso){
+    public void inserisciCorso(int mese, int giorno, Corso corso){
         calendario.inserisciCorso(mese,giorno,corso);
     }
     public boolean rimuoviCorso(int mese,int giorno,String corso){

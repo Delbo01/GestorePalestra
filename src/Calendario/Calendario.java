@@ -1,4 +1,4 @@
-package IstruttoreCalendario;
+package Calendario;
 
 import java.util.ArrayList;
 
@@ -15,10 +15,10 @@ public class Calendario {
         }
     }
 
-    void inserisciCorso(int mese,int giorno,Corso corso){
+    public void inserisciCorso(int mese,int giorno,Corso corso){
         calendario.get((mese - 1)).inserisciCorso(giorno - 1,corso);
     }
-    boolean rimuoviCorso(int mese,int giorno,String corso){
+    public boolean rimuoviCorso(int mese,int giorno,String corso){
         return calendario.get(mese - 1).rimuoviCorso(giorno - 1,corso);
     }
     public void vediCorsiGiornalieri(int mese,int giorno){

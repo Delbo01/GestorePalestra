@@ -1,9 +1,6 @@
-package IstruttoreCalendario;
-
-import Cliente.Generalita;
+package Calendario;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GiornoCalendario {
     private ArrayList<Corso> corsi = new ArrayList<>();

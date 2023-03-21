@@ -1,4 +1,4 @@
-package IstruttoreCalendario;
+package Calendario;
 
 import java.util.ArrayList;
 

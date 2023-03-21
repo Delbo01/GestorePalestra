@@ -1,10 +1,12 @@
 package IstruttoreCalendario;
 
+import Calendario.Calendario;
 import Cliente.Generalita;
 import GestioneRichieste.GestoreRichiestaScheda;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import Calendario.Corso;
 
 import static org.junit.Assert.assertEquals;
 

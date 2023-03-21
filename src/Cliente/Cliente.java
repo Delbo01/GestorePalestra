@@ -3,7 +3,7 @@ package Cliente;
 import Allenamento.Scheda;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
-import IstruttoreCalendario.Calendario;
+import Calendario.Calendario;
 import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
 

@@ -3,7 +3,7 @@ package Controller;
 import Cliente.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
-import IstruttoreCalendario.Calendario;
+import Calendario.Calendario;
 import IstruttoreCalendario.GestorePT;
 import IstruttoreCalendario.Istruttore;
 
