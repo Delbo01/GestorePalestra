@@ -2,12 +2,13 @@ package IstruttoreCalendario;
 
 import Cliente.Generalita;
 import GestioneRichieste.GestoreRichiestaScheda;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class IstruttoreTest {
+public class IstruttoreTest {  //FIXME: cambiare scope sul controller
     static GestoreRichiestaScheda gt;
     static GestorePT gestorePT;
     static Generalita is;
@@ -32,9 +33,9 @@ public class IstruttoreTest {
     @Test
     public void testRimuoviCorso() {
         putSimpleCourse(1,1,"Pilates");
-        assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),true);
+        Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),true);
 
-        assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),false);
+        Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),false);
 
     }
    /*
