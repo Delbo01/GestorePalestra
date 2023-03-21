@@ -1,13 +1,13 @@
 package Allenamento;
 
 public class Esercizio {
-    private String nome;
-    private int serie;
-    private int reps;
+    private final String nome;
+    private final int serie;
+    private final int reps;
     private float carico=0;
-    private int tempoRecupero;
-    private String note;
-    private Timer timer;
+    private final int tempoRecupero;
+    private final String note;
+    private final Timer timer;
 
     public Esercizio(String nome, int serie, int reps, int tempoRecupero, String note) {
         this.nome = nome;

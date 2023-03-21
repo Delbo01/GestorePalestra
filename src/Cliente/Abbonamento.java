@@ -1,14 +1,14 @@
 package Cliente;
 
-import java.util.Date;
+
 import java.util.GregorianCalendar;
 
 public class Abbonamento {
-    private int durata;
-    private String nome;
-    private int prezzo;
-    private GregorianCalendar dataInizio=new GregorianCalendar();
-    private GregorianCalendar dataFine;
+    private final int durata;
+    private final String nome;
+    private final int prezzo;
+    private final GregorianCalendar dataInizio=new GregorianCalendar();
+    private  GregorianCalendar dataFine;
     private boolean corsi;
 
     public Abbonamento(int durata, String nome, int prezzo, boolean corsi) {

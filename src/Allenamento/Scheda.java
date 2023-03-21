@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Scheda {
-    private ArrayList<ProgrammaAllenamento> programma=new ArrayList<>();
+    private final ArrayList<ProgrammaAllenamento> programma=new ArrayList<>();
     private int nProg=0;
-    private String istruttore;
-    private String obbiettivo;
+    private final String istruttore;
+    private final String obbiettivo;
 
     public Scheda(String istruttore, String obbiettivo) {
-        this.istruttore = istruttore;
         this.obbiettivo = obbiettivo;
+        this.istruttore=istruttore;
     }
 
     public void addProgramma(ProgrammaAllenamento p){

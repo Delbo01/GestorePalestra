@@ -3,7 +3,7 @@ package IstruttoreCalendario;
 import java.util.ArrayList;
 
 public class Calendario {
-    private int anno;
+    private final int anno;
     private ArrayList<MeseCalendario> calendario = new ArrayList<>();
 
     public Calendario(int anno){

@@ -1,12 +1,13 @@
 package Allenamento;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ProgrammaAllenamento {
-    private ArrayList<Esercizio> esercizi= new ArrayList<>();
+    private final ArrayList<Esercizio> esercizi= new ArrayList<>();
     private int nEsercizi=0;
-    private String durata;
+    private final  String durata;
 
     public ProgrammaAllenamento(String durata) {
         this.durata = durata;
@@ -32,17 +33,18 @@ public class ProgrammaAllenamento {
         }else System.out.println();
         System.out.println("Vuoi modificare il carico dell'esercizio? (si/no)");
         String risposta=sc.nextLine();
-        if (risposta=="si"){
+        if (Objects.equals(risposta, "si")){
             System.out.println("Inserisci il nuovo carico");
             int carico=sc.nextInt();
             sc.nextLine();
             esercizi.get(pos).setCarico(carico);
-        }else if (risposta=="no"){
+        }else if (Objects.equals(risposta, "no")){
             System.out.println("ok");
         }else System.out.println("risposta non valida");
     }
 
     public void visualizzaProgramma(Scanner sc){
+        System.out.println("Programma di allenamento con "+getnEsercizi());
         for (int i=0;i<nEsercizi;i++){
             visualizzaEsercizio(i,sc);
         }
