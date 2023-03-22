@@ -88,6 +88,7 @@ public class Cliente {
         Istruttore i=gestorePT.getPtbyCF(pt);
         if (i != null) {
             gestorePT.rimuoviAssistito(i);
+            pt = null;
         } else
             System.out.println("Errore non è presente alcun personal trainer\n");
     }
@@ -108,5 +109,9 @@ public class Cliente {
     }
     public void vediCalendario(){
         calendario.vediCalendario();
+    }
+
+    public String getPt() {
+        return pt;
     }
 }

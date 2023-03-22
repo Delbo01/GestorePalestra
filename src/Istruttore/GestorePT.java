@@ -28,9 +28,9 @@ public class GestorePT {
         }
         return null;
     }
-    public Istruttore ottieniPT(String nome){
+    public Istruttore ottieniPT(String cf){
         for(Istruttore allenatore : allenatori){
-            if(Objects.equals(allenatore.getGeneralita().getNome(), nome)){
+            if(Objects.equals(allenatore.getGeneralita().getCf(), cf)){
                 if (controlloDisponibilita(allenatore)){
                     allenatore.incrementaAssistiti();
                     return allenatore;
