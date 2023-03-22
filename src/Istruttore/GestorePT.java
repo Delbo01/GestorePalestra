@@ -1,4 +1,4 @@
-package IstruttoreCalendario;
+package Istruttore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,5 +45,16 @@ public class GestorePT {
     public void rimuoviAssistito(Istruttore allenatore){
         int index = allenatori.indexOf(allenatore);
         allenatori.get(index).rimuoviAssistito();
+    }
+
+    public Istruttore getPtbyCF(String cf){
+        if (cf==null)
+            return null;
+        for(Istruttore allenatore : allenatori){
+            if(allenatore.getGeneralita().getCf() == cf){
+                return allenatore;
+            }
+        }
+        return null;
     }
 }

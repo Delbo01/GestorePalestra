@@ -4,8 +4,8 @@ import Cliente.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
 import Calendario.Calendario;
-import IstruttoreCalendario.GestorePT;
-import IstruttoreCalendario.Istruttore;
+import Istruttore.GestorePT;
+import Istruttore.Istruttore;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

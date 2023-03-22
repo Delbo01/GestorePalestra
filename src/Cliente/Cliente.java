@@ -4,8 +4,8 @@ import Allenamento.Scheda;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 import Calendario.Calendario;
-import IstruttoreCalendario.GestorePT;
-import IstruttoreCalendario.Istruttore;
+import Istruttore.GestorePT;
+import Istruttore.Istruttore;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class Cliente {
     private Scheda scheda = null;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     private GestorePT gestorePT;
-    private Istruttore pt = null;//FIXME: da cambiare in STRINGA
+    private String pt = null;//FIXME: da cambiare in STRINGA
     private GestoreAbbonamenti gestoreAbbonamenti;
     private Calendario calendario;
 
@@ -49,10 +49,13 @@ public class Cliente {
     }
 
     public void richiediScheda(String obbiettivo, int nProg, String durataProg) {
-        Richiesta richiesta = new Richiesta(obbiettivo, nProg, durataProg, this, pt);
+        Richiesta richiesta = new Richiesta(obbiettivo, nProg, durataProg, this, gestorePT.getPtbyCF(pt));
         if (pt == null)
             gestoreRichiestaScheda.addRichiesta(richiesta);
-        else pt.getGestoreRichiestaSchedaPT().addRichiesta(richiesta);
+        else{
+            Istruttore i=gestorePT.getPtbyCF(pt);
+            i.getGestoreRichiestaSchedaPT().addRichiesta(richiesta);
+        }
     }
 
     public void vediAbbonamneti() {
@@ -66,8 +69,9 @@ public class Cliente {
     public void richiediPersonalTrainer() {
         Istruttore trainer = gestorePT.ottieniPT();
         if (trainer != null) {
-            pt = trainer;
-            System.out.println(pt.getGeneralita().getNome() + "\n");
+            pt = trainer.getGeneralita().getCf();
+            Istruttore i=gestorePT.getPtbyCF(pt);
+            System.out.println(i.getGeneralita().getNome() + "\n");
         } else
             System.out.println("Nessun Allenatore disponibile al momento\n");
     }
@@ -75,14 +79,15 @@ public class Cliente {
     public void richiediPersonalTrainer(String allenatore) {
         Istruttore trainer = gestorePT.ottieniPT(allenatore);
         if (trainer != null)
-            pt = trainer;
+            pt = trainer.getGeneralita().getCf();
         else
             System.out.println("L'allenatore non ha disponibilità al momento\n");
     }
 
     public void rimuoviPersonalTrainer() {
-        if (pt != null) {
-            gestorePT.rimuoviAssistito(pt);
+        Istruttore i=gestorePT.getPtbyCF(pt);
+        if (i != null) {
+            gestorePT.rimuoviAssistito(i);
         } else
             System.out.println("Errore non è presente alcun personal trainer\n");
     }

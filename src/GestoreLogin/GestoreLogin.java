@@ -1,7 +1,7 @@
 package GestoreLogin;
 
 import Cliente.Cliente;
-import IstruttoreCalendario.Istruttore;
+import Istruttore.Istruttore;
 
 public class GestoreLogin {
     private ListaCredenzialiCliente listaCredenziali;

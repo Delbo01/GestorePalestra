@@ -1,4 +1,4 @@
-package IstruttoreCalendario;
+package Istruttore;
 
 import Calendario.Calendario;
 import Cliente.Generalita;

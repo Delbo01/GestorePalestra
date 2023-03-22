@@ -1,6 +1,6 @@
 import Calendario.Calendario;
 import Cliente.*;
-import IstruttoreCalendario.*;
+import Istruttore.*;
 import GestioneRichieste.*;
 import GestoreLogin.*;
 import Controller.*;

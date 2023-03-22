@@ -1,6 +1,6 @@
 package GestoreLogin;
 
-import IstruttoreCalendario.Istruttore;
+import Istruttore.Istruttore;
 
 public class CredenzialiIstruttore {
     private String username;

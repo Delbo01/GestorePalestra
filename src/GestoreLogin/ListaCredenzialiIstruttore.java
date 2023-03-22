@@ -1,6 +1,6 @@
 package GestoreLogin;
 
-import IstruttoreCalendario.Istruttore;
+import Istruttore.Istruttore;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package GestioneRichieste;
 
 import Cliente.Cliente;
-import IstruttoreCalendario.Istruttore;
+import Istruttore.Istruttore;
 
 public class Richiesta {
     private String obbiettivo;

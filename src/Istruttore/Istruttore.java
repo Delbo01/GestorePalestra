@@ -1,4 +1,4 @@
-package IstruttoreCalendario;
+package Istruttore;
 
 import Allenamento.Esercizio;
 import Allenamento.ProgrammaAllenamento;
