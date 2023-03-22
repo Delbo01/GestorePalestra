@@ -17,7 +17,7 @@ public class Cliente {
     private Scheda scheda = null;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     private GestorePT gestorePT;
-    private String pt = null;//FIXME: da cambiare in STRINGA
+    private String pt = null;
     private GestoreAbbonamenti gestoreAbbonamenti;
     private Calendario calendario;
 
