@@ -1,9 +1,9 @@
 package Cliente;
 
 public class Generalita {
-    private String cf;
-    private String nome;
-    private String cognome;
+    private final String cf;
+    private final String nome;
+    private final String cognome;
 
     public Generalita(String cf, String nome, String cognome) {
         this.nome=nome;

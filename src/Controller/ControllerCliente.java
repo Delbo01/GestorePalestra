@@ -1,6 +1,5 @@
 package Controller;
 
-import Allenamento.Scheda;
 import Cliente.Cliente;
 
 import java.util.InputMismatchException;
@@ -29,7 +28,7 @@ public class ControllerCliente {
         System.out.println("->obiettivo :");
         String obbiettivo=sc.nextLine();
         System.out.println("->numero programmi :");
-        Boolean fine=false;
+        boolean fine=false;
         int nP=0;
         while(!fine){
             try {
@@ -52,7 +51,7 @@ public class ControllerCliente {
 
     public void ottieniAbbonamento(Scanner sc){
         System.out.println("Quale abbonamento vuoi sottoscrivere ?");
-        Boolean fine=false;
+        boolean fine=false;
         int i=0;
         while (!fine){
             try{
@@ -66,7 +65,7 @@ public class ControllerCliente {
         }
         System.out.println("Vuoi poter frequentare i corsi ?");
         fine=false;
-        Boolean corsi=true;
+        boolean corsi=true;
         while(!fine){
             try {
                 corsi=sc.nextBoolean();
@@ -206,7 +205,7 @@ public class ControllerCliente {
         System.out.println("Inserisre 1 per vedre i corsi dell'intero calendario, inserire 2 per vedere i cordi di un mese a scelta oppure inserire 3 per vedere i corsi di un giorno a scelta: ");
         int scelta=sc.nextInt();
         sc.nextLine();
-        boolean rip=true;
+        boolean rip;
         do{
             rip=false;
             if (scelta==1) {

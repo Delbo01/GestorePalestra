@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class MeseCalendario {
     private ArrayList<GiornoCalendario> mese = new ArrayList<>();
-    private int nGiorni;
-    private String nomeMese;
-    private int nMese;
+    private final int nGiorni;
+    private final String nomeMese;
+    private final int nMese;
 
     public MeseCalendario(int nGiorni, String nomeMese, int nMese) {
         this.nGiorni = nGiorni;

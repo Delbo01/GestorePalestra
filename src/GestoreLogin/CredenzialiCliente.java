@@ -3,9 +3,9 @@ package GestoreLogin;
 import Cliente.Cliente;
 
 public class CredenzialiCliente {
-    private String username;
-    private String password;
-    private Cliente cliente;
+    private final String username;
+    private final String password;
+    private final Cliente cliente;
 
     public CredenzialiCliente(String username, String password, Cliente c) {
         this.username = username;

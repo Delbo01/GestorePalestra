@@ -1,6 +1,7 @@
 package Cliente;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GestoreAbbonamenti {
     private ArrayList<Abbonamento> abbonamenti= new ArrayList<>();
@@ -11,7 +12,7 @@ public class GestoreAbbonamenti {
     }
     public Boolean rimuoviAbbonamneti(int durata, String nome, int prezzo){
         for (Abbonamento a:abbonamenti){
-            if (a.getDurata()==durata & a.getPrezzo()==prezzo & a.getNome()==nome){
+            if (a.getDurata()==durata & a.getPrezzo()==prezzo & Objects.equals(a.getNome(), nome)){
                 abbonamenti.remove(a);
                 return true;
             }

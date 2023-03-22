@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GiornoCalendario {
     private ArrayList<Corso> corsi = new ArrayList<>();
-    private int giorno;
+    private final int giorno;
     public GiornoCalendario(int giorno) {
         this.giorno = giorno;
     }

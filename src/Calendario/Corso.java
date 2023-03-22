@@ -1,11 +1,11 @@
 package Calendario;
 
 public class Corso {
-    private String nome;
-    private int postiDisponibili;
-    private String orarioInizio;
-    private String orarioFine;
-    private String istruttore;
+    private final String nome;
+    private final int postiDisponibili;
+    private final String orarioInizio;
+    private final String orarioFine;
+    private final String istruttore;
     private int numeroClientiPrenotati = 0;
 
     public Corso(String nome, int postiDisponibili, String orarioInizio, String orarioFine, String istruttore) {

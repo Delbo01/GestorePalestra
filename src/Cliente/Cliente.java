@@ -10,16 +10,16 @@ import Istruttore.Istruttore;
 import java.util.Scanner;
 
 public class Cliente {
-    private Generalita generalità;
-    private float altezza;
-    private float peso;
+    private final Generalita generalità;
+    private final float altezza;
+    private final float peso;
     private Abbonamento abbonamento = null;
     private Scheda scheda = null;
-    private GestoreRichiestaScheda gestoreRichiestaScheda;
-    private GestorePT gestorePT;
+    private final GestoreRichiestaScheda gestoreRichiestaScheda;
+    private final GestorePT gestorePT;
     private String pt = null;
-    private GestoreAbbonamenti gestoreAbbonamenti;
-    private Calendario calendario;
+    private final GestoreAbbonamenti gestoreAbbonamenti;
+    private final Calendario calendario;
 
 
     public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT,Calendario calendario){
