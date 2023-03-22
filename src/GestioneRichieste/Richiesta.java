@@ -4,11 +4,11 @@ import Cliente.Cliente;
 import Istruttore.Istruttore;
 
 public class Richiesta {
-    private String obbiettivo;
-    private int nProg;
-    private String durataProg;
-    private  Cliente cliente;
-    private  Istruttore istruttore;
+    private final String obbiettivo;
+    private final int nProg;
+    private final String durataProg;
+    private  final Cliente cliente;
+    private  final Istruttore istruttore;
 
     public Richiesta(String obbiettivo, int nProg, String durataProg, Cliente cliente, Istruttore istruttore) {
         this.obbiettivo = obbiettivo;

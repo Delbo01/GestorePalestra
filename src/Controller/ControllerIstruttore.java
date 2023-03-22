@@ -7,8 +7,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ControllerIstruttore {
-    private Istruttore istruttore;
-    private Calendario calendario;
+    private final Istruttore istruttore;
+    private final Calendario calendario;
 
     public ControllerIstruttore(Istruttore istruttore,Calendario calendario){
         this.istruttore=istruttore;
@@ -19,10 +19,10 @@ public class ControllerIstruttore {
         int mese=0;
         int giorno=0;
         String nomeCorso;
-        boolean rip=false;
+        boolean rip;
         do{
         System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esmpio 9 per indicare Settembre): ");
-        Boolean fine=false;
+        boolean fine=false;
         while (!fine){
             try{
                 mese= sc.nextInt();
@@ -48,13 +48,13 @@ public class ControllerIstruttore {
         System.out.println("Inserisci il nome del corso");
         nomeCorso=sc.nextLine();
         rip=calendario.checkCorsiGiornalieri(mese,giorno,nomeCorso);
-        if (rip==true)
+        if (rip)
             System.out.println("Il corso è già presente in questo giorno, scegliere un altro giorno o un altro nome per il corso");
         }while(rip);
 
         System.out.println("Inserisci il numero di posti disponibili");
         int posti=0;
-        Boolean fine=false;
+        boolean fine=false;
         while (!fine){
             try{
                 posti= sc.nextInt();
@@ -78,7 +78,7 @@ public class ControllerIstruttore {
     public void rimuoviCorso(Scanner sc) {
         System.out.println("Scegli il mese del corso (inserisci il numero del mese, per esempio 9 per indicare Settembre): ");
         int mese = 0;
-        Boolean fine = false;
+        boolean fine = false;
         while (!fine) {
             try {
                 mese = sc.nextInt();

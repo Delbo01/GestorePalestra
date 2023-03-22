@@ -11,11 +11,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ControllerLogin {
-    private GestoreLogin gestoreLogin;
-    private GestoreAbbonamenti gestoreAbbonamenti;
-    private GestoreRichiestaScheda gestoreRichiestaScheda;
-    private GestorePT gestorePT;
-    private Calendario calendario;
+    private final GestoreLogin gestoreLogin;
+    private final GestoreAbbonamenti gestoreAbbonamenti;
+    private final GestoreRichiestaScheda gestoreRichiestaScheda;
+    private final GestorePT gestorePT;
+    private final Calendario calendario;
 
     public ControllerLogin(GestoreLogin gestoreLogin, GestoreAbbonamenti gestoreAbbonamenti, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT,Calendario calendario) {
         this.gestoreLogin = gestoreLogin;
@@ -51,7 +51,7 @@ public class ControllerLogin {
         String codiceFiscale = sc.nextLine();
         Generalita generalita = new Generalita(codiceFiscale, nome, cognome);
         System.out.println("Inserisci altezza (in cm) :");
-        Boolean fine = false;
+        boolean fine = false;
         float altezza = 0;
         while (!fine) {
             try {
@@ -93,7 +93,7 @@ public class ControllerLogin {
         }
         System.out.println("Vuoi poter frequentare i corsi ?");
         fine=false;
-        Boolean corsi=true;
+        boolean corsi=true;
         while(!fine){
             try {
                 corsi=sc.nextBoolean();

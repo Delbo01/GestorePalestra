@@ -4,8 +4,8 @@ import Cliente.Cliente;
 import Istruttore.Istruttore;
 
 public class GestoreLogin {
-    private ListaCredenzialiCliente listaCredenziali;
-    private ListaCredenzialiIstruttore listaCredenzialiIstruttore;
+    private final ListaCredenzialiCliente listaCredenziali;
+    private final ListaCredenzialiIstruttore listaCredenzialiIstruttore;
 
     public GestoreLogin(ListaCredenzialiCliente listaCredenziali, ListaCredenzialiIstruttore l) {
         this.listaCredenziali = listaCredenziali;
@@ -13,7 +13,7 @@ public class GestoreLogin {
     }
 
     public Cliente loginCliente(String username, String password){
-        if(listaCredenziali.checkCredenziali(username, password)==true){
+        if(listaCredenziali.checkCredenziali(username, password)){
             Cliente cliente=listaCredenziali.getCliente(username, password);
             System.out.println("credenziali giuste"+" "+cliente);
             return cliente;
@@ -31,7 +31,7 @@ public class GestoreLogin {
     }
 
     public Istruttore loginIstruttore(String username, String password){
-        if(listaCredenzialiIstruttore.checkCredenziali(username, password)==true){
+        if(listaCredenzialiIstruttore.checkCredenziali(username, password)){
             Istruttore istruttore=listaCredenzialiIstruttore.getIstruttore(username, password);
             System.out.println("credenziali giuste"+" "+istruttore);
             return istruttore;

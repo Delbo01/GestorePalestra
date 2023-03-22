@@ -2,10 +2,11 @@ package Istruttore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GestorePT {
     private List<Istruttore> allenatori = new ArrayList<>();
-    private int maxAssistiti;
+    private final int maxAssistiti;
 
     public GestorePT(int maxAssistiti) {
         this.maxAssistiti = maxAssistiti;
@@ -16,10 +17,7 @@ public class GestorePT {
     }
 
     private boolean controlloDisponibilita(Istruttore allenatore) {
-        if (allenatore.getNumeroAssistiti() < maxAssistiti) {
-            return true;
-        }
-        return false;
+        return allenatore.getNumeroAssistiti() < maxAssistiti;
     }
     public Istruttore ottieniPT() {
         for (Istruttore allenatore : allenatori) {
@@ -32,7 +30,7 @@ public class GestorePT {
     }
     public Istruttore ottieniPT(String nome){
         for(Istruttore allenatore : allenatori){
-            if(allenatore.getGeneralita().getNome() == nome){
+            if(Objects.equals(allenatore.getGeneralita().getNome(), nome)){
                 if (controlloDisponibilita(allenatore)){
                     allenatore.incrementaAssistiti();
                     return allenatore;
@@ -51,7 +49,7 @@ public class GestorePT {
         if (cf==null)
             return null;
         for(Istruttore allenatore : allenatori){
-            if(allenatore.getGeneralita().getCf() == cf){
+            if(Objects.equals(allenatore.getGeneralita().getCf(), cf)){
                 return allenatore;
             }
         }

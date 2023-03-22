@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Istruttore {
-    private Generalita generalita;
+    private final Generalita generalita;
     private int numeroAssistiti = 0;
-    private Calendario calendario;
-    private GestorePT gestorePT;
-    private GestoreRichiestaScheda gestoreRichiestaScheda;
+    private final Calendario calendario;
+    private final GestorePT gestorePT;
+    private final GestoreRichiestaScheda gestoreRichiestaScheda;
     private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
 
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
@@ -85,7 +85,7 @@ public class Istruttore {
 
                 }
                 System.out.println("Numero di serie");
-                Boolean exit = false;
+                boolean exit = false;
                 while(!exit){
                     try {
                         ns = sc.nextInt();
@@ -159,7 +159,7 @@ public class Istruttore {
                     }
                 }
                 System.out.println("Numero di serie\n");
-                Boolean exit = false;
+                boolean exit = false;
                 while(!exit){
                     try {
                         ns = sc.nextInt();

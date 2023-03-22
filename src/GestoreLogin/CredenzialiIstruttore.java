@@ -3,9 +3,9 @@ package GestoreLogin;
 import Istruttore.Istruttore;
 
 public class CredenzialiIstruttore {
-    private String username;
-    private String password;
-    private Istruttore istruttore;
+    private final String username;
+    private final String password;
+    private final Istruttore istruttore;
 
     public CredenzialiIstruttore(String username, String password, Istruttore istruttore) {
         this.password=password;
