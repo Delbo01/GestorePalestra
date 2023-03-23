@@ -27,6 +27,8 @@ public class ClienteTest {
         calendario = new Calendario(2023);
         gestoreRichiestaScheda = new GestoreRichiestaScheda();
         cliente = new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);
+        gestoreAbbonamenti.addAbbonamneti(1,"mensile",60);
+        cliente.ottieniAbbonamento(0,true);
     }
 
     @Test
@@ -62,6 +64,7 @@ public class ClienteTest {
     @After
     public void tearDown() throws Exception {
         cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);
+        cliente.ottieniAbbonamento(0,true);
     }
 }
 
