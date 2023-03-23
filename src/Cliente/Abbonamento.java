@@ -47,4 +47,8 @@ public class Abbonamento {
     public void setCorsi(boolean corsi) {
         this.corsi = corsi;
     }
+
+    public boolean isCorsi() {
+        return corsi;
+    }
 }

@@ -37,9 +37,11 @@ public class Cliente {
     }
 
     public void visualizzaScheda(Scanner sc) {
-        if (scheda != null)
-            scheda.visualizzaScheda(sc);
-        else System.out.println("nessuna scheda da visualizzare");
+        if (checkAbbonamento()) {
+            if (scheda != null)
+                scheda.visualizzaScheda(sc);
+            else System.out.println("nessuna scheda da visualizzare");
+        }
     }
 
     public void vediAbbonamento() {
@@ -49,12 +51,14 @@ public class Cliente {
     }
 
     public void richiediScheda(String obbiettivo, int nProg, String durataProg) {
-        Richiesta richiesta = new Richiesta(obbiettivo, nProg, durataProg, this, gestorePT.getPtbyCF(pt));
-        if (pt == null)
-            gestoreRichiestaScheda.addRichiesta(richiesta);
-        else{
-            Istruttore i=gestorePT.getPtbyCF(pt);
-            i.getGestoreRichiestaSchedaPT().addRichiesta(richiesta);
+        if (checkAbbonamento()){
+            Richiesta richiesta = new Richiesta(obbiettivo, nProg, durataProg, this, gestorePT.getPtbyCF(pt));
+            if (pt == null)
+                gestoreRichiestaScheda.addRichiesta(richiesta);
+            else {
+                Istruttore i = gestorePT.getPtbyCF(pt);
+                i.getGestoreRichiestaSchedaPT().addRichiesta(richiesta);
+            }
         }
     }
 
@@ -67,51 +71,83 @@ public class Cliente {
     }
 
     public void richiediPersonalTrainer() {
-        Istruttore trainer = gestorePT.ottieniPT();
-        if (trainer != null) {
-            pt = trainer.getGeneralita().getCf();
-            Istruttore i=gestorePT.getPtbyCF(pt);
-            System.out.println(i.getGeneralita().getNome() + "\n");
-        } else
-            System.out.println("Nessun Allenatore disponibile al momento\n");
+        if (checkAbbonamento()){
+            Istruttore trainer = gestorePT.ottieniPT();
+            if (trainer != null) {
+                pt = trainer.getGeneralita().getCf();
+                Istruttore i = gestorePT.getPtbyCF(pt);
+                System.out.println(i.getGeneralita().getNome() + "\n");
+            } else
+                System.out.println("Nessun Allenatore disponibile al momento\n");
+        }
     }
 
     public void richiediPersonalTrainer(String allenatore) {
-        Istruttore trainer = gestorePT.ottieniPT(allenatore);
-        if (trainer != null)
-            pt = trainer.getGeneralita().getCf();
-        else
-            System.out.println("L'allenatore non ha disponibilità al momento\n");
+        if (checkAbbonamento()){
+            Istruttore trainer = gestorePT.ottieniPT(allenatore);
+            if (trainer != null)
+                pt = trainer.getGeneralita().getCf();
+            else
+                System.out.println("L'allenatore non ha disponibilità al momento\n");
+        }
     }
 
+
     public void rimuoviPersonalTrainer() {
-        Istruttore i=gestorePT.getPtbyCF(pt);
-        if (i != null) {
-            gestorePT.rimuoviAssistito(i);
-            pt = null;
-        } else
-            System.out.println("Errore non è presente alcun personal trainer\n");
+        if (checkAbbonamento()) {
+            Istruttore i = gestorePT.getPtbyCF(pt);
+            if (i != null) {
+                gestorePT.rimuoviAssistito(i);
+                pt = null;
+            } else
+                System.out.println("Errore non è presente alcun personal trainer\n");
+        }
     }
 
     public void vediCorsiGiornalieri(int mese, int giorno){
-        calendario.vediCorsiGiornalieri(mese,giorno);
+        if (checkAbbonamento()) {
+            calendario.vediCorsiGiornalieri(mese, giorno);
+        }
     }
 
     public void vediCorsiMensili(int mese){
-        calendario.vediCorsiMensili(mese);
+        if (checkAbbonamento()){
+            calendario.vediCorsiMensili(mese);
+        }
     }
 
     public void prenotaCorso(int mese, int giorno,String corso){
-        calendario.prenotaCorso(mese,giorno,corso);
+        if (checkAbbonamento()){
+            if (abbonamento.isCorsi()){
+                calendario.prenotaCorso(mese, giorno, corso);
+            }
+            else System.out.println("Non hai un abbonamento con corsi");
+        }
     }
     public void rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
-        calendario.rimuoviPrenotazioneCorso(mese,giorno,corso);
+        if (checkAbbonamento()){
+            if (abbonamento.isCorsi()){
+                calendario.rimuoviPrenotazioneCorso(mese, giorno, corso);
+            }
+            else System.out.println("Non hai un abbonamento con corsi");
+        }
     }
     public void vediCalendario(){
-        calendario.vediCalendario();
+        if (checkAbbonamento()){
+            calendario.vediCalendario();
+        }
     }
 
     public String getPt() {
         return pt;
+    }
+
+    private boolean checkAbbonamento(){
+        if(abbonamento!=null)
+            return true;
+        else{
+            System.out.println("Non hai un abbonamento");
+            return false;
+        }
     }
 }
