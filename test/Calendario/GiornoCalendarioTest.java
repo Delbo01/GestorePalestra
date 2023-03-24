@@ -47,4 +47,45 @@ public class GiornoCalendarioTest {
         assertEquals(false,gc.checkCorsiGiornalieri(co1.getNome()));
         assertEquals(false,gc.checkCorsiGiornalieri(co2.getNome()));
     }
+
+    @Test
+    public void checkCorsiGiornalieri() {
+        Corso co = new Corso("prova",2,"10","12","Carlo");
+        GiornoCalendario gc = new GiornoCalendario(12);
+        assertEquals(false,gc.checkCorsiGiornalieri(co.getNome()));
+        gc.inserisciCorso(co);
+        assertEquals(true,gc.checkCorsiGiornalieri(co.getNome()));
+    }
+
+    @Test
+    public void getNumeroPrenotazioni() {
+        Corso co = new Corso("prova",2,"10","12","Carlo");
+        GiornoCalendario gc = new GiornoCalendario(12);
+        gc.inserisciCorso(co);
+        assertEquals(0,gc.getNumeroPrenotazioni(co.getNome()));
+        gc.prenotaCorso("prova");
+        assertEquals(1,gc.getNumeroPrenotazioni(co.getNome()));
+    }
+
+    @Test
+    public void prenotaCorso() {
+        Corso co = new Corso("prova",2,"10","12","Carlo");
+        GiornoCalendario gc = new GiornoCalendario(12);
+        gc.inserisciCorso(co);
+        assertEquals(0,gc.getNumeroPrenotazioni(co.getNome()));
+        gc.prenotaCorso("prova");
+        assertEquals(1,gc.getNumeroPrenotazioni(co.getNome()));
+    }
+
+    @Test
+    public void rimuoviPrenotazione() {
+        Corso co = new Corso("prova",2,"10","12","Carlo");
+        GiornoCalendario gc = new GiornoCalendario(12);
+        gc.inserisciCorso(co);
+        assertEquals(0,gc.getNumeroPrenotazioni(co.getNome()));
+        gc.prenotaCorso("prova");
+        assertEquals(1,gc.getNumeroPrenotazioni(co.getNome()));
+        gc.rimuoviPrenotazione("prova");
+        assertEquals(0,gc.getNumeroPrenotazioni(co.getNome()));
+    }
 }

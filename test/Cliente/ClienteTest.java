@@ -1,7 +1,6 @@
-package ClienteTest;
+package Cliente;
 
 import Calendario.*;
-import Cliente.*;
 import GestioneRichieste.*;
 import Istruttore.*;
 import org.junit.*;
