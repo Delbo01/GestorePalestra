@@ -41,6 +41,17 @@ public class ProgrammaAllenamento {
         }else if (Objects.equals(risposta, "no")){
             System.out.println("ok");
         }else System.out.println("risposta non valida");
+        System.out.println("Vuoi far partite il timer? (si/no)");
+        String risposta1=sc.nextLine();
+        if (Objects.equals(risposta1, "si")){
+            try {
+                esercizi.get(pos).startTimer();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }else if (Objects.equals(risposta1, "no")) {
+            System.out.println("ok");
+        }else System.out.println("risposta non valida");
     }
 
     public void visualizzaProgramma(Scanner sc){

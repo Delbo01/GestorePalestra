@@ -25,6 +25,7 @@ public class ControllerLogin {
         this.calendario = calendario;
     }
     public Cliente loginCliente(Scanner sc){
+        System.out.println("Login Cliente in corso...");
         Cliente c=null;
         int i=0;
         while (c==null & i<3){
@@ -39,6 +40,7 @@ public class ControllerLogin {
     }
 
     public void registraCliente(Scanner sc) {
+        System.out.println("Registarzione Cliente in corso...");
         System.out.println("Inserisci username:");
         String username = sc.nextLine();
         System.out.println("Inserisci password:");
@@ -123,6 +125,7 @@ public class ControllerLogin {
         gestoreLogin.removeCredenzialiIstruttore(username,password);
     }
     public Istruttore loginIstruttore(Scanner sc){
+        System.out.println("Login Istruttore in corso...");
         System.out.println("Inserisci username:");
         String username=sc.nextLine();
         System.out.println("Inserisci password:");
@@ -130,6 +133,7 @@ public class ControllerLogin {
         return gestoreLogin.loginIstruttore(username,password);
     }
     public void registraIstruttore(Scanner sc){
+        System.out.println("Registrazione Istruttore in corso...");
         System.out.println("Inserisci username:");
         String username=sc.nextLine();
         System.out.println("Inserisci password:");
