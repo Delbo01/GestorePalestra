@@ -33,8 +33,6 @@ public class Main {
         Cliente c=controllerlogin.loginCliente(sc);
         ControllerCliente controllerCliente= new ControllerCliente(c);
 
-        controllerCliente.vediAbbonamenti();
-        controllerCliente.ottieniAbbonamento(sc);
 
         controllerCliente.richiediScheda(sc);
 
@@ -42,9 +40,9 @@ public class Main {
         Istruttore i=controllerlogin.loginIstruttore(sc);
 
         ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i,calendario);
-        controllerIstruttore.ottieniRichiestaScheda(sc);
+        controllerIstruttore.ottieniRichiestaScheda(sc);//FIXME:non aggiunge programmi alla scheda
 
-        controllerCliente.visualizzaScheda(sc);
+        controllerCliente.visualizzaScheda(sc);//FIXME:non si visualizza la scheda
         sc.close();
 
     }
