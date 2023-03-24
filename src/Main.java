@@ -34,15 +34,15 @@ public class Main {
         ControllerCliente controllerCliente= new ControllerCliente(c);
 
 
-        controllerCliente.richiediScheda(sc);
+        //controllerCliente.richiediScheda(sc);
 
         controllerlogin.registraIstruttore(sc);
         Istruttore i=controllerlogin.loginIstruttore(sc);
 
         ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i,calendario);
-        controllerIstruttore.ottieniRichiestaScheda(sc);
+        //controllerIstruttore.ottieniRichiestaScheda(sc);
 
-        controllerCliente.visualizzaScheda(sc);
+        //controllerCliente.visualizzaScheda(sc);
         sc.close();
 
     }

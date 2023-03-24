@@ -48,4 +48,8 @@ public class Corso {
     public String getNome() {
         return nome;
     }
+
+    public int getNumeroPrenotazioni() {
+        return numeroClientiPrenotati;
+    }
 }

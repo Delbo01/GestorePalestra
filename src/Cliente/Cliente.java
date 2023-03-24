@@ -116,13 +116,18 @@ public class Cliente {
         }
     }
 
-    public void prenotaCorso(int mese, int giorno,String corso){
+    public Boolean prenotaCorso(int mese, int giorno,String corso){
         if (checkAbbonamento()){
             if (abbonamento.isCorsi()){
-                calendario.prenotaCorso(mese, giorno, corso);
+                return calendario.prenotaCorso(mese, giorno, corso);
             }
-            else System.out.println("Non hai un abbonamento con corsi");
+            else {
+                System.out.println("Non hai un abbonamento con corsi");
+                return false;
+            }
         }
+        System.out.println("Non hai un abbonamento");
+        return false;
     }
     public void rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
         if (checkAbbonamento()){
@@ -142,7 +147,7 @@ public class Cliente {
         return pt;
     }
 
-    private boolean checkAbbonamento(){
+    public boolean checkAbbonamento(){
         if(abbonamento!=null)
             return true;
         else{

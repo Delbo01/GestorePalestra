@@ -41,6 +41,7 @@ public class GiornoCalendario {
             System.out.println("Istruttore: " + istruttore + "\n");
             System.out.println("Inizio: " + corso.getOrarioInizio() + "\n");
             System.out.println("Fine: " + corso.getOrarioFine() + "\n");
+            System.out.println("Prenotazioni: " + corso.getNumeroPrenotazioni() + "\n");
         }
     }
 
@@ -74,6 +75,15 @@ public class GiornoCalendario {
             }
         }
         return false;
+    }
+
+    public int getNumeroPrenotazioni(String nomeCorso){
+        for(Corso c : corsi){
+            if(c.getNome().equals(nomeCorso)){
+                return c.getNumeroPrenotazioni();
+            }
+        }
+        return -1;
     }
 
 }

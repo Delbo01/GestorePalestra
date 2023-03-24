@@ -49,4 +49,7 @@ public class MeseCalendario {
     public boolean checkCorsiGiornalieri(int giorno,String nomeCorso){
         return mese.get(giorno - 1).checkCorsiGiornalieri(nomeCorso);
     }
+    public int getNumeroPrenotazioni(int giorno,String nomeCorso){
+        return mese.get(giorno - 1).getNumeroPrenotazioni(nomeCorso);
+    }
 }

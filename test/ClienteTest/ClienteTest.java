@@ -60,6 +60,27 @@ public class ClienteTest {
         cliente.richiediPersonalTrainer("dgdgshs");
         assertEquals(i.getGeneralita().getCf(),cliente.getPt());
     }
+    @Test
+    public void richiediScheda() {
+        String obiettivo="ipertrofia";
+        int nProg=1;
+        String duarta="1 ora";
+        cliente.richiediScheda(obiettivo,nProg,duarta);
+        assertEquals(1,gestoreRichiestaScheda.getRichieste().size());
+        Istruttore i= new Istruttore(new Generalita("dgdgshs","francesco","bianchi"),calendario,gestorePT,gestoreRichiestaScheda);
+        i.diventaPT();
+        cliente.richiediPersonalTrainer();
+        cliente.richiediScheda(obiettivo,nProg,duarta);
+        assertEquals(1,gestorePT.getPtbyCF(cliente.getPt()).getGestoreRichiestaSchedaPT().getRichieste().size());
+    }
+
+    @Test
+    public void checkAbbonamento() {
+        cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);
+        assertEquals(false,cliente.checkAbbonamento());
+        cliente.ottieniAbbonamento(0,true);
+        assertEquals(true,cliente.checkAbbonamento());
+    }
 
     @After
     public void tearDown() throws Exception {

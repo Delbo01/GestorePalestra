@@ -41,5 +41,8 @@ public class Calendario {
     public Boolean checkCorsiGiornalieri(int mese,int giorno, String nomeCorso){
         return calendario.get(mese - 1).checkCorsiGiornalieri(giorno - 1,nomeCorso);
     }
+    public int getNumeroPrenotazioni(int mese,int giorno,String nomeCorso){
+        return calendario.get(mese - 1).getNumeroPrenotazioni(giorno - 1,nomeCorso);
+    }
 
 }

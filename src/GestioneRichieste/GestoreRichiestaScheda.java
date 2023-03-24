@@ -14,4 +14,8 @@ public class GestoreRichiestaScheda {
     public void addRichiesta(Richiesta richiesta){
         richieste.add(richiesta);
     }
+
+    public ArrayList<Richiesta> getRichieste() {
+        return richieste;
+    }
 }
