@@ -40,9 +40,9 @@ public class Main {
         Istruttore i=controllerlogin.loginIstruttore(sc);
 
         ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i,calendario);
-        controllerIstruttore.ottieniRichiestaScheda(sc);//FIXME:non aggiunge programmi alla scheda
+        controllerIstruttore.ottieniRichiestaScheda(sc);
 
-        controllerCliente.visualizzaScheda(sc);//FIXME:non si visualizza la scheda
+        controllerCliente.visualizzaScheda(sc);
         sc.close();
 
     }

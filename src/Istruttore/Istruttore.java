@@ -62,6 +62,8 @@ public class Istruttore {
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
+        System.out.println("Obbiettivo: " + ob);
+        System.out.println("Numero di programmi: " + np);
         String ne = null;
         boolean number = true;
         int stop;
@@ -130,6 +132,7 @@ public class Istruttore {
                 sc.nextLine();
                 number = true;
             }while (stop == 1);
+            scheda.addProgramma(prog);
         }
         richiesta.getCliente().setScheda(scheda);
     }
