@@ -21,6 +21,7 @@ public class Corso {
             numeroClientiPrenotati++;
             return true;
         }
+        System.out.println("Spiacente numero di posti esauriti");
         return false;
     }
 
