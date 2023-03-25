@@ -81,6 +81,31 @@ public class ClienteTest {
         assertEquals(true,cliente.checkAbbonamento());
     }
 
+    @Test
+    public void ottieniAbbonamneto() {
+        cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);
+        assertEquals(false,cliente.checkAbbonamento());
+        cliente.ottieniAbbonamento(0,true);
+        assertEquals(true,cliente.checkAbbonamento());
+    }
+
+    @Test
+    public void prenotaCorso() {
+        calendario.inserisciCorso(1,1,new Corso("pilates",10,"10","11","paolo"));
+        assertEquals(0,calendario.getNumeroPrenotazioni(1,1,"pilates"));
+        cliente.prenotaCorso(1,1,"pilates");
+        assertEquals(1,calendario.getNumeroPrenotazioni(1,1,"pilates"));
+    }
+
+    @Test
+    public void rimuoviPrenotazioneCorso() {
+        calendario.inserisciCorso(1,1,new Corso("pilates",10,"10","11","paolo"));
+        cliente.prenotaCorso(1,1,"pilates");
+        assertEquals(1,calendario.getNumeroPrenotazioni(1,1,"pilates"));
+        cliente.rimuoviPrenotazioneCorso(1,1,"pilates");
+        assertEquals(0,calendario.getNumeroPrenotazioni(1,1,"pilates"));
+    }
+
     @After
     public void tearDown() throws Exception {
         cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);

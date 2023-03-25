@@ -41,15 +41,15 @@ public class MeseCalendario {
         mese.clear();
     }
     boolean prenotaCorso(int giorno,String corso){
-        return mese.get(giorno - 1).prenotaCorso(corso);
+        return mese.get(giorno).prenotaCorso(corso);
     }
     boolean rimuoviPrenotazioneCorso(int giorno,String corso){
-        return mese.get(giorno - 1).rimuoviPrenotazione(corso);
+        return mese.get(giorno).rimuoviPrenotazione(corso);
     }
     public boolean checkCorsiGiornalieri(int giorno,String nomeCorso){
-        return mese.get(giorno - 1).checkCorsiGiornalieri(nomeCorso);
+        return mese.get(giorno).checkCorsiGiornalieri(nomeCorso);
     }
     public int getNumeroPrenotazioni(int giorno,String nomeCorso){
-        return mese.get(giorno - 1).getNumeroPrenotazioni(nomeCorso);
+        return mese.get(giorno).getNumeroPrenotazioni(nomeCorso);
     }
 }

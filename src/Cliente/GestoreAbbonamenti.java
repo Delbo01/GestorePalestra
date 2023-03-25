@@ -32,4 +32,8 @@ public class GestoreAbbonamenti {
         abbonamento.setCorsi(corsi);
         return abbonamento;
     }
+
+    public ArrayList<Abbonamento> getAbbonamenti() {
+        return abbonamenti;
+    }
 }

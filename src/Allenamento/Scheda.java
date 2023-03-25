@@ -40,4 +40,8 @@ public class Scheda {
     public void startTimer(int prog, int es) throws InterruptedException{
         programma.get(prog).getEsercizio(es).startTimer();
     }
+
+    public int getnProg() {
+        return nProg;
+    }
 }

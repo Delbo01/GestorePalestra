@@ -16,7 +16,7 @@ public class GestorePT {
         allenatori.add(allenatore);
     }
 
-    private boolean controlloDisponibilita(Istruttore allenatore) {
+    public boolean controlloDisponibilita(Istruttore allenatore) {
         return allenatore.getNumeroAssistiti() < maxAssistiti;
     }
     public Istruttore ottieniPT() {
@@ -54,5 +54,9 @@ public class GestorePT {
             }
         }
         return null;
+    }
+
+    public List<Istruttore> getAllenatori() {
+        return allenatori;
     }
 }
