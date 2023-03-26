@@ -37,6 +37,6 @@ public class ControllerIstruttoreTest {
     @Test
     public void diventaPT() {
         controllerIstruttore.diventaPT();
-        assertEquals(istruttore,gp.ottieniPT(istruttore.getGeneralita().getNome()));
+        assertEquals(istruttore,gp.ottieniPT(istruttore.getGeneralita().getCf()));
     }
 }
