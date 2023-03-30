@@ -10,7 +10,7 @@ import Calendario.Corso;
 
 import static org.junit.Assert.assertEquals;
 
-public class IstruttoreTest {  //FIXME: cambiare scope sul controller
+public class IstruttoreTest {
     static GestoreRichiestaScheda gt;
     static GestorePT gestorePT;
     static Generalita is;
@@ -36,14 +36,14 @@ public class IstruttoreTest {  //FIXME: cambiare scope sul controller
     public void testRimuoviCorso() {
         putSimpleCourse(1,1,"Pilates");
         Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),true);
-
         Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),false);
 
     }
-   /*
-    @Test                                   FIXME: cambiare comportamento di inserisciCorso
+
+    @Test
     public void testInserisciCorso(){
         Corso cs = new Corso("Pilates",5,"20","23","Alberto");
-        assertEquals(istruttore.inserisciCorso(1,1,cs),true);
-    }*/
+        istruttore.inserisciCorso(1,1,cs);
+        assertEquals(ca.checkCorsiGiornalieri(1,1,cs.getNome()),true);
+    }
 }
