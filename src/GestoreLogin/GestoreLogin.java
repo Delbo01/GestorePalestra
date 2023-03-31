@@ -15,7 +15,7 @@ public class GestoreLogin {
     public Cliente loginCliente(String username, String password){
         if(listaCredenziali.checkCredenziali(username, password)){
             Cliente cliente=listaCredenziali.getCliente(username, password);
-            System.out.println("credenziali giuste"+" "+cliente);
+            System.out.println("credenziali giuste"+" "+cliente.getGeneralità().getNome());
             return cliente;
         }
         else System.out.println("credenziali non trovate");

@@ -143,6 +143,10 @@ public class Cliente {
         }
     }
 
+    public Generalita getGeneralità() {
+        return generalità;
+    }
+
     public String getPt() {
         return pt;
     }
