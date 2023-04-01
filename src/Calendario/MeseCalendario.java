@@ -21,7 +21,10 @@ public class MeseCalendario {
         mese.get(giorno).inserisciCorso(corso);
     }
     boolean rimuoviCorso(int giorno,String corso){
-        return mese.get(giorno).rimuoviCorso(corso);
+        if (mese.get(giorno) == null)
+            return false;
+        else
+            return mese.get(giorno).rimuoviCorso(corso);
     }
     void vediCorsiGiornalieri(int giorno){
         GiornoCalendario corsi = mese.get(giorno );
@@ -34,22 +37,36 @@ public class MeseCalendario {
         }
     }
     void rimuoviCorsiGiornalieri(int giorno){
-        mese.get(giorno).rimuoviTuttiCorsi();
+        if (mese.get(giorno) != null)
+            mese.get(giorno).rimuoviTuttiCorsi();
     }
 
     void rimuoviCorsiMensili(){
-        mese.clear();
+        for(GiornoCalendario giorno : mese){
+            giorno.rimuoviTuttiCorsi();
+        }
     }
     boolean prenotaCorso(int giorno,String corso){
-        return mese.get(giorno).prenotaCorso(corso);
+        if (mese.get(giorno) == null)
+            return false;
+        else
+            return mese.get(giorno).prenotaCorso(corso);
     }
     boolean rimuoviPrenotazioneCorso(int giorno,String corso){
-        return mese.get(giorno).rimuoviPrenotazione(corso);
+        if (mese.get(giorno) == null)
+            return false;
+        else
+            return mese.get(giorno).rimuoviPrenotazione(corso);
     }
     public boolean checkCorsiGiornalieri(int giorno,String nomeCorso){
-        return mese.get(giorno).checkCorsiGiornalieri(nomeCorso);
+        if (mese.get(giorno) == null)
+            return false;
+        else return mese.get(giorno).checkCorsiGiornalieri(nomeCorso);
     }
     public int getNumeroPrenotazioni(int giorno,String nomeCorso){
-        return mese.get(giorno).getNumeroPrenotazioni(nomeCorso);
+        if (mese.get(giorno) == null)
+            return 0;
+        else
+            return mese.get(giorno).getNumeroPrenotazioni(nomeCorso);
     }
 }
