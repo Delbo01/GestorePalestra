@@ -46,4 +46,11 @@ public class IstruttoreTest {
         istruttore.inserisciCorso(1,1,cs);
         assertEquals(ca.checkCorsiGiornalieri(1,1,cs.getNome()),true);
     }
+
+    @Test
+    public void diventaPT() {
+        assertEquals(null,gestorePT.ottieniPT());
+        istruttore.diventaPT();
+        assertEquals(istruttore,gestorePT.ottieniPT());
+    }
 }
