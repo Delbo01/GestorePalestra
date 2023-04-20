@@ -80,7 +80,7 @@ public class ControllerLogin {
             }
         }
         Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, gestoreAbbonamenti, gestorePT,calendario);
-        cliente.vediAbbonamneti();
+        /*cliente.vediAbbonamneti();
         System.out.println("Quale abbonamento vuoi sottoscrivere ?");
         fine=false;
         int i=0;
@@ -108,7 +108,7 @@ public class ControllerLogin {
             }
         }
         Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamneto(i-1,corsi);
-        AbbonamentoMapper abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
+        AbbonamentoMapper abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);*/
         gestoreLogin.registraCliente(username, password, cliente);
      }
     public void removeCredenzialiCliente(Scanner sc){

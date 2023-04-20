@@ -1,11 +1,12 @@
 package Controller;
 
 import Abbonamento.*;
-import Allenamento.SchedaMapper;
-import Cliente.Cliente;
-import Istruttore.GestorePT;
-import Istruttore.Istruttore;
-import Istruttore.PersonalTrainerMapper;
+import Allenamento.*;
+import Calendario.*;
+import Cliente.*;
+import GestioneRichieste.*;
+import GestoreLogin.*;
+import Istruttore.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,8 +16,9 @@ public class ControllerCliente {
     private AbbonamentoMapper abbonamentoMapper;
     private SchedaMapper schedaMapper;
     private PersonalTrainerMapper personalTrainerMapper;
-    private GestoreAbbonamenti gestoreAbbonamenti;
-    private GestorePT gestorePT;
+    private final GestoreAbbonamenti gestoreAbbonamenti;
+    private final GestorePT gestorePT;
+
 
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
         this.cliente = cliente;

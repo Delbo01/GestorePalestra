@@ -34,21 +34,6 @@ public class Cliente {
         this.calendario = calendario;
     }
 
-
-    /*public void visualizzaScheda(Scanner sc) {
-        if (checkAbbonamento()) {
-            if (scheda != null)
-                scheda.visualizzaScheda(sc);
-            else System.out.println("nessuna scheda da visualizzare");
-        }
-    }*/
-
-    /*public void vediAbbonamento() {
-        if (abbonamento != null) {
-            abbonamento.visualizzaAbbonamento();
-        } else System.out.println("nessun abbonamneto da visualizzare");
-    }*/
-
     public void richiediScheda(String obbiettivo, int nProg, String durataProg, Istruttore pt) {
         Richiesta richiesta = new Richiesta(obbiettivo, nProg, durataProg, this, pt);
         if (pt == null)
@@ -61,11 +46,6 @@ public class Cliente {
     public void vediAbbonamneti() {
         gestoreAbbonamenti.vediAbbonamenti();
     }
-
-    /*public void ottieniAbbonamento(int index, boolean corsi) {
-        this.abbonamento = gestoreAbbonamenti.getAbbonamneto(index, corsi);
-    }*/
-
     public void vediCorsiGiornalieri(int mese, int giorno) {
         calendario.vediCorsiGiornalieri(mese, giorno);
     }

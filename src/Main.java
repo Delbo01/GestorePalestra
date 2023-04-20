@@ -25,26 +25,10 @@ public class Main {
 
 
         Scanner sc = new Scanner(System.in);
-
-
-        ControllerLogin controllerlogin = new ControllerLogin(gestoreLogin, gestoreAbbonamenti, gestoreRichiestaScheda, gestorePT, calendario);
-
-        controllerlogin.registraCliente(sc);
-
-        Cliente c=controllerlogin.loginCliente(sc);
-
-        ControllerCliente controllerCliente= new ControllerCliente(c,gestoreAbbonamenti,gestorePT);
-
-
-        //controllerCliente.richiediScheda(sc);
-
-        controllerlogin.registraIstruttore(sc);
-        Istruttore i=controllerlogin.loginIstruttore(sc);
-
-        ControllerIstruttore controllerIstruttore= new ControllerIstruttore(i,calendario);
-        //controllerIstruttore.ottieniRichiestaScheda(sc);
-
-        //controllerCliente.visualizzaScheda(sc);
+        ControllerLogin controllerLogin= new ControllerLogin(gestoreLogin,gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
+        controllerLogin.registraCliente(sc);
+        ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT);
+        cliente.ottieniAbbonamento(sc);
         sc.close();
 
     }
