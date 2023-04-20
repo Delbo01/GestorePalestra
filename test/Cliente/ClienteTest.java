@@ -1,5 +1,6 @@
 package Cliente;
 
+import Abbonamento.GestoreAbbonamenti;
 import Calendario.*;
 import GestioneRichieste.*;
 import Istruttore.*;

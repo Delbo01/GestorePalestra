@@ -1,4 +1,6 @@
-package Cliente;
+package Abbonamento;
+
+import Abbonamento.Abbonamento;
 
 import java.util.ArrayList;
 import java.util.Objects;

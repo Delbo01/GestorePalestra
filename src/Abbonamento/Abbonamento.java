@@ -1,4 +1,4 @@
-package Cliente;
+package Abbonamento;
 
 
 import java.util.GregorianCalendar;

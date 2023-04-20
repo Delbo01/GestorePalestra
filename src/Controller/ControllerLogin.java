@@ -1,5 +1,6 @@
 package Controller;
 
+import Abbonamento.*;
 import Cliente.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
@@ -106,7 +107,8 @@ public class ControllerLogin {
                 sc.nextLine();
             }
         }
-        cliente.ottieniAbbonamento(i-1,corsi);
+        Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamneto(i-1,corsi);
+        AbbonamentoMapper abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
         gestoreLogin.registraCliente(username, password, cliente);
      }
     public void removeCredenzialiCliente(Scanner sc){

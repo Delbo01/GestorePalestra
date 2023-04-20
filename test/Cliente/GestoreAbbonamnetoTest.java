@@ -1,4 +1,5 @@
 package Cliente;
+import Abbonamento.Abbonamento;
 import org.junit.*;
 import static org.junit.Assert.*;
 

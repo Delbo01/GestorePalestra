@@ -1,3 +1,4 @@
+import Abbonamento.GestoreAbbonamenti;
 import Calendario.Calendario;
 import Cliente.*;
 import Istruttore.*;
@@ -31,7 +32,8 @@ public class Main {
         controllerlogin.registraCliente(sc);
 
         Cliente c=controllerlogin.loginCliente(sc);
-        ControllerCliente controllerCliente= new ControllerCliente(c);
+
+        ControllerCliente controllerCliente= new ControllerCliente(c,gestoreAbbonamenti,gestorePT);
 
 
         //controllerCliente.richiediScheda(sc);
