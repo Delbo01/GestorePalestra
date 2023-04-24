@@ -3,6 +3,7 @@ package Controller;
 import Abbonamento.*;
 import Allenamento.*;
 import Cliente.*;
+import GestioneRichieste.Richiesta;
 import Istruttore.*;
 
 import java.util.InputMismatchException;
@@ -65,6 +66,8 @@ public class ControllerCliente {
             }
             System.out.println("->durata programmi :");
             String durata = sc.nextLine();
+            Richiesta richiesta = new Richiesta(obbiettivo, nP, durata, cliente, personalTrainerMapper.getPtMapper());
+
             cliente.richiediScheda(obbiettivo, nP, durata, personalTrainerMapper.getPtMapper());
         }
     }
