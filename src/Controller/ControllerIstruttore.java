@@ -124,7 +124,7 @@ public class ControllerIstruttore {
         gestorePT.inserisciPT(istruttore);
         istruttore.diventaPT();
     }
-    public void ottieniRichiestaScheda(Scanner sc, SchedaMapper schedaMapper){
+    public void ottieniRichiestaScheda(Scanner sc, SchedaMapper schedaMapper){//FIXME: implementare database per ottenere scheda del cliente
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
@@ -203,7 +203,7 @@ public class ControllerIstruttore {
         schedaMapper.setSchedaMapper(scheda);
     }
 
-    public void ottieniRichiestaSchedaPT(Scanner sc, SchedaMapper schedaMapper){
+    public void ottieniRichiestaSchedaPT(Scanner sc, SchedaMapper schedaMapper){//FIXME: implementare database per ottenere scheda del cliente
         if(istruttore.getGestoreRichiestaSchedaPT() == null){
             System.out.println("Non sei ancora un personal trainer");
         }
