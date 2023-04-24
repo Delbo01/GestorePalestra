@@ -3,11 +3,10 @@ package GestoreLogin;
 import Istruttore.Istruttore;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class ListaCredenzialiIstruttore {
-    private List<CredenzialiIstruttore> elencoCredenziali=new ArrayList<>();
+    private ArrayList<CredenzialiIstruttore> elencoCredenziali=new ArrayList<>();
 
     public void addCredenziali(String username, String password, Istruttore i){
         CredenzialiIstruttore c= new CredenzialiIstruttore(username,password,i);

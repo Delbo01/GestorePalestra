@@ -1,34 +1,23 @@
 package Cliente;
 
-import Abbonamento.Abbonamento;
-import Abbonamento.GestoreAbbonamenti;
-import Allenamento.Scheda;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 import Calendario.Calendario;
-import Istruttore.GestorePT;
 import Istruttore.Istruttore;
 
-import java.util.Scanner;
-
 public class Cliente {
-    private final Generalita generalità;
+    private final Generalita generalita;
     private final float altezza;
     private final float peso;
-    //private Abbonamento abbonamento = null;
-    //private Scheda scheda = null;
     private final GestoreRichiestaScheda gestoreRichiestaScheda;
-    private final GestorePT gestorePT;
-    //private String pt = null;
     private final Calendario calendario;
 
 
-    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT, Calendario calendario) {
-        this.generalità = new Generalita(generalità);
+    public Cliente(Generalita generalita, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, Calendario calendario) {
+        this.generalita = new Generalita(generalita);
         this.altezza = altezza;
         this.peso = peso;
         this.gestoreRichiestaScheda = gestoreRichiestaScheda;
-        this.gestorePT = gestorePT;
         this.calendario = calendario;
     }
 
@@ -61,7 +50,7 @@ public class Cliente {
         calendario.vediCalendario();
     }
 
-    public Generalita getGeneralità() {
-        return generalità;
+    public Generalita getGeneralita() {
+        return generalita;
     }
 }

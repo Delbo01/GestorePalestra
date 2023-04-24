@@ -62,14 +62,9 @@ public class ProgrammaAllenamento {
         System.out.println(" durata programma "+durata);
     }
 
-    public ArrayList<Esercizio> getEsercizi() {
-        return esercizi;
-    }
-
     public int getnEsercizi() {
         return nEsercizi;
     }
-
      Esercizio getEsercizio(int pos){
         return esercizi.get(pos);
     }

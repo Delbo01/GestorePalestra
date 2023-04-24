@@ -11,7 +11,7 @@ public class Scheda {
 
     public Scheda(String istruttore, String obbiettivo) {
         this.obbiettivo = obbiettivo;
-        this.istruttore=istruttore;
+        this.istruttore = istruttore;
     }
 
     public void addProgramma(ProgrammaAllenamento p){

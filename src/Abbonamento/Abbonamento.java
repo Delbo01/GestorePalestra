@@ -7,7 +7,7 @@ public class Abbonamento {
     private final int durata;
     private final String nome;
     private final int prezzo;
-    private final GregorianCalendar dataInizio=new GregorianCalendar();
+    private final GregorianCalendar dataInizio = new GregorianCalendar();
     private  GregorianCalendar dataFine;
     private boolean corsi;
 

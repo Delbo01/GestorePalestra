@@ -3,14 +3,13 @@ package GestoreLogin;
 import Cliente.Cliente;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class ListaCredenzialiCliente {
-    private List<CredenzialiCliente> elencoCredenziali=new ArrayList<>();
+    private ArrayList<CredenzialiCliente> elencoCredenziali=new ArrayList<>();
 
-    public void addCredenziali(String username, String password, Cliente clinete){
-        CredenzialiCliente c= new CredenzialiCliente(username,password,clinete);
+    public void addCredenziali(String username, String password, Cliente cliente){
+        CredenzialiCliente c = new CredenzialiCliente(username,password,cliente);
         elencoCredenziali.add(c);
     }
 

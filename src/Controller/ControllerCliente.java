@@ -2,10 +2,7 @@ package Controller;
 
 import Abbonamento.*;
 import Allenamento.*;
-import Calendario.*;
 import Cliente.*;
-import GestioneRichieste.*;
-import GestoreLogin.*;
 import Istruttore.*;
 
 import java.util.InputMismatchException;
@@ -101,7 +98,7 @@ public class ControllerCliente {
                 sc.nextLine();
             }
         }
-        Abbonamento abbonamento = gestoreAbbonamenti.getAbbonamneto(i - 1, corsi);
+        Abbonamento abbonamento = gestoreAbbonamenti.getAbbonamento(i - 1, corsi);
         abbonamentoMapper.setAbbonamento(abbonamento);
     }
 

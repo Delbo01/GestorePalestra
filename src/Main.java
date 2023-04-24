@@ -1,6 +1,5 @@
 import Abbonamento.GestoreAbbonamenti;
 import Calendario.Calendario;
-import Cliente.*;
 import Istruttore.*;
 import GestioneRichieste.*;
 import GestoreLogin.*;
@@ -14,10 +13,10 @@ public class Main {
         Calendario calendario = new Calendario(2023);
         GestorePT gestorePT = new GestorePT(10);
         GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
-        gestoreAbbonamenti.addAbbonamneti(1,"mensile",60);
-        gestoreAbbonamenti.addAbbonamneti(3,"trimestrale",180);
-        gestoreAbbonamenti.addAbbonamneti(6,"semestrale",360);
-        gestoreAbbonamenti.addAbbonamneti(12,"annuale",720);
+        gestoreAbbonamenti.addAbbonamenti(1,"mensile",60);
+        gestoreAbbonamenti.addAbbonamenti(3,"trimestrale",180);
+        gestoreAbbonamenti.addAbbonamenti(6,"semestrale",360);
+        gestoreAbbonamenti.addAbbonamenti(12,"annuale",720);
         GestoreRichiestaScheda gestoreRichiestaScheda = new GestoreRichiestaScheda();
         ListaCredenzialiCliente listaCredenzialiCliente = new ListaCredenzialiCliente();
         ListaCredenzialiIstruttore listaCredenzialiIstruttore = new ListaCredenzialiIstruttore();

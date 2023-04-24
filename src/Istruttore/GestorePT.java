@@ -1,11 +1,10 @@
 package Istruttore;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class GestorePT {
-    private List<Istruttore> allenatori = new ArrayList<>();
+    private ArrayList<Istruttore> allenatori = new ArrayList<>();
     private final int maxAssistiti;
 
     public GestorePT(int maxAssistiti) {
@@ -56,7 +55,7 @@ public class GestorePT {
         return null;
     }
 
-    public List<Istruttore> getAllenatori() {
+    public ArrayList<Istruttore> getAllenatori() {
         return allenatori;
     }
 }
