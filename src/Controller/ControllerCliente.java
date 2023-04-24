@@ -30,7 +30,7 @@ public class ControllerCliente {
     }
 
     public void vediAbbonamenti() {
-        cliente.vediAbbonamneti();
+        gestoreAbbonamenti.vediAbbonamenti();
     }
 
     public void visualizzaScheda(Scanner sc) {
@@ -74,7 +74,7 @@ public class ControllerCliente {
 
 
     public void ottieniAbbonamento(Scanner sc) {
-        cliente.vediAbbonamneti();
+        gestoreAbbonamenti.vediAbbonamenti();
         System.out.println("Quale abbonamento vuoi sottoscrivere ?");
         boolean fine = false;
         int i = 0;

@@ -20,17 +20,15 @@ public class Cliente {
     private final GestoreRichiestaScheda gestoreRichiestaScheda;
     private final GestorePT gestorePT;
     //private String pt = null;
-    private final GestoreAbbonamenti gestoreAbbonamenti;
     private final Calendario calendario;
 
 
-    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT, Calendario calendario) {
+    public Cliente(Generalita generalità, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT, Calendario calendario) {
         this.generalità = new Generalita(generalità);
         this.altezza = altezza;
         this.peso = peso;
         this.gestoreRichiestaScheda = gestoreRichiestaScheda;
         this.gestorePT = gestorePT;
-        this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.calendario = calendario;
     }
 
@@ -43,9 +41,6 @@ public class Cliente {
         }
     }
 
-    public void vediAbbonamneti() {
-        gestoreAbbonamenti.vediAbbonamenti();
-    }
     public void vediCorsiGiornalieri(int mese, int giorno) {
         calendario.vediCorsiGiornalieri(mese, giorno);
     }
