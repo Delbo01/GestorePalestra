@@ -18,7 +18,7 @@ public class ControllerIstruttore {
     private final Istruttore istruttore;
     private final Calendario calendario;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
-    private GestoreRichiestaScheda gestoreRichiestaSchedaPT = null;
+    //private GestoreRichiestaScheda gestoreRichiestaSchedaPT = null;
     private GestorePT gestorePT;
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
 
@@ -122,7 +122,7 @@ public class ControllerIstruttore {
     }
     public void diventaPT(){
         gestorePT.inserisciPT(istruttore);
-        gestoreRichiestaSchedaPT=new GestoreRichiestaScheda();
+        istruttore.diventaPT();
     }
     public void ottieniRichiestaScheda(Scanner sc, SchedaMapper schedaMapper){
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
@@ -204,11 +204,11 @@ public class ControllerIstruttore {
     }
 
     public void ottieniRichiestaSchedaPT(Scanner sc, SchedaMapper schedaMapper){
-        if(gestoreRichiestaSchedaPT == null){
+        if(istruttore.getGestoreRichiestaSchedaPT() == null){
             System.out.println("Non sei ancora un personal trainer");
         }
         else{
-            Richiesta richiesta = gestoreRichiestaSchedaPT.ottieniRichiesta();
+            Richiesta richiesta = istruttore.getGestoreRichiestaSchedaPT().ottieniRichiesta();
             String ob = richiesta.getObbiettivo();
             int np = richiesta.getnProg();
             System.out.println("Obbiettivo: " + ob);
