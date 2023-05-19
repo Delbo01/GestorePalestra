@@ -2,7 +2,9 @@ package Database;
 import java.sql.*;
 public class Base_Dao {
     Connection connection=null;
-
+    public Base_Dao(){
+        getConnection();
+    }
     public void getConnection(){
         String url = "jdbc:postgresql://localhost/db_Palestra";
         String user = "superuser";

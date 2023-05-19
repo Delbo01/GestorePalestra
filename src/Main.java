@@ -1,6 +1,7 @@
 import Abbonamento.GestoreAbbonamenti;
 import Calendario.Calendario;
 import Database.Base_Dao;
+import Database.Dao_Cliente;
 import Istruttore.*;
 import GestioneRichieste.*;
 import GestoreLogin.*;
@@ -11,8 +12,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException{
-        Base_Dao db= new Base_Dao();
-        db.getConnection();
+       Dao_Cliente dao_cliente = new Dao_Cliente();
+        dao_cliente.createCliente(2,"Mario","Rossi","MRORSS00A00A000A",180,75);
         /*Calendario calendario = new Calendario(2023);
         GestorePT gestorePT = new GestorePT(10);
         GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
