@@ -1,8 +1,9 @@
 package Database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
+
 
 public class Dao_Cliente extends Base_Dao implements Dao_Cliente_Interface{
 
