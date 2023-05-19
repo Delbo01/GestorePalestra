@@ -23,7 +23,7 @@ public class IstruttoreTest {
          gestorePT = new GestorePT(10);
          is = new Generalita("fddfsd", "mario", "rossi");
          ca = new Calendario(2022);
-         istruttore = new Istruttore(is,ca,gestorePT,gt);
+         istruttore = new Istruttore(is,ca,gt);
 
     }
 

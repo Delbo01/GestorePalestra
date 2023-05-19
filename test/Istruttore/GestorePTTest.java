@@ -12,7 +12,7 @@ public class GestorePTTest {
     @Before
     public void setUp() throws Exception {
         gestorePT = new GestorePT(1);
-        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),gestorePT,new GestoreRichiestaScheda());
+        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),new GestoreRichiestaScheda());
     }
 
     @Test
@@ -62,6 +62,6 @@ public class GestorePTTest {
     @After
     public void tearDown() throws Exception {
         gestorePT = new GestorePT(1);
-        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),gestorePT,new GestoreRichiestaScheda());
+        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),new GestoreRichiestaScheda());
     }
 }

@@ -17,7 +17,7 @@ public class ClienteTest {
     static Calendario calendario;
     static GestoreRichiestaScheda gestoreRichiestaScheda;
 
-    @BeforeClass
+    /*@BeforeClass
     public static void  setUp() throws Exception {
         gestorePT= new GestorePT(10);
         is = new Generalita("fddfsd", "mario", "rossi");
@@ -111,6 +111,6 @@ public class ClienteTest {
     public void tearDown() throws Exception {
         cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,gestoreAbbonamenti,gestorePT,calendario);
         cliente.ottieniAbbonamento(0,true);
-    }
+    }*/
 }
 

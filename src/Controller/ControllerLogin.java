@@ -79,7 +79,7 @@ public class ControllerLogin {
                 sc.nextLine();
             }
         }
-        Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, gestoreAbbonamenti, gestorePT,calendario);
+        Cliente cliente = new Cliente(generalita, altezza, peso, gestoreRichiestaScheda, calendario);
         /*cliente.vediAbbonamneti();
         System.out.println("Quale abbonamento vuoi sottoscrivere ?");
         fine=false;
@@ -147,7 +147,7 @@ public class ControllerLogin {
         System.out.println("Inserisci codice fiscale:");
         String codiceFiscale=sc.nextLine();
         Generalita generalita = new Generalita(codiceFiscale,nome,cognome);
-        Istruttore istruttore = new Istruttore(generalita,calendario,gestorePT,gestoreRichiestaScheda);
+        Istruttore istruttore = new Istruttore(generalita,calendario,gestoreRichiestaScheda);
         gestoreLogin.registraIstruttore(username,password,istruttore);
     }
 }

@@ -23,8 +23,8 @@ public class ControllerIstruttoreTest {
     public static void setUp() {
         sc = new Scanner(System.in);
         Generalita ge = new Generalita("dfs","pippo","poli");
-        istruttore = new Istruttore(ge,ca,gp,grs);
-        controllerIstruttore = new ControllerIstruttore(istruttore,ca);
+        istruttore = new Istruttore(ge,ca,grs);
+        controllerIstruttore = new ControllerIstruttore(istruttore,ca,grs,gp);
     }
     @Test
     public void inserisciCorso() { //TODO chiedere al prof gestione input

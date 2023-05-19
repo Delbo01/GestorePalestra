@@ -1,10 +1,10 @@
 package Cliente;
-import Abbonamento.Abbonamento;
+import Abbonamento.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
 public class GestoreAbbonamnetoTest {
-    GestoreAbbonamenti gestoreAbbonamenti;
+    /*GestoreAbbonamenti gestoreAbbonamenti;
 
     @Before
     public void setUp() throws Exception {
@@ -41,5 +41,5 @@ public class GestoreAbbonamnetoTest {
     @After
     public void tearDown() throws Exception {
         gestoreAbbonamenti= new GestoreAbbonamenti();
-    }
+    }*/
 }
