@@ -28,4 +28,18 @@ public class Dao_Cliente extends Base_Dao implements Dao_Cliente_Interface{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public int getMaxId() {
+        String query="SELECT MAX(id) FROM \"Cliente\"";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

@@ -2,6 +2,7 @@ package Controller;
 
 import Abbonamento.*;
 import Cliente.*;
+import Database.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestoreLogin.GestoreLogin;
 import Calendario.Calendario;
@@ -17,6 +18,9 @@ public class ControllerLogin {
     private final GestoreRichiestaScheda gestoreRichiestaScheda;
     private final GestorePT gestorePT;
     private final Calendario calendario;
+    private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
+    private final Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
+    private final Dao_CredenzialiCliente_Interface dao_credenzialiCliente= new Dao_CredenzialiCliente();
 
     public ControllerLogin(GestoreLogin gestoreLogin, GestoreAbbonamenti gestoreAbbonamenti, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT,Calendario calendario) {
         this.gestoreLogin = gestoreLogin;
@@ -34,13 +38,14 @@ public class ControllerLogin {
             String username=sc.nextLine();
             System.out.println("Inserisci password:");
             String password=sc.nextLine();
-            c=gestoreLogin.loginCliente(username,password);
+            c=dao_credenzialiCliente.search(username,password);
             i++;
         }
         return c;
     }
 
     public void registraCliente(Scanner sc) {
+        int id=dao_cliente.getMaxId()+1;
         System.out.println("Registarzione Cliente in corso...");
         System.out.println("Inserisci username:");
         String username = sc.nextLine();
@@ -109,6 +114,8 @@ public class ControllerLogin {
         }
         Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamneto(i-1,corsi);
         AbbonamentoMapper abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);*/
+        dao_cliente.createCliente(id,nome,cognome,codiceFiscale,altezza,peso);
+        dao_credenzialiCliente.createCredenziali(username,password,id);
         gestoreLogin.registraCliente(username, password, cliente);
      }
     public void removeCredenzialiCliente(Scanner sc){
@@ -116,7 +123,7 @@ public class ControllerLogin {
         String username=sc.nextLine();
         System.out.println("Inserisci password:");
         String password=sc.nextLine();
-
+        dao_credenzialiCliente.deleteCredenziali(username,password);
         gestoreLogin.removeCredenzialiCliente(username,password);
     }
     public void removeCredenzialiIstruttore(Scanner sc){
@@ -135,6 +142,7 @@ public class ControllerLogin {
         return gestoreLogin.loginIstruttore(username,password);
     }
     public void registraIstruttore(Scanner sc){
+
         System.out.println("Registrazione Istruttore in corso...");
         System.out.println("Inserisci username:");
         String username=sc.nextLine();
