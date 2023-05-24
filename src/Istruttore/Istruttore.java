@@ -8,7 +8,7 @@ import GestioneRichieste.GestoreRichiestaScheda;
 public class Istruttore {
     private final Generalita generalita;
     private int numeroAssistiti = 0;
-    private final Calendario calendario;
+    private Calendario calendario;
 
     private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
 
@@ -45,5 +45,9 @@ public class Istruttore {
 
     public GestoreRichiestaScheda getGestoreRichiestaSchedaPT() {
         return gestoreRichiestaSchedaPT;
+    }
+
+    public void setCalendario(Calendario calendario) {
+        this.calendario = calendario;
     }
 }

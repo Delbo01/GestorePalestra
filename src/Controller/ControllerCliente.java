@@ -4,6 +4,7 @@ import Abbonamento.*;
 import Allenamento.*;
 import Cliente.*;
 import Database.Dao_Corso;
+import Database.Dao_Corso_Interface;
 import GestioneRichieste.Richiesta;
 import Istruttore.*;
 
@@ -18,7 +19,7 @@ public class ControllerCliente {
     private final GestoreAbbonamenti gestoreAbbonamenti;
     private final GestorePT gestorePT;
 
-    private final Dao_Corso corsi = new Dao_Corso();
+    private final Dao_Corso_Interface corsi = new Dao_Corso();
 
 
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
@@ -154,6 +155,7 @@ public class ControllerCliente {
             }
             fine = false;
             int giorno = 0;
+            System.out.println("Inserisci il giorno");
             while (!fine) {
                 try {
                     giorno = sc.nextInt();

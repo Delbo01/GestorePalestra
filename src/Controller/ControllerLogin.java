@@ -144,6 +144,7 @@ public class ControllerLogin {
             System.out.println("Inserisci password:");
             String password=sc.nextLine();
             is=dao_credenzialiIstruttore.search(username,password);
+            is.setCalendario(calendario);
             i++;
         }
         return is;
