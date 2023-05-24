@@ -5,4 +5,5 @@ public interface Dao_Istruttore_Interface {
     public void updatePt(int id,boolean pt);
     public void incrementaAssistiti(int id);
     public void decrementaAssistiti(int id);
+    public int getMaxId();
 }

@@ -1,9 +1,6 @@
 import Abbonamento.GestoreAbbonamenti;
 import Calendario.Calendario;
-import Database.Base_Dao;
-import Database.Dao_Cliente;
-import Database.Dao_Cliente_Interface;
-import Database.Dao_Istruttore;
+import Database.*;
 import Istruttore.*;
 import GestioneRichieste.*;
 import GestoreLogin.*;
@@ -29,7 +26,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ControllerLogin controllerLogin= new ControllerLogin(gestoreLogin,gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
-        controllerLogin.loginCliente(sc);
+        controllerLogin.loginIstruttore(sc);
         //ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT);
         //cliente.ottieniAbbonamento(sc);
         sc.close();

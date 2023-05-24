@@ -21,6 +21,7 @@ public class ControllerLogin {
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
     private final Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
     private final Dao_CredenzialiCliente_Interface dao_credenzialiCliente= new Dao_CredenzialiCliente();
+    private final Dao_CredenzialiIstruttore_Interface dao_credenzialiIstruttore= new Dao_CredenzialiIstruttore();
 
     public ControllerLogin(GestoreLogin gestoreLogin, GestoreAbbonamenti gestoreAbbonamenti, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT,Calendario calendario) {
         this.gestoreLogin = gestoreLogin;
@@ -135,15 +136,22 @@ public class ControllerLogin {
     }
     public Istruttore loginIstruttore(Scanner sc){
         System.out.println("Login Istruttore in corso...");
-        System.out.println("Inserisci username:");
-        String username=sc.nextLine();
-        System.out.println("Inserisci password:");
-        String password=sc.nextLine();
-        return gestoreLogin.loginIstruttore(username,password);
+        Istruttore is=null;
+        int i=0;
+        while (is==null & i<3){
+            System.out.println("Inserisci username:");
+            String username=sc.nextLine();
+            System.out.println("Inserisci password:");
+            String password=sc.nextLine();
+            is=dao_credenzialiIstruttore.search(username,password);
+            i++;
+        }
+        return is;
     }
     public void registraIstruttore(Scanner sc){
 
         System.out.println("Registrazione Istruttore in corso...");
+        int id=dao_istruttore.getMaxId()+1;
         System.out.println("Inserisci username:");
         String username=sc.nextLine();
         System.out.println("Inserisci password:");
@@ -156,6 +164,8 @@ public class ControllerLogin {
         String codiceFiscale=sc.nextLine();
         Generalita generalita = new Generalita(codiceFiscale,nome,cognome);
         Istruttore istruttore = new Istruttore(generalita,calendario,gestoreRichiestaScheda);
+        dao_istruttore.createIstruttore(id, nome,cognome,codiceFiscale,false,0);
+        dao_credenzialiIstruttore.createCredenziali(username,password,id);
         gestoreLogin.registraIstruttore(username,password,istruttore);
     }
 }

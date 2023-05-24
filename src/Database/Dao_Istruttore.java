@@ -60,4 +60,17 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
             e.printStackTrace();
         }
     }
+
+    public int getMaxId() {
+        String query="SELECT MAX(id) FROM \"Istruttore\"";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }
