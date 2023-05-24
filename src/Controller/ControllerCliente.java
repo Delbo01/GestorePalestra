@@ -3,6 +3,7 @@ package Controller;
 import Abbonamento.*;
 import Allenamento.*;
 import Cliente.*;
+import Database.Dao_Corso;
 import GestioneRichieste.Richiesta;
 import Istruttore.*;
 
@@ -16,6 +17,8 @@ public class ControllerCliente {
     private PersonalTrainerMapper personalTrainerMapper;
     private final GestoreAbbonamenti gestoreAbbonamenti;
     private final GestorePT gestorePT;
+
+    private final Dao_Corso corsi = new Dao_Corso();
 
 
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
@@ -222,7 +225,7 @@ public class ControllerCliente {
             String nomeCorso = sc.nextLine();
             cliente.prenotaCorso(mese, giorno, nomeCorso);
         } else
-            System.out.println("Non hai un abbonamneto attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
+            System.out.println("Non hai un abbonamento attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
     }
 
     private void rimuoviPrenotazioneCorso(Scanner sc) {
