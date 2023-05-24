@@ -5,15 +5,17 @@ public class Corso {
     private final int postiDisponibili;
     private final String orarioInizio;
     private final String orarioFine;
-    private final String istruttore;
+    private final String nomeIstruttore;
+    private final String cognomeIstruttore;
     private int numeroClientiPrenotati = 0;
 
-    public Corso(String nome, int postiDisponibili, String orarioInizio, String orarioFine, String istruttore) {
+    public Corso(String nome, int postiDisponibili, String orarioInizio, String orarioFine, String nomeIstruttore, String cognomeIstruttore) {
         this.nome = nome;
         this.postiDisponibili = postiDisponibili;
         this.orarioInizio = orarioInizio;
         this.orarioFine = orarioFine;
-        this.istruttore = istruttore;
+        this.nomeIstruttore = nomeIstruttore;
+        this.cognomeIstruttore = cognomeIstruttore;
     }
 
     Boolean prenota(){
@@ -42,15 +44,29 @@ public class Corso {
         return orarioFine;
     }
 
-    public String getIstruttore() {
-        return istruttore;
+    public String getNomeIstruttore() {
+        return nomeIstruttore;
     }
 
-    public String getNome() {
+    public String getCognomeIstruttore() {
+        return cognomeIstruttore;
+    }
+
+    public String getNome(
+
+    ) {
         return nome;
     }
 
     public int getNumeroPrenotazioni() {
+        return numeroClientiPrenotati;
+    }
+
+    public int getPostiDisponibili() {
+        return postiDisponibili;
+    }
+
+    public int getNumeroClientiPrenotati() {
         return numeroClientiPrenotati;
     }
 }

@@ -6,4 +6,5 @@ public interface Dao_Istruttore_Interface {
     public void incrementaAssistiti(int id);
     public void decrementaAssistiti(int id);
     public int getMaxId();
+    public int getIdByNomeCognome(String nome,String cognome);
 }

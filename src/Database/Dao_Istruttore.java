@@ -73,4 +73,20 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
         }
         return -1;
     }
+
+    @Override
+    public int getIdByNomeCognome(String nome, String cognome) {
+        String query="SELECT id FROM \"Istruttore\" WHERE nome=? AND cognome=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setString(1,nome);
+            statement.setString(2,cognome);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

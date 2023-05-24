@@ -1,8 +1,11 @@
 package Database;
 
+import Calendario.Corso;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
 
@@ -47,17 +50,23 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
     }
 
     @Override
-    public void vediCorsiGiornalieri(int mese, int giorno) {
-        String query = "SELECT * FROM \"Corso\" WHERE  mese = ? AND giorno = ?";
+    public ArrayList<Corso> vediCorsiGiornalieri(int mese, int giorno) {
+        ArrayList<Corso> corsi=new ArrayList<>();
+        String query = "SELECT * FROM \"Corso\" join \"Istruttore\" on \"Corso\".istruttore=\"Istruttore\".id WHERE  mese = ? AND giorno = ?";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
             statement.setInt(1,mese);
             statement.setInt(2,giorno);
-
-            statement.executeUpdate();
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                Corso corso=new Corso(rs.getString("nome"),rs.getInt("posti"),rs.getString("oraInizio"),rs.getString("oraFine"),rs.getString(11), rs.getString(12));
+                corsi.add(corso);
+            }
+            return corsi;
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return null;
     }
 
     @Override
@@ -82,6 +91,23 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    @Override
+    public int getIdByNome(String nome, int mese, int giorno) {
+        String query="SELECT id FROM \"Corso\" WHERE nome = ? AND mese = ? AND giorno = ?";
+        try {
+            PreparedStatement statement= super.connection.prepareStatement(query);
+            statement.setString(1,nome);
+            statement.setInt(2,mese);
+            statement.setInt(3,giorno);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }catch (SQLException e){
             e.printStackTrace();
         }
         return -1;

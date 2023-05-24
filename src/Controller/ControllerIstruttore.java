@@ -85,7 +85,9 @@ public class ControllerIstruttore {
         String oraFine=sc.nextLine();
         System.out.println("Inserisci il nome dell'istruttore del corso");
         String nomeIstruttore=sc.nextLine();
-        Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,nomeIstruttore);
+        System.out.println("Inserisci il cognome dell'istruttore del corso");
+        String cognomeIstruttore=sc.nextLine();
+        Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,nomeIstruttore,cognomeIstruttore);
         istruttore.inserisciCorso(mese,giorno,corso);
     }
 

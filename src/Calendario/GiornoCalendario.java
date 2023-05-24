@@ -36,7 +36,7 @@ public class GiornoCalendario {
         if(index == -1){
             System.out.println("Corso non presente\n");
         }else {
-            String istruttore = corso.getIstruttore();
+            String istruttore = corso.getNomeIstruttore();
             System.out.println("Corso: " + corso.getNome());
             System.out.println("Istruttore: " + istruttore + "\n");
             System.out.println("Inizio: " + corso.getOrarioInizio() + "\n");
@@ -47,7 +47,7 @@ public class GiornoCalendario {
 
     void vediTuttiCorsi(){
         for(Corso corso : corsi){
-            String istruttore = corso.getIstruttore();
+            String istruttore = corso.getNomeIstruttore();
             System.out.println("Corso: " + corso.getNome());
             System.out.println("Istruttore: " + istruttore + "\n");
             System.out.println("Inizio: " + corso.getOrarioInizio() + "\n");

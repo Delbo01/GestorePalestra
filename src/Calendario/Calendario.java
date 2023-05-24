@@ -1,48 +1,69 @@
 package Calendario;
 
+import Database.Dao_Corso;
+import Database.Dao_Corso_Interface;
+import Database.Dao_Istruttore;
+import Database.Dao_Istruttore_Interface;
+
 import java.util.ArrayList;
 
 public class Calendario {
     private  int anno;
-    private ArrayList<MeseCalendario> calendario = new ArrayList<>();
+    private Dao_Corso_Interface dao_corso= new Dao_Corso();
+    private Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
 
     public Calendario(int anno){
-        this.anno = anno;
-        String[] mesi = {"Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"};
-        int[] giorni = {31,28,31,30,31,30,31,31,30,31,30,31};
-        for(int i = 0; i < 12;i++){
-            calendario.add(new MeseCalendario(giorni[i],mesi[i],i));
-        }
+        this.anno=anno;
     }
 
     public void inserisciCorso(int mese,int giorno,Corso corso){
-        calendario.get((mese - 1)).inserisciCorso(giorno - 1,corso);
+       int id=dao_corso.getMaxId()+1;
+       String nomeIstruttore=corso.getNomeIstruttore();
+       String cogonmeIstruttore=corso.getCognomeIstruttore();
+       int idIstruttore=dao_istruttore.getIdByNomeCognome(nomeIstruttore,cogonmeIstruttore);
+       dao_corso.createCorso(id,corso.getNome(),corso.getPostiDisponibili(),corso.getOrarioInizio(),corso.getOrarioFine(),idIstruttore, corso.getNumeroPrenotazioni(),mese,giorno);
     }
     public boolean rimuoviCorso(int mese,int giorno,String corso){
-        return calendario.get(mese - 1).rimuoviCorso(giorno - 1,corso);
-    }
-    public void vediCorsiGiornalieri(int mese,int giorno){
-        calendario.get(mese - 1).vediCorsiGiornalieri(giorno - 1);
-    }
-    public void vediCorsiMensili(int mese){
-        calendario.get(mese - 1).vediCorsiMensili();
-    }
-    public boolean prenotaCorso(int mese, int giorno, String nomeCorso){
-        return calendario.get(mese - 1).prenotaCorso(giorno - 1, nomeCorso);
-    }
-    public boolean rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
-        return calendario.get(mese - 1).rimuoviPrenotazioneCorso(giorno - 1,corso);
-    }
-    public void vediCalendario(){
-        for(MeseCalendario mese : calendario){
-            mese.vediCorsiMensili();
+        int id =dao_corso.getIdByNome(corso,mese,giorno);
+        if(id==-1){
+            System.out.println("Corso non trovato");
+            return false;
+        }else {
+            dao_corso.removeCorso(id);
+            return true;
         }
     }
+    public void vediCorsiGiornalieri(int mese,int giorno){
+        ArrayList<Corso> corsi=dao_corso.vediCorsiGiornalieri(mese,giorno);
+        for(Corso c:corsi){
+            System.out.println(c.getNome());
+            System.out.println(c.getOrarioInizio());
+            System.out.println(c.getOrarioFine());
+            System.out.println("Istruttore del corso è :");
+            System.out.println(c.getNomeIstruttore()+"  "+c.getCognomeIstruttore());
+            System.out.println("Numero di posti disponibili:");
+            System.out.println(c.getPostiDisponibili());
+            System.out.println("Numero di prenotazioni:");
+            System.out.println(c.getNumeroPrenotazioni());
+        }
+    }
+    public void vediCorsiMensili(int mese){
+
+    }
+    public boolean prenotaCorso(int mese, int giorno, String nomeCorso){
+
+    }
+    public boolean rimuoviPrenotazioneCorso(int mese,int giorno,String corso){
+
+    }
+    public void vediCalendario(){
+
+    }
     public Boolean checkCorsiGiornalieri(int mese,int giorno, String nomeCorso){
-        return calendario.get(mese - 1).checkCorsiGiornalieri(giorno - 1,nomeCorso);
+
     }
     public int getNumeroPrenotazioni(int mese,int giorno,String nomeCorso){
-        return calendario.get(mese - 1).getNumeroPrenotazioni(giorno - 1,nomeCorso);
+
     }
 
 }
