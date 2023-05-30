@@ -42,4 +42,19 @@ public class Dao_Cliente extends Base_Dao implements Dao_Cliente_Interface{
         }
         return -1;
     }
+
+    @Override
+    public int getIdByCf(String cf) {
+        String query="SELECT id FROM \"Cliente\" WHERE cf=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setString(1, cf);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

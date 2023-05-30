@@ -51,4 +51,12 @@ public class Abbonamento {
     public boolean isCorsi() {
         return corsi;
     }
+
+    public String getDataInizio() {
+        return dataInizio.get(GregorianCalendar.DATE)+"/"+(dataInizio.get(GregorianCalendar.MONTH)+1)+"/"+dataInizio.get(GregorianCalendar.YEAR);
+    }
+
+    public String getDataFine() {
+        return dataFine.get(GregorianCalendar.DATE)+"/"+(dataFine.get(GregorianCalendar.MONTH)+1)+"/"+dataFine.get(GregorianCalendar.YEAR);
+    }
 }

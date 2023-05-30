@@ -1,19 +1,22 @@
 package Abbonamento;
 
+import Database.Dao_Abbonamento;
+
 import java.util.ArrayList;
 import java.util.Objects;
+import Database.Dao_Abbonamento_Interface;
 
 public class GestoreAbbonamenti {
     private ArrayList<Abbonamento> abbonamenti= new ArrayList<>();
 
     public void addAbbonamenti(int durata, String nome, int prezzo){
-        Abbonamento abb= new Abbonamento(durata,nome,prezzo,false);
-        abbonamenti.add(abb);
+        Abbonamento abbonamento= new Abbonamento(durata,nome,prezzo,false);
+        abbonamenti.add(abbonamento);
     }
     public Boolean rimuoviAbbonamenti(int durata, String nome, int prezzo){
-        for (Abbonamento a:abbonamenti){
-            if (a.getDurata()==durata & a.getPrezzo()==prezzo & Objects.equals(a.getNome(), nome)){
-                abbonamenti.remove(a);
+        for (int i=0;i<abbonamenti.size();i++){
+            if (abbonamenti.get(i).getDurata()==durata && Objects.equals(abbonamenti.get(i).getNome(), nome) && abbonamenti.get(i).getPrezzo()==prezzo){
+                abbonamenti.remove(i);
                 return true;
             }
         }
