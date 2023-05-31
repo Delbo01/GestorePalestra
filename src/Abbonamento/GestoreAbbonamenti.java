@@ -9,8 +9,8 @@ import Database.Dao_Abbonamento_Interface;
 public class GestoreAbbonamenti {
     private ArrayList<Abbonamento> abbonamenti= new ArrayList<>();
 
-    public void addAbbonamenti(int durata, String nome, int prezzo){
-        Abbonamento abbonamento= new Abbonamento(durata,nome,prezzo,false);
+    public void addAbbonamenti(int durata, String nome, int prezzo,String dataInizio){
+        Abbonamento abbonamento= new Abbonamento(durata,nome,prezzo,dataInizio,false);
         abbonamenti.add(abbonamento);
     }
     public Boolean rimuoviAbbonamenti(int durata, String nome, int prezzo){

@@ -1,6 +1,7 @@
 package Abbonamento;
 
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Abbonamento {
@@ -11,12 +12,18 @@ public class Abbonamento {
     private  GregorianCalendar dataFine;
     private boolean corsi;
 
-    public Abbonamento(int durata, String nome, int prezzo, boolean corsi) {
+    public Abbonamento(int durata, String nome, int prezzo,String dataInizio, boolean corsi) {
         this.durata = durata;
         this.nome = nome;
         this.prezzo = prezzo;
+        SimpleDateFormat s1=new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            this.dataInizio.setTime(s1.parse(dataInizio));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         GregorianCalendar date=new GregorianCalendar();
-        date.add(dataInizio.get(GregorianCalendar.MONTH), durata);
+        date.add(this.dataInizio.get(GregorianCalendar.MONTH), durata);
         dataFine=date;
         this.corsi = corsi;
     }

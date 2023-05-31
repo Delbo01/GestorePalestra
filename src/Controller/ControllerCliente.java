@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class ControllerCliente {
     private Cliente cliente;
-    private AbbonamentoMapper abbonamentoMapper=null;
+    private AbbonamentoMapper abbonamentoMapper;
     private SchedaMapper schedaMapper;
     private PersonalTrainerMapper personalTrainerMapper;
     private final GestoreAbbonamenti gestoreAbbonamenti;
@@ -31,6 +31,7 @@ public class ControllerCliente {
         this.schedaMapper = new SchedaMapper(cliente, null);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
+        abbonamentoMapper=new AbbonamentoMapper(cliente,dao_abbonamneto_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));
     }
 
     public void visualizzaScheda(Scanner sc) {
@@ -103,7 +104,8 @@ public class ControllerCliente {
         }
         int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
         Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamento(i-1,corsi);
-        dao_abbonamenti.creaAbbonamento(abbonamento.getDurata(),abbonamento.getNome(),abbonamento.getPrezzo(),abbonamento.isCorsi(),abbonamento.getDataInizio(),abbonamento.getDataFine());
+        int idAb= dao_abbonamenti.getMaxId()+1;
+        dao_abbonamenti.creaAbbonamento(idAb,abbonamento.getDurata(),abbonamento.getNome(),abbonamento.getPrezzo(),abbonamento.isCorsi(),abbonamento.getDataInizio(),abbonamento.getDataFine());
         int idAbb=dao_abbonamenti.getIdByNomeDurata(abbonamento.getDurata(),abbonamento.getNome());
         dao_abbonamneto_cliente.creaAbbonamentoCliente(idCliente,idAbb);
         abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
