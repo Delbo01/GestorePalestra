@@ -10,13 +10,14 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
         super();
     }
     @Override
-    public void createScheda(int idIstruttore, String obiettivo, int numeroProgrammi) {
-        String query = "INSERT INTO \"Scheda\" (idIstruttore,obiettivo,numeroProgrammi) VALUES (?,?,?)";
+    public void createScheda(int idIstruttore,int idScheda, String obiettivo, int numeroProgrammi) {
+        String query = "INSERT INTO \"Scheda\" (idIstruttore,id,obiettivo,numeroProgrammi) VALUES (?,?,?,?)";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
             statement.setInt(1, idIstruttore);
-            statement.setString(2, obiettivo);
-            statement.setInt(3, numeroProgrammi);
+            statement.setInt(2, idScheda);
+            statement.setString(3, obiettivo);
+            statement.setInt(4, numeroProgrammi);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,5 +41,19 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
         }
     }
 
+    @Override
+    public int getMaxIdScheda() {
+        String query = "SELECT MAX(id) FROM \"Scheda\"";
+        try {
+            PreparedStatement statement = super.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                return rs.getInt(1);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
 

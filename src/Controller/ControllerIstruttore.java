@@ -5,6 +5,7 @@ import Allenamento.ProgrammaAllenamento;
 import Allenamento.Scheda;
 import Allenamento.SchedaMapper;
 import Calendario.Calendario;
+import Database.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 import Istruttore.*;
@@ -20,7 +21,12 @@ public class ControllerIstruttore {
     private GestoreRichiestaScheda gestoreRichiestaScheda;
     //private GestoreRichiestaScheda gestoreRichiestaSchedaPT = null;
     private GestorePT gestorePT;
+    private Dao_Scheda_Interface daoScheda = new Dao_Scheda();
+    private Dao_Istruttore_Interface daoIstruttore = new Dao_Istruttore();
+    private Dao_Programma_Interface daoProgramma = new Dao_Programma();
+    private Dao_Esercizi_Interface daoEsercizio = new Dao_Esercizi();
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
+
 
     public ControllerIstruttore(Istruttore istruttore,Calendario calendario,GestoreRichiestaScheda gr,GestorePT gestorePT){
         this.istruttore = istruttore;
@@ -140,8 +146,12 @@ public class ControllerIstruttore {
         int ns = 0;
         String durata = richiesta.getDurataProg();
         Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
+        int idIstruttore=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
+        int idScheda=daoScheda.getMaxIdScheda()+1;
+        daoScheda.createScheda(idIstruttore,idScheda,ob,np);
         for(int i = 0; i < np; i++){
             ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
+            int idProgr=daoProgramma.getMaxIdProgramma()+1;
             System.out.println("Programma nr " + (i + 1));
             do {
                 while (number) {
@@ -200,6 +210,18 @@ public class ControllerIstruttore {
                 sc.nextLine();
                 number = true;
             }while (stop == 1);
+            int nes=prog.getnEsercizi();
+            daoProgramma.creaProgramma(idProgr,idScheda,nes,durata);
+            for (int j=0;j<nes;j++){
+                int idEsercizio=daoEsercizio.getMaxIdEsercizio()+1;
+                String nomeEsercizio=prog.getEsercizio(j).getNome();
+                int serie=prog.getEsercizio(j).getSerie();
+                int ripetizioni=prog.getEsercizio(j).getReps();
+                int tempoRecupero=prog.getEsercizio(j).getTempoRecupero();
+                String note=prog.getEsercizio(j).getNote();
+                int carico=prog.getEsercizio(j).getCarico();
+                daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,tempoRecupero,carico,note);
+            }
             scheda.addProgramma(prog);
         }
         schedaMapper.setSchedaMapper(scheda);
@@ -222,9 +244,13 @@ public class ControllerIstruttore {
             int tr = 0;
             int ns = 0;
             String durata = richiesta.getDurataProg();
+            int idIstruttore=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
+            int idScheda=daoScheda.getMaxIdScheda()+1;
+            daoScheda.createScheda(idIstruttore,idScheda,ob,np);
             Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
             for(int i = 0; i < np; i++){
                 ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
+                int idProgr=daoProgramma.getMaxIdProgramma()+1;
                 System.out.println("Programma nr " + (i + 1)+"\n");
                 do {
                     while (number) {
@@ -279,6 +305,18 @@ public class ControllerIstruttore {
                     sc.nextLine();
                     number = true;
                 }while (stop == 1);
+                int nes=prog.getnEsercizi();
+                daoProgramma.creaProgramma(idProgr,idScheda,nes,durata);
+                for (int j=0;j<nes;j++){
+                    int idEsercizio=daoEsercizio.getMaxIdEsercizio()+1;
+                    String nomeEsercizio=prog.getEsercizio(j).getNome();
+                    int serie=prog.getEsercizio(j).getSerie();
+                    int ripetizioni=prog.getEsercizio(j).getReps();
+                    int tempoRecupero=prog.getEsercizio(j).getTempoRecupero();
+                    String note=prog.getEsercizio(j).getNote();
+                    int carico=prog.getEsercizio(j).getCarico();
+                    daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,tempoRecupero,carico,note);
+                }
                 scheda.addProgramma(prog);
             }
             schedaMapper.setSchedaMapper(scheda);

@@ -4,7 +4,7 @@ public class Esercizio {
     private final String nome;
     private final int serie;
     private final int reps;
-    private float carico=0;
+    private int carico=0;
     private final int tempoRecupero;
     private final String note;
     private final Timer timer;
@@ -30,7 +30,7 @@ public class Esercizio {
         return reps;
     }
 
-    public float getCarico() {
+    public int getCarico() {
         return carico;
     }
 
@@ -42,7 +42,7 @@ public class Esercizio {
         return note;
     }
 
-    public void setCarico(float carico) {
+    public void setCarico(int carico) {
         this.carico = carico;
     }
 

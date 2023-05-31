@@ -33,7 +33,7 @@ public class Scheda {
             programma.get(i).visualizzaProgramma(sc);
         }
     }
-    public void setCarico(int prog,int es, float carico){
+    public void setCarico(int prog, int es, int carico){
         programma.get(prog).getEsercizio(es).setCarico(carico);
     }
 

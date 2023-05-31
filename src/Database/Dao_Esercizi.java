@@ -1,6 +1,7 @@
 package Database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
@@ -8,17 +9,18 @@ public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
         super();
     }
     @Override
-    public void createEsercizio(int idProgramma, String nome, int serie, int ripetizioni, int carico, int recupero, String note) {
-        String query = "INSERT INTO \"Esercizi\" (idProgramma,nome,serie,ripetizioni,carico,recupero,note) VALUES (?,?,?,?,?,?,?)";
+    public void createEsercizio(int idEs, int idProgramma, String nome, int serie, int ripetizioni, int carico, int recupero, String note) {
+        String query = "INSERT INTO \"Esercizi\" (id,idProgramma,nome,serie,ripetizioni,carico,recupero,note) VALUES (?,?,?,?,?,?,?;?)";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
-            statement.setInt(1, idProgramma);
-            statement.setString(2, nome);
-            statement.setInt(3, serie);
-            statement.setInt(4, ripetizioni);
-            statement.setInt(5, carico);
-            statement.setInt(6, recupero);
-            statement.setString(7, note);
+            statement.setInt(1,idEs );
+            statement.setInt(2, idProgramma);
+            statement.setString(3, nome);
+            statement.setInt(4, serie);
+            statement.setInt(5, ripetizioni);
+            statement.setInt(6, carico);
+            statement.setInt(7, recupero);
+            statement.setString(8, note);
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -50,5 +52,20 @@ public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getMaxIdEsercizio() {
+        String query = "SELECT MAX(id) FROM \"Esercizi\"";
+        try {
+            PreparedStatement statement = super.connection.prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                return rs.getInt(1);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
