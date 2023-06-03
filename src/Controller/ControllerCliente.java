@@ -23,6 +23,8 @@ public class ControllerCliente {
     private final Dao_Abbonamento_Interface dao_abbonamenti= new Dao_Abbonamento();
     private final Dao_Abbonamento_Cliente_Interface dao_abbonamneto_cliente= new Dao_Abbonamento_Cliente();
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
+    private final Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
+    private final Dao_PT_Cliente_Interface dao_pt_cliente= new Dao_PT_Cliente();
 
 
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
@@ -115,6 +117,9 @@ public class ControllerCliente {
         if (abbonamentoMapper.getAbbonamento() != null) {
             Istruttore pt = gestorePT.ottieniPT();
             if (pt != null) {
+                int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
+                int idPt=dao_istruttore.getIdByNomeCognome(pt.getGeneralita().getNome(),pt.getGeneralita().getCognome());
+                dao_pt_cliente.createPT_Cliente(idPt,idCliente);
                 personalTrainerMapper.setPtMapper(pt);
                 System.out.println("Il tuo personal trainer è " + pt.getGeneralita().getNome() + " " + pt.getGeneralita().getCognome());
             } else System.out.println("Non ci sono allenatori disponibili");
@@ -127,6 +132,9 @@ public class ControllerCliente {
             String nomePt = sc.nextLine();
             Istruttore pt = gestorePT.ottieniPT(nomePt);
             if (pt != null) {
+                int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
+                int idPt=dao_istruttore.getIdByNomeCognome(pt.getGeneralita().getNome(),pt.getGeneralita().getCognome());
+                dao_pt_cliente.createPT_Cliente(idPt,idCliente);
                 personalTrainerMapper.setPtMapper(pt);
                 System.out.println("Il tuo personal trainer è " + pt.getGeneralita().getNome() + " " + pt.getGeneralita().getCognome());
             } else System.out.println("Non ci sono allenatori disponibili");
@@ -137,6 +145,8 @@ public class ControllerCliente {
         if (abbonamentoMapper.getAbbonamento() != null) {
             if (personalTrainerMapper.getPtMapper() != null) {
                 gestorePT.rimuoviAssistito(personalTrainerMapper.getPtMapper());
+                int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
+                dao_pt_cliente.deletePT_Cliente(idCliente);
                 personalTrainerMapper.setPtMapper(null);
             } else System.out.println("Non hai un personal trainer");
         }

@@ -1,7 +1,12 @@
 package Database;
+import Cliente.Generalita;
+import Istruttore.Istruttore;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface{
     public Dao_Istruttore(){
         super();
@@ -88,5 +93,36 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
             e.printStackTrace();
         }
         return -1;
+    }
+
+    @Override
+    public void setPt(int id, boolean pt) {
+        String query="UPDATE \"Istruttore\" SET pt=? WHERE id=?";
+        try {
+            PreparedStatement statement = super.connection.prepareStatement(query);
+            statement.setBoolean(1, pt);
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public ArrayList<Istruttore> getAllPT() {
+        String query="SELECT * FROM \"Istruttore\" WHERE pt=true";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            ResultSet rs=statement.executeQuery();
+            ArrayList<Istruttore> istruttori=new ArrayList<>();
+            while(rs.next()){
+                Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
+                istruttori.add(new Istruttore(g,null));
+            }
+            return istruttori;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

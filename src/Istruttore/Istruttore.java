@@ -12,10 +12,9 @@ public class Istruttore {
 
     private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
 
-    public Istruttore(Generalita gen,Calendario calendario, GestoreRichiestaScheda gpt){
+    public Istruttore(Generalita gen,Calendario calendario){
         generalita = gen;
         this.calendario = calendario;
-        gestoreRichiestaSchedaPT=gpt;
     }
     public Generalita getGeneralita() {
         return generalita;

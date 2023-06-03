@@ -23,6 +23,7 @@ public class ControllerIstruttore {
     private GestorePT gestorePT;
     private Dao_Scheda_Interface daoScheda = new Dao_Scheda();
     private Dao_Istruttore_Interface daoIstruttore = new Dao_Istruttore();
+    private final Dao_PT_Cliente_Interface daoPT_Cliente = new Dao_PT_Cliente();
     private Dao_Programma_Interface daoProgramma = new Dao_Programma();
     private Dao_Esercizi_Interface daoEsercizio = new Dao_Esercizi();
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
@@ -130,6 +131,8 @@ public class ControllerIstruttore {
     }
     public void diventaPT(){
         gestorePT.inserisciPT(istruttore);
+        int id=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
+        daoIstruttore.setPt(id,true);
         istruttore.diventaPT();
     }
     public void ottieniRichiestaScheda(Scanner sc, SchedaMapper schedaMapper){//FIXME: implementare database per ottenere scheda del cliente

@@ -1,5 +1,9 @@
 package Database;
 
+import Istruttore.Istruttore;
+
+import java.util.ArrayList;
+
 public interface Dao_Istruttore_Interface {
     public void createIstruttore(int id, String nome, String cognome, String codiceFiscale,boolean pt,int nAssistiti);
     public void updatePt(int id,boolean pt);
@@ -7,4 +11,6 @@ public interface Dao_Istruttore_Interface {
     public void decrementaAssistiti(int id);
     public int getMaxId();
     public int getIdByNomeCognome(String nome,String cognome);
+    public void setPt(int id,boolean pt);
+    public ArrayList<Istruttore> getAllPT();
 }
