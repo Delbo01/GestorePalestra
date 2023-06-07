@@ -83,7 +83,7 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
     public int getIdByNomeCognome(String nome, String cognome) {
         String query="SELECT id FROM \"Istruttore\" WHERE nome=? AND cognome=?";
         try{
-            PreparedStatement statement=super.connection.prepareStatement(query);
+            PreparedStatement statement=connection.prepareStatement(query);
             statement.setString(1,nome);
             statement.setString(2,cognome);
             ResultSet rs=statement.executeQuery();
@@ -112,7 +112,7 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
     public ArrayList<Istruttore> getAllPT() {
         String query="SELECT * FROM \"Istruttore\" WHERE pt=true";
         try{
-            PreparedStatement statement=super.connection.prepareStatement(query);
+            PreparedStatement statement=connection.prepareStatement(query);
             ResultSet rs=statement.executeQuery();
             ArrayList<Istruttore> istruttori=new ArrayList<>();
             while(rs.next()){

@@ -10,7 +10,7 @@ public class Cliente {
     private final float altezza;
     private final float peso;
     private final GestoreRichiestaScheda gestoreRichiestaScheda;
-    private final Calendario calendario;
+    private Calendario calendario;
 
 
     public Cliente(Generalita generalita, float altezza, float peso, GestoreRichiestaScheda gestoreRichiestaScheda, Calendario calendario) {
@@ -52,5 +52,9 @@ public class Cliente {
 
     public Generalita getGeneralita() {
         return generalita;
+    }
+
+    public void setCalendario(Calendario calendario) {
+        this.calendario = calendario;
     }
 }

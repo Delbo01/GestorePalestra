@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Scheda {
     private final ArrayList<ProgrammaAllenamento> programma=new ArrayList<>();
     private int nProg=0;
-    private final String istruttore;
+    private final String nomeIstruttore;
     private final String obbiettivo;
 
     public Scheda(String istruttore, String obbiettivo) {
         this.obbiettivo = obbiettivo;
-        this.istruttore = istruttore;
+        this.nomeIstruttore = istruttore;
     }
 
     public void addProgramma(ProgrammaAllenamento p){
@@ -44,4 +44,6 @@ public class Scheda {
     public int getnProg() {
         return nProg;
     }
+
+
 }

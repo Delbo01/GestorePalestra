@@ -1,5 +1,7 @@
 package Database;
 
+import Allenamento.ProgrammaAllenamento;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,5 +50,17 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public ProgrammaAllenamento getProgramma(int id){
+        String query="Select * from \"Programma\" join \"Esercizi\" ON \"Esercizi\".\"idProgramma\" = \"Programma\".id where \"Programma\".id=?";
+        try{
+            PreparedStatement statement= super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

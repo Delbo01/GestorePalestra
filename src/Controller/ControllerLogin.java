@@ -164,7 +164,7 @@ public class ControllerLogin {
         System.out.println("Inserisci codice fiscale:");
         String codiceFiscale=sc.nextLine();
         Generalita generalita = new Generalita(codiceFiscale,nome,cognome);
-        Istruttore istruttore = new Istruttore(generalita,calendario,gestoreRichiestaScheda);
+        Istruttore istruttore = new Istruttore(generalita,calendario);
         dao_istruttore.createIstruttore(id, nome,cognome,codiceFiscale,false,0);
         dao_credenzialiIstruttore.createCredenziali(username,password,id);
         gestoreLogin.registraIstruttore(username,password,istruttore);

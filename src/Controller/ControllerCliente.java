@@ -2,6 +2,7 @@ package Controller;
 
 import Abbonamento.*;
 import Allenamento.*;
+import Calendario.Calendario;
 import Cliente.*;
 import Database.*;
 import Istruttore.*;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 
 public class ControllerCliente {
     private Cliente cliente;
+    private Calendario calendario;
     private AbbonamentoMapper abbonamentoMapper;
     private SchedaMapper schedaMapper;
     private PersonalTrainerMapper personalTrainerMapper;
@@ -26,11 +28,13 @@ public class ControllerCliente {
     private final Dao_Scheda_Cliente_Interface dao_scheda_cliente= new Dao_Scheda_Cliente();
 
 
-    public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
+    public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT,Calendario calendario) {
         this.cliente = cliente;
+        this.calendario=calendario;
         this.personalTrainerMapper = new PersonalTrainerMapper(cliente, null);
         int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
         this.schedaMapper =dao_scheda_cliente.getScheda_Cliente(idC);
+        schedaMapper.getCliente().setCalendario(calendario);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
         abbonamentoMapper=new AbbonamentoMapper(cliente, dao_abbonamento_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));

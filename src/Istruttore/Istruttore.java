@@ -49,4 +49,8 @@ public class Istruttore {
     public void setCalendario(Calendario calendario) {
         this.calendario = calendario;
     }
+
+    public void setNumeroAssistiti(int numeroAssistiti) {
+        this.numeroAssistiti = numeroAssistiti;
+    }
 }

@@ -55,5 +55,19 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
         }
         return 0;
     }
+    /*public Scheda getScheda(int id){
+        String query="Select * from ((\"Scheda\" join \"Programma\" on \"Scheda\".\"id\"=\"Programma\".\"idScheda\")join \"Esercizi\" on \"Programma\".\"id\"=\"Esercizi\".\"idProgramma\") where \"Scheda\".\"id\"=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+            while (rs.next()){
+                Scheda s=new Scheda();
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }*/
 }
 
