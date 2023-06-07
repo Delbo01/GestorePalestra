@@ -4,10 +4,8 @@ import Abbonamento.*;
 import Allenamento.*;
 import Cliente.*;
 import Database.*;
-import GestioneRichieste.Richiesta;
 import Istruttore.*;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,7 +19,7 @@ public class ControllerCliente {
 
     private final Dao_Corso_Interface corsi = new Dao_Corso();
     private final Dao_Abbonamento_Interface dao_abbonamenti= new Dao_Abbonamento();
-    private final Dao_Abbonamento_Cliente_Interface dao_abbonamneto_cliente= new Dao_Abbonamento_Cliente();
+    private final Dao_Abbonamento_Cliente_Interface dao_abbonamento_cliente = new Dao_Abbonamento_Cliente();
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
     private final Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
     private final Dao_PT_Cliente_Interface dao_pt_cliente= new Dao_PT_Cliente();
@@ -35,7 +33,7 @@ public class ControllerCliente {
         this.schedaMapper =dao_scheda_cliente.getScheda_Cliente(idC);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
-        abbonamentoMapper=new AbbonamentoMapper(cliente,dao_abbonamneto_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));
+        abbonamentoMapper=new AbbonamentoMapper(cliente, dao_abbonamento_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));
     }
 
     public void visualizzaScheda(Scanner sc) {
@@ -46,7 +44,7 @@ public class ControllerCliente {
 
     public void vediAbbonamento(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() == null)
-            System.out.println("Non hai un abboanmneto");
+            System.out.println("Non hai un abbonamento");
         else abbonamentoMapper.getAbbonamento().visualizzaAbbonamento();
 
     }
@@ -111,7 +109,7 @@ public class ControllerCliente {
         int idAb= dao_abbonamenti.getMaxId()+1;
         dao_abbonamenti.creaAbbonamento(idAb,abbonamento.getDurata(),abbonamento.getNome(),abbonamento.getPrezzo(),abbonamento.isCorsi(),abbonamento.getDataInizio(),abbonamento.getDataFine());
         int idAbb=dao_abbonamenti.getIdByNomeDurata(abbonamento.getDurata(),abbonamento.getNome());
-        dao_abbonamneto_cliente.creaAbbonamentoCliente(idCliente,idAbb);
+        dao_abbonamento_cliente.creaAbbonamentoCliente(idCliente,idAbb);
         abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
     }
 

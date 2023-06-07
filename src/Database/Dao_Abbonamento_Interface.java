@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public interface Dao_Abbonamento_Interface{
 
-    public void creaAbbonamento(int id,int durata, String nome, int prezzo, boolean corsi,String dataInizio,String dataFine);
-    public void eliminaAbbonamento(int id);
-    public int getIdByNomeDurata(int durata, String nome);
+    void creaAbbonamento(int id,int durata, String nome, int prezzo, boolean corsi,String dataInizio,String dataFine);
+    void eliminaAbbonamento(int id);
+    int getIdByNomeDurata(int durata, String nome);
 
     int getMaxId();
 }

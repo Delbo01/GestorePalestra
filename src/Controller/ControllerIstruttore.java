@@ -309,7 +309,7 @@ public class ControllerIstruttore {
                     String note = sc.nextLine();
                     Esercizio e = new Esercizio(ne, ns, nr, tr, note);
                     prog.addEsercizio(e);
-                    System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
+                    System.out.println("Vuoi aggiungere un esercizio? (1 si, 0 no)");
                     stop = sc.nextInt();
                     sc.nextLine();
                     number = true;
