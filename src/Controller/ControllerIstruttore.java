@@ -26,6 +26,8 @@ public class ControllerIstruttore {
     private final Dao_PT_Cliente_Interface daoPT_Cliente = new Dao_PT_Cliente();
     private Dao_Programma_Interface daoProgramma = new Dao_Programma();
     private Dao_Esercizi_Interface daoEsercizio = new Dao_Esercizi();
+    private Dao_Cliente_Interface daoCliente= new Dao_Cliente();
+    private Dao_Scheda_Cliente_Interface daoScheda_Cliente = new Dao_Scheda_Cliente();
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
 
 
@@ -135,7 +137,7 @@ public class ControllerIstruttore {
         daoIstruttore.setPt(id,true);
         istruttore.diventaPT();
     }
-    public void ottieniRichiestaScheda(Scanner sc, SchedaMapper schedaMapper){//FIXME: implementare database per ottenere scheda del cliente
+    public void ottieniRichiestaScheda(Scanner sc){
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
         String ob = richiesta.getObbiettivo();
         int np = richiesta.getnProg();
@@ -227,10 +229,14 @@ public class ControllerIstruttore {
             }
             scheda.addProgramma(prog);
         }
-        schedaMapper.setSchedaMapper(scheda);
+        int idC=daoCliente.getIdByCf(richiesta.getCliente().getGeneralita().getCf());
+        if (daoScheda_Cliente.checkScheda_Cliente(idC))
+            daoScheda_Cliente.updateScheda_Cliente(idC,idScheda);
+        else
+            daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
     }
 
-    public void ottieniRichiestaSchedaPT(Scanner sc, SchedaMapper schedaMapper){//FIXME: implementare database per ottenere scheda del cliente
+    public void ottieniRichiestaSchedaPT(Scanner sc){
         if(istruttore.getGestoreRichiestaSchedaPT() == null){
             System.out.println("Non sei ancora un personal trainer");
         }
@@ -322,7 +328,8 @@ public class ControllerIstruttore {
                 }
                 scheda.addProgramma(prog);
             }
-            schedaMapper.setSchedaMapper(scheda);
+            int idC=daoCliente.getIdByCf(richiesta.getCliente().getGeneralita().getCf());
+            daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
         }
     }
 }

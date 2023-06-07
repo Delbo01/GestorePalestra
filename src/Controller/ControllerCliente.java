@@ -25,12 +25,14 @@ public class ControllerCliente {
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
     private final Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
     private final Dao_PT_Cliente_Interface dao_pt_cliente= new Dao_PT_Cliente();
+    private final Dao_Scheda_Cliente_Interface dao_scheda_cliente= new Dao_Scheda_Cliente();
 
 
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT) {
         this.cliente = cliente;
         this.personalTrainerMapper = new PersonalTrainerMapper(cliente, null);
-        this.schedaMapper = new SchedaMapper(cliente, null);
+        int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
+        this.schedaMapper =dao_scheda_cliente.getScheda_Cliente(idC);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
         abbonamentoMapper=new AbbonamentoMapper(cliente,dao_abbonamneto_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));
