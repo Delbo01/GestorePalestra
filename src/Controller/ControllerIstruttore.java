@@ -139,109 +139,9 @@ public class ControllerIstruttore {
     }
     public void ottieniRichiestaScheda(Scanner sc){
         Richiesta richiesta = gestoreRichiestaScheda.ottieniRichiesta();
-        String ob = richiesta.getObbiettivo();
-        int np = richiesta.getnProg();
-        System.out.println("Obbiettivo: " + ob);
-        System.out.println("Numero di programmi: " + np);
-        String ne = null;
-        boolean number = true;
-        int stop;
-        int nr = 0;
-        int tr = 0;
-        int ns = 0;
-        String durata = richiesta.getDurataProg();
-        Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
-        int idIstruttore=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
-        int idScheda=daoScheda.getMaxIdScheda()+1;
-        daoScheda.createScheda(idIstruttore,idScheda,ob,np);
-        for(int i = 0; i < np; i++){
-            ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
-            int idProgr=daoProgramma.getMaxIdProgramma()+1;
-            System.out.println("Programma nr " + (i + 1));
-            do {
-                while (number) {
-                    System.out.println("Scegli l'esercizio per questo programma");
-                    ne = sc.nextLine();
-                    Matcher matcher = pattern.matcher(ne);
-                    number = matcher.find();
-                    if(number){
-                        System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
-                    }
-
-                }
-                System.out.println("Numero di serie");
-                boolean exit = false;
-                while(!exit){
-                    try {
-                        ns = sc.nextInt();
-                        sc.nextLine();
-                        exit = true;
-
-                    }catch (InputMismatchException e){
-                        System.out.println("INSERIRE NUMERO INTERO");
-                        sc.nextLine();
-                    }
-                }
-                exit = false;
-                System.out.println("Numero di Ripetizioni");
-                while (!exit){
-                    try {
-                        nr = sc.nextInt();
-                        sc.nextLine();
-                        exit = true;
-                    }catch (InputMismatchException e){
-                        System.out.println("INSERIRE NUMERO INTERO");
-                        sc.nextLine();
-                    }
-                }
-                exit = false;
-                System.out.println("Scegli il tempo di recupero in secondi");
-                while (!exit){
-                    try {
-                        tr = sc.nextInt();
-                        sc.nextLine();
-                        exit = true;
-                    }catch (InputMismatchException e){
-                        System.out.println("INSERIRE NUMERO INTERO");
-                        sc.nextLine();
-                    }
-                }
-                System.out.println("inserisci note aggiuntive");
-                String note = sc.nextLine();
-                Esercizio e = new Esercizio(ne, ns, nr, tr, note);
-                prog.addEsercizio(e);
-                System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
-                stop = sc.nextInt();
-                sc.nextLine();
-                number = true;
-            }while (stop == 1);
-            int nes=prog.getnEsercizi();
-            daoProgramma.creaProgramma(idProgr,idScheda,nes,durata);
-            for (int j=0;j<nes;j++){
-                int idEsercizio=daoEsercizio.getMaxIdEsercizio()+1;
-                String nomeEsercizio=prog.getEsercizio(j).getNome();
-                int serie=prog.getEsercizio(j).getSerie();
-                int ripetizioni=prog.getEsercizio(j).getReps();
-                int tempoRecupero=prog.getEsercizio(j).getTempoRecupero();
-                String note=prog.getEsercizio(j).getNote();
-                int carico=prog.getEsercizio(j).getCarico();
-                daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,tempoRecupero,carico,note);
-            }
-            scheda.addProgramma(prog);
-        }
-        int idC=daoCliente.getIdByCf(richiesta.getCliente().getGeneralita().getCf());
-        if (daoScheda_Cliente.checkScheda_Cliente(idC))
-            daoScheda_Cliente.updateScheda_Cliente(idC,idScheda);
-        else
-            daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
-    }
-
-    public void ottieniRichiestaSchedaPT(Scanner sc){
-        if(istruttore.getGestoreRichiestaSchedaPT() == null){
-            System.out.println("Non sei ancora un personal trainer");
-        }
-        else{
-            Richiesta richiesta = istruttore.getGestoreRichiestaSchedaPT().ottieniRichiesta();
+        if (richiesta==null){
+            System.out.println("Non ci sono richieste di scheda");
+        }else {
             String ob = richiesta.getObbiettivo();
             int np = richiesta.getnProg();
             System.out.println("Obbiettivo: " + ob);
@@ -253,29 +153,31 @@ public class ControllerIstruttore {
             int tr = 0;
             int ns = 0;
             String durata = richiesta.getDurataProg();
+            Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
             int idIstruttore=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
             int idScheda=daoScheda.getMaxIdScheda()+1;
             daoScheda.createScheda(idIstruttore,idScheda,ob,np);
-            Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
             for(int i = 0; i < np; i++){
                 ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
                 int idProgr=daoProgramma.getMaxIdProgramma()+1;
-                System.out.println("Programma nr " + (i + 1)+"\n");
+                System.out.println("Programma nr " + (i + 1));
                 do {
                     while (number) {
                         System.out.println("Scegli l'esercizio per questo programma");
                         ne = sc.nextLine();
                         Matcher matcher = pattern.matcher(ne);
                         number = matcher.find();
-                        if(number) {
+                        if(number){
                             System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
                         }
+
                     }
-                    System.out.println("Numero di serie\n");
+                    System.out.println("Numero di serie");
                     boolean exit = false;
                     while(!exit){
                         try {
                             ns = sc.nextInt();
+                            sc.nextLine();
                             exit = true;
 
                         }catch (InputMismatchException e){
@@ -284,10 +186,11 @@ public class ControllerIstruttore {
                         }
                     }
                     exit = false;
-                    System.out.println("Numero di Ripetioni");
+                    System.out.println("Numero di Ripetizioni");
                     while (!exit){
                         try {
                             nr = sc.nextInt();
+                            sc.nextLine();
                             exit = true;
                         }catch (InputMismatchException e){
                             System.out.println("INSERIRE NUMERO INTERO");
@@ -295,10 +198,11 @@ public class ControllerIstruttore {
                         }
                     }
                     exit = false;
-                    System.out.println("Scegli il tempo di recupero in minuti");
+                    System.out.println("Scegli il tempo di recupero in secondi");
                     while (!exit){
                         try {
                             tr = sc.nextInt();
+                            sc.nextLine();
                             exit = true;
                         }catch (InputMismatchException e){
                             System.out.println("INSERIRE NUMERO INTERO");
@@ -309,7 +213,7 @@ public class ControllerIstruttore {
                     String note = sc.nextLine();
                     Esercizio e = new Esercizio(ne, ns, nr, tr, note);
                     prog.addEsercizio(e);
-                    System.out.println("Vuoi aggiungere un esercizio? (1 si, 0 no)");
+                    System.out.println("Vuoi aggiungere un esercizio (1 si, 0 no)");
                     stop = sc.nextInt();
                     sc.nextLine();
                     number = true;
@@ -329,7 +233,114 @@ public class ControllerIstruttore {
                 scheda.addProgramma(prog);
             }
             int idC=daoCliente.getIdByCf(richiesta.getCliente().getGeneralita().getCf());
-            daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
+            if (daoScheda_Cliente.checkScheda_Cliente(idC))
+                daoScheda_Cliente.updateScheda_Cliente(idC,idScheda);
+            else
+                daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
         }
     }
+
+
+    public void ottieniRichiestaSchedaPT(Scanner sc){
+        if(istruttore.getGestoreRichiestaSchedaPT() == null){
+            System.out.println("Non sei ancora un personal trainer");
+        }
+        else{
+            Richiesta richiesta = istruttore.getGestoreRichiestaSchedaPT().ottieniRichiesta();
+            if (richiesta == null){
+                System.out.println("Non ci sono richieste di scheda");
+            }
+            else{
+                String ob = richiesta.getObbiettivo();
+                int np = richiesta.getnProg();
+                System.out.println("Obbiettivo: " + ob);
+                System.out.println("Numero di programmi: " + np);
+                String ne = null;
+                boolean number = true;
+                int stop;
+                int nr = 0;
+                int tr = 0;
+                int ns = 0;
+                String durata = richiesta.getDurataProg();
+                int idIstruttore=daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome());
+                int idScheda=daoScheda.getMaxIdScheda()+1;
+                daoScheda.createScheda(idIstruttore,idScheda,ob,np);
+                Scheda scheda = new Scheda((istruttore.getGeneralita().getNome() + istruttore.getGeneralita().getCognome()),ob);
+                for(int i = 0; i < np; i++){
+                    ProgrammaAllenamento prog = new ProgrammaAllenamento(durata);
+                    int idProgr=daoProgramma.getMaxIdProgramma()+1;
+                    System.out.println("Programma nr " + (i + 1)+"\n");
+                    do {
+                        while (number) {
+                            System.out.println("Scegli l'esercizio per questo programma");
+                            ne = sc.nextLine();
+                            Matcher matcher = pattern.matcher(ne);
+                            number = matcher.find();
+                            if(number) {
+                                System.out.println("Il nome dell'esercizio non puo' contenere numeri!");
+                            }
+                        }
+                        System.out.println("Numero di serie\n");
+                        boolean exit = false;
+                        while(!exit){
+                            try {
+                                ns = sc.nextInt();
+                                exit = true;
+
+                            }catch (InputMismatchException e){
+                                System.out.println("INSERIRE NUMERO INTERO");
+                                sc.nextLine();
+                            }
+                        }
+                        exit = false;
+                        System.out.println("Numero di Ripetioni");
+                        while (!exit){
+                            try {
+                                nr = sc.nextInt();
+                                exit = true;
+                            }catch (InputMismatchException e){
+                                System.out.println("INSERIRE NUMERO INTERO");
+                                sc.nextLine();
+                            }
+                        }
+                        exit = false;
+                        System.out.println("Scegli il tempo di recupero in minuti");
+                        while (!exit){
+                            try {
+                                tr = sc.nextInt();
+                                exit = true;
+                            }catch (InputMismatchException e){
+                                System.out.println("INSERIRE NUMERO INTERO");
+                                sc.nextLine();
+                            }
+                        }
+                        System.out.println("inserisci note aggiuntive");
+                        String note = sc.nextLine();
+                        Esercizio e = new Esercizio(ne, ns, nr, tr, note);
+                        prog.addEsercizio(e);
+                        System.out.println("Vuoi aggiungere un esercizio? (1 si, 0 no)");
+                        stop = sc.nextInt();
+                        sc.nextLine();
+                        number = true;
+                    }while (stop == 1);
+                    int nes=prog.getnEsercizi();
+                    daoProgramma.creaProgramma(idProgr,idScheda,nes,durata);
+                    for (int j=0;j<nes;j++){
+                        int idEsercizio=daoEsercizio.getMaxIdEsercizio()+1;
+                        String nomeEsercizio=prog.getEsercizio(j).getNome();
+                        int serie=prog.getEsercizio(j).getSerie();
+                        int ripetizioni=prog.getEsercizio(j).getReps();
+                        int tempoRecupero=prog.getEsercizio(j).getTempoRecupero();
+                        String note=prog.getEsercizio(j).getNote();
+                        int carico=prog.getEsercizio(j).getCarico();
+                        daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,tempoRecupero,carico,note);
+                    }
+                    scheda.addProgramma(prog);
+                }
+                int idC=daoCliente.getIdByCf(richiesta.getCliente().getGeneralita().getCf());
+                daoScheda_Cliente.createScheda_Cliente(idC,idScheda);
+            }
+        }
+    }
+
 }

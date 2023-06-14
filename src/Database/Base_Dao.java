@@ -6,14 +6,16 @@ public class Base_Dao {
         getConnection();
     }
     public void getConnection(){
-        String url = "jdbc:postgresql://localhost/db_Palestra";
-        String user = "superuser";
-        String password = "palestra";
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connessione al database avvenuta con successo");
-        } catch (SQLException e) {
-            System.out.println("Errore di connessione al database");
+        String username="superuser";
+        String password="palestra";
+        String url="jdbc:postgresql://localhost/db_Palestra";
+        try{
+            connection= DriverManager.getConnection(url,username,password);
+            if (connection!=null){
+                System.out.println("Connessione al database avvenuta con successo");
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
         }
     }
 }

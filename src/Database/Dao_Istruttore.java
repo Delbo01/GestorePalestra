@@ -112,7 +112,7 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
     public ArrayList<Istruttore> getAllPT() {
         String query="SELECT * FROM \"Istruttore\" WHERE pt=true";
         try{
-            PreparedStatement statement=connection.prepareStatement(query);
+            PreparedStatement statement=super.connection.prepareStatement(query);
             ResultSet rs=statement.executeQuery();
             ArrayList<Istruttore> istruttori=new ArrayList<>();
             while(rs.next()){

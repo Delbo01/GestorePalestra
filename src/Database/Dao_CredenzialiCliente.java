@@ -56,7 +56,7 @@ public class Dao_CredenzialiCliente extends Base_Dao implements Dao_CredenzialiC
                     String cf = rs1.getString("cf");
                     float altezza = rs1.getFloat("altezza");
                     float peso = rs1.getFloat("peso");
-                    Generalita generalita = new Generalita(nome, cognome, cf);
+                    Generalita generalita = new Generalita(cf,nome, cognome);
                     return new Cliente(generalita, altezza, peso, null, null);
                 }
             }

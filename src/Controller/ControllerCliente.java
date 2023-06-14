@@ -32,9 +32,11 @@ public class ControllerCliente {
         this.cliente = cliente;
         this.calendario=calendario;
         this.personalTrainerMapper = new PersonalTrainerMapper(cliente, null);
+        System.out.println(cliente.getGeneralita().getCf());
         int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
-        this.schedaMapper =dao_scheda_cliente.getScheda_Cliente(idC);
-        schedaMapper.getCliente().setCalendario(calendario);
+        this.schedaMapper =null; //dao_scheda_cliente.getScheda_Cliente(idC);
+        if(schedaMapper!= null)
+            schedaMapper.getCliente().setCalendario(calendario);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
         abbonamentoMapper=new AbbonamentoMapper(cliente, dao_abbonamento_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));

@@ -8,7 +8,7 @@ public class Abbonamento {
     private final int durata;
     private final String nome;
     private final int prezzo;
-    private final GregorianCalendar dataInizio = new GregorianCalendar();
+    private GregorianCalendar dataInizio = new GregorianCalendar();
     private  GregorianCalendar dataFine;
     private boolean corsi;
 
@@ -31,6 +31,8 @@ public class Abbonamento {
         this.durata=a.getDurata();
         this.prezzo=a.getPrezzo();
         this.nome=a.getNome();
+        this.dataFine=a.dataFine;
+        this.dataInizio=a.dataInizio;
     }
     public void visualizzaAbbonamento(){
         System.out.println("Abbonamento "+nome+"con: ");

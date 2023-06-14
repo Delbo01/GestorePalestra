@@ -45,7 +45,7 @@ public class Dao_Abbonamento_Cliente extends Base_Dao implements Dao_Abbonamento
 
     @Override
     public Abbonamento getAbbonamento(int idCliente) {
-        String query="SELECT * FROM \"Abbonamento\" WHERE id=(SELECT idAbbonamento FROM \"Abbonamento_Cliente\" WHERE idCliente=?)";
+        String query="SELECT * FROM \"Abbonamento\" WHERE id=(SELECT \"idAbbonamento\" FROM \"Abbonamento_Cliente\" WHERE \"idCliente\"=?)";
         try{
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1, idCliente);
