@@ -52,15 +52,14 @@ public class Dao_Scheda_Cliente extends Base_Dao implements Dao_Scheda_Cliente_I
 
     @Override
     public SchedaMapper getScheda_Cliente(int idC) {
-        String query= "select * from ((\"Scheda_Cliente\" join \"Cliente\" ON \"Cliente\".id = \"Scheda_Cliente\".\"idCliente\")join \"Scheda\" ON \"Scheda\".id=\"Scheda_Cliente\".\"idScheda\")join \"Istruttore\" on \"Scheda\".\"istruttore\"=\"Istruttore\".\"id\" where idCliente=?";
+        String query= "select * from ((\"Scheda_Cliente\" join \"Cliente\" ON \"Cliente\".id = \"Scheda_Cliente\".\"idCliente\")join \"Scheda\" ON \"Scheda\".id=\"Scheda_Cliente\".\"idScheda\") where idCliente=?";
         try {
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1,idC);
             ResultSet rs=statement.executeQuery();
             if(rs.next()){
                 Cliente c= new Cliente(new Generalita(rs.getString(6),rs.getString(5),rs.getString(4)),rs.getFloat("altezza"),rs.getFloat("peso"),null,null);
-                Istruttore i=new Istruttore(new Generalita(rs.getString(16),rs.getString(15),rs.getString(14)),null);
-                Scheda s= new Scheda(i.getGeneralita().getNome() + i.getGeneralita().getCognome(),rs.getString("obiettivo"));
+                Scheda s= new Dao_Scheda().getScheda(rs.getInt(2));
                 return new SchedaMapper(c,s);
             }
         } catch (SQLException e) {

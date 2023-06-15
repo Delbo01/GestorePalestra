@@ -1,8 +1,11 @@
 package Database;
 
+import Allenamento.Esercizio;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
     public Dao_Esercizi() {
@@ -67,5 +70,20 @@ public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public Esercizio getEsercizo(int id){
+        String query = "SELECT * FROM \"Esercizi\" WHERE id=?";
+        try {
+            PreparedStatement statement = super.connection.prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                return new Esercizio(rs.getString("nome"),rs.getInt("serie"),rs.getInt("ripetizioni"),rs.getInt("tempoRecupero"),rs.getString("note"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

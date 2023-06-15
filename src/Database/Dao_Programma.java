@@ -1,5 +1,6 @@
 package Database;
 
+import Allenamento.Esercizio;
 import Allenamento.ProgrammaAllenamento;
 
 import java.sql.PreparedStatement;
@@ -53,14 +54,35 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
     }
 
     public ProgrammaAllenamento getProgramma(int id){
-        String query="Select * from \"Programma\" join \"Esercizi\" ON \"Esercizi\".\"idProgramma\" = \"Programma\".id where \"Programma\".id=?";
+        String query="Select \"Esercizi\".\"id\" from \"Programma\" join \"Esercizi\" ON \"Esercizi\".\"idProgramma\" = \"Programma\".\"id\" where \"Programma\".\"id\"=?";
         try{
             PreparedStatement statement= super.connection.prepareStatement(query);
             statement.setInt(1,id);
             ResultSet rs=statement.executeQuery();
+            ProgrammaAllenamento pa=new ProgrammaAllenamento(getDurata(id));
+            while(rs.next()){
+                Esercizio es= new Dao_Esercizi().getEsercizo(rs.getInt("id"));
+                pa.addEsercizio(es);
+            }
+            return pa;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    String getDurata(int id){
+        String query="Select \"durata\" from \"Programma\" where \"id\"=?";
+        try{
+            PreparedStatement statement= super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+                return rs.getString("durata");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
