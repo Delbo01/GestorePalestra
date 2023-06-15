@@ -23,23 +23,6 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
             e.printStackTrace();
         }
     }
-    @Override
-    public void vediScheda(int idS) {
-        String query = "SELECT * FROM \"Scheda\" WHERE idS=?";
-        try {
-            PreparedStatement statement = super.connection.prepareStatement(query);
-            statement.setInt(1, idS);
-            ResultSet rs = statement.executeQuery();
-            while (rs.next()){
-                System.out.println("idS: "+rs.getInt("idS"));
-                System.out.println("idIstruttore: "+rs.getInt("idIstruttore"));
-                System.out.println("obiettivo: "+rs.getString("obiettivo"));
-                System.out.println("numeroProgrammi: "+rs.getInt("numeroProgrammi"));
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public int getMaxIdScheda() {

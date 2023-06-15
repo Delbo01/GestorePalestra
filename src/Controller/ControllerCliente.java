@@ -34,7 +34,7 @@ public class ControllerCliente {
         this.personalTrainerMapper = new PersonalTrainerMapper(cliente, null);
         System.out.println(cliente.getGeneralita().getCf());
         int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
-        this.schedaMapper =null; //dao_scheda_cliente.getScheda_Cliente(idC);
+        this.schedaMapper = dao_scheda_cliente.getScheda_Cliente(idC);
         if(schedaMapper!= null)
             schedaMapper.getCliente().setCalendario(calendario);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
