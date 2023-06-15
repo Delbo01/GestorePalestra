@@ -1,45 +1,56 @@
 package Abbonamento;
 
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Abbonamento {
     private final int durata;
     private final String nome;
     private final int prezzo;
-    private GregorianCalendar dataInizio = new GregorianCalendar();
-    private  GregorianCalendar dataFine;
+    private String dataInizio;
+    private String dataFine;
     private boolean corsi;
 
-    public Abbonamento(int durata, String nome, int prezzo,String dataInizio, boolean corsi) {
+    public Abbonamento(int durata, String nome, int prezzo, String dataInizio, boolean corsi) {
         this.durata = durata;
         this.nome = nome;
         this.prezzo = prezzo;
-        SimpleDateFormat s1=new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            this.dataInizio.setTime(s1.parse(dataInizio));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        GregorianCalendar date=new GregorianCalendar();
-        date.add(this.dataInizio.get(GregorianCalendar.MONTH), durata);
-        dataFine=date;
         this.corsi = corsi;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(formatter.parse(dataInizio));
+
+            // Somma la durata alla data di inizio
+            cal.add(Calendar.MONTH, durata);
+
+            // Ottieni la data finale
+            String dataFine = formatter.format(cal.getTime());
+            this.dataFine = dataFine;
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        this.dataInizio = dataInizio;
     }
-    public Abbonamento(Abbonamento a){
-        this.durata=a.getDurata();
-        this.prezzo=a.getPrezzo();
-        this.nome=a.getNome();
-        this.dataFine=a.dataFine;
-        this.dataInizio=a.dataInizio;
+
+    public Abbonamento(Abbonamento a) {
+        this.durata = a.getDurata();
+        this.prezzo = a.getPrezzo();
+        this.nome = a.getNome();
+        this.dataFine = a.dataFine;
+        this.dataInizio = a.dataInizio;
     }
-    public void visualizzaAbbonamento(){
-        System.out.println("Abbonamento "+nome+"con: ");
-        System.out.println("Data inizio: "+dataInizio.get(GregorianCalendar.DATE)+"/"+(dataInizio.get(GregorianCalendar.MONTH)+1)+"/"+dataInizio.get(GregorianCalendar.YEAR));
-        System.out.println("Data fine: "+dataFine.get(GregorianCalendar.DATE)+"/"+(dataFine.get(GregorianCalendar.MONTH)+1)+"/"+dataFine.get(GregorianCalendar.YEAR));
-        System.out.println("Prezzo: "+prezzo);
-        System.out.println("Corsi: "+corsi);
+
+    public void visualizzaAbbonamento() {
+        System.out.println("Abbonamento " + nome + " con: ");
+        System.out.println("Data inizio: " + dataInizio);
+        System.out.println("Data fine: " + dataFine);
+        System.out.println("Prezzo: " + prezzo);
+        System.out.println("Corsi: " + corsi);
     }
 
     public int getDurata() {
@@ -53,6 +64,7 @@ public class Abbonamento {
     public int getPrezzo() {
         return prezzo;
     }
+
     public void setCorsi(boolean corsi) {
         this.corsi = corsi;
     }
@@ -62,10 +74,10 @@ public class Abbonamento {
     }
 
     public String getDataInizio() {
-        return dataInizio.get(GregorianCalendar.DATE)+"/"+(dataInizio.get(GregorianCalendar.MONTH)+1)+"/"+dataInizio.get(GregorianCalendar.YEAR);
+        return dataInizio;
     }
 
     public String getDataFine() {
-        return dataFine.get(GregorianCalendar.DATE)+"/"+(dataFine.get(GregorianCalendar.MONTH)+1)+"/"+dataFine.get(GregorianCalendar.YEAR);
+        return dataFine;
     }
 }

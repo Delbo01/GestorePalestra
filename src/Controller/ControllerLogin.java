@@ -40,6 +40,8 @@ public class ControllerLogin {
             System.out.println("Inserisci password:");
             String password=sc.nextLine();
             c=dao_credenzialiCliente.search(username,password);
+            c.setCalendario(calendario);
+            c.setGestoreRichiestaScheda(gestoreRichiestaScheda);
             i++;
         }
         return c;

@@ -6,6 +6,8 @@ import GestioneRichieste.*;
 import GestoreLogin.*;
 import Controller.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 
@@ -14,10 +16,13 @@ public class Main {
         Calendario calendario = new Calendario(2023);
         GestorePT gestorePT = new GestorePT(10,calendario);
         GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
-        gestoreAbbonamenti.addAbbonamenti(1,"mensile",60,"14/06/2023");
-        gestoreAbbonamenti.addAbbonamenti(3,"trimestrale",180,"14/06/2023");
-        gestoreAbbonamenti.addAbbonamenti(6,"semestrale",360,"14/06/2023");
-        gestoreAbbonamenti.addAbbonamenti(12,"annuale",720,"14/06/2023");
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dateString = currentDate.format(formatter);
+        gestoreAbbonamenti.addAbbonamenti(1,"mensile",60, dateString);
+        gestoreAbbonamenti.addAbbonamenti(3,"trimestrale",180,dateString);
+        gestoreAbbonamenti.addAbbonamenti(6,"semestrale",360,dateString);
+        gestoreAbbonamenti.addAbbonamenti(12,"annuale",720,dateString);
         GestoreRichiestaScheda gestoreRichiestaScheda = new GestoreRichiestaScheda();
         ListaCredenzialiCliente listaCredenzialiCliente = new ListaCredenzialiCliente();
         ListaCredenzialiIstruttore listaCredenzialiIstruttore = new ListaCredenzialiIstruttore();

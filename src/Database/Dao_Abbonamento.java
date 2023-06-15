@@ -14,7 +14,7 @@ public class Dao_Abbonamento extends Base_Dao implements Dao_Abbonamento_Interfa
 
     @Override
     public void creaAbbonamento(int id, int durata, String nome, int prezzo, boolean corsi,String dataInizio,String dataFine){
-        String query="INSERT INTO \"Abbonamento\" (id,durata,nome,prezzo,dataInizio,dataFine,cordi) VALUES (?,?,?,?,?,?,?)";
+        String query="INSERT INTO \"Abbonamento\" (id,durata,nome,prezzo,data_inizio,data_fine,corsi) VALUES (?,?,?,?,?,?,?)";
         try {
             PreparedStatement st = super.connection.prepareStatement(query);
             st.setInt(1, id);
@@ -42,21 +42,7 @@ public class Dao_Abbonamento extends Base_Dao implements Dao_Abbonamento_Interfa
             e.printStackTrace();
         }
     }
-    @Override
-    public int getIdByNomeDurata(int  durata, String nome) {
-        String query="SELECT id FROM \"Abbonamento\" WHERE durata=? AND nome=?";
-        try {
-            PreparedStatement st = super.connection.prepareStatement(query);
-            st.setInt(1, durata);
-            st.setString(2, nome);
-            ResultSet rs = st.executeQuery();
-            rs.next();
-            return rs.getInt("id");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return -1;
-    }
+
     @Override
     public int getMaxId() {
         String query="SELECT MAX(id) FROM \"Abbonamento\"";

@@ -17,7 +17,7 @@ public class Dao_Abbonamento_Cliente extends Base_Dao implements Dao_Abbonamento
 
     @Override
     public void creaAbbonamentoCliente(int idCliente, int idAbbonamento) {
-        String query="INSERT INTO \"Abbonamento_Cliente\" (idCliente,idAbbonamento) VALUES (?,?)";
+        String query="INSERT INTO \"Abbonamento_Cliente\"  VALUES (?,?)";
         try{
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1, idCliente);
