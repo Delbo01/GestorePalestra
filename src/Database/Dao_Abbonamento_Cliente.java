@@ -54,8 +54,8 @@ public class Dao_Abbonamento_Cliente extends Base_Dao implements Dao_Abbonamento
                 int duarata=rs.getInt("durata");
                 String nome=rs.getString("nome");
                 int prezzo=rs.getInt("prezzo");
-                String dataInizio=rs.getString("dataInizio");
-                String dataFine=rs.getString("dataFine");
+                String dataInizio=rs.getString("data_inizio");
+                String dataFine=rs.getString("data_fine");
                 boolean corsi=rs.getBoolean("corsi");
                 return new Abbonamento(duarata,nome,prezzo,dataInizio,corsi);
             }

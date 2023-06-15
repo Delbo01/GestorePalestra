@@ -57,7 +57,7 @@ public class Dao_CredenzialiIstruttore extends Base_Dao implements Dao_Credenzia
                     String nome = rs1.getString("nome");
                     String cognome = rs1.getString("cognome");
                     String cf = rs1.getString("cf");
-                    Generalita generalita = new Generalita(nome, cognome, cf);
+                    Generalita generalita = new Generalita(cf,nome,cognome);
                     return new Istruttore(generalita,null);
                 }
             }

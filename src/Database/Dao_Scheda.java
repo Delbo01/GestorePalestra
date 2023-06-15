@@ -11,13 +11,13 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
     }
     @Override
     public void createScheda(int idIstruttore,int idScheda, String obiettivo, int numeroProgrammi) {
-        String query = "INSERT INTO \"Scheda\" (idIstruttore,id,obiettivo,numeroProgrammi) VALUES (?,?,?,?)";
+        String query = "INSERT INTO \"Scheda\"  VALUES (?,?,?,?)";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
             statement.setInt(1, idIstruttore);
             statement.setInt(2, idScheda);
-            statement.setString(3, obiettivo);
-            statement.setInt(4, numeroProgrammi);
+            statement.setInt(3, numeroProgrammi);
+            statement.setString(4, obiettivo);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

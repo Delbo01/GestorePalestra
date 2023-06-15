@@ -52,7 +52,7 @@ public class Dao_Scheda_Cliente extends Base_Dao implements Dao_Scheda_Cliente_I
 
     @Override
     public SchedaMapper getScheda_Cliente(int idC) {
-        String query= "select * from ((\"Scheda_Cliente\" join \"Cliente\" ON \"Cliente\".id = \"Scheda_Cliente\".\"idCliente\")join \"Scheda\" ON \"Scheda\".id=\"Scheda_Cliente\".\"idScheda\") where idCliente=?";
+        String query= "select * from ((\"Scheda_Cliente\" join \"Cliente\" ON \"Cliente\".id = \"Scheda_Cliente\".idCliente )join \"Scheda\" ON \"Scheda\".id=\"Scheda_Cliente\".idScheda) where idCliente=?";
         try {
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1,idC);

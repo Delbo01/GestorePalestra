@@ -83,40 +83,46 @@ public class ControllerCliente {
 
 
     public void ottieniAbbonamento(Scanner sc) {
-        gestoreAbbonamenti.vediAbbonamenti();
-        System.out.println("Quale abbonamento vuoi sottoscrivere ?");
-        boolean fine = false;
-        int i = 0;
-        while (!fine) {
-            try {
-                i = sc.nextInt();
-                sc.nextLine();
-                fine = true;
-            } catch (InputMismatchException e) {
-                System.out.println("per favore inserire un intero");
-                sc.nextLine();
+        if (abbonamentoMapper.getAbbonamento() != null)
+            System.out.println("Hai già un abbonamento");
+        else {
+            System.out.println("Ecco gli abbonamenti disponibili :");
+            gestoreAbbonamenti.vediAbbonamenti();
+            System.out.println("Quale abbonamento vuoi sottoscrivere ?");
+            boolean fine = false;
+            int i = 0;
+            while (!fine) {
+                try {
+                    i = sc.nextInt();
+                    sc.nextLine();
+                    fine = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("per favore inserire un intero");
+                    sc.nextLine();
+                }
             }
-        }
-        System.out.println("Vuoi poter frequentare i corsi ?");
-        fine = false;
-        boolean corsi = true;
-        while (!fine) {
-            try {
-                corsi = sc.nextBoolean();
-                sc.nextLine();
-                fine = true;
-            } catch (InputMismatchException e) {
-                System.out.println("per favore inserisci un Boolean");
-                sc.nextLine();
+            System.out.println("Vuoi poter frequentare i corsi ?");
+            fine = false;
+            boolean corsi = true;
+            while (!fine) {
+                try {
+                    corsi = sc.nextBoolean();
+                    sc.nextLine();
+                    fine = true;
+                } catch (InputMismatchException e) {
+                    System.out.println("per favore inserisci un Boolean");
+                    sc.nextLine();
+                }
             }
+            int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
+            Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamento(i-1,corsi);
+            int idAb= dao_abbonamenti.getMaxId()+1;
+            dao_abbonamenti.creaAbbonamento(idAb,abbonamento.getDurata(),abbonamento.getNome(),abbonamento.getPrezzo(),abbonamento.isCorsi(),abbonamento.getDataInizio(),abbonamento.getDataFine());
+            dao_abbonamento_cliente.creaAbbonamentoCliente(idCliente,idAb);
+            abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
         }
-        int idCliente=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
-        Abbonamento abbonamento=gestoreAbbonamenti.getAbbonamento(i-1,corsi);
-        int idAb= dao_abbonamenti.getMaxId()+1;
-        dao_abbonamenti.creaAbbonamento(idAb,abbonamento.getDurata(),abbonamento.getNome(),abbonamento.getPrezzo(),abbonamento.isCorsi(),abbonamento.getDataInizio(),abbonamento.getDataFine());
-        dao_abbonamento_cliente.creaAbbonamentoCliente(idCliente,idAb);
-        abbonamentoMapper=new AbbonamentoMapper(cliente,abbonamento);
     }
+
 
     public void richiediPersonalTrainer() {
         if (abbonamentoMapper.getAbbonamento() != null) {
