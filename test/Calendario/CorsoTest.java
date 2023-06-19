@@ -5,14 +5,14 @@ public class CorsoTest{
 
     @Test
     public void testPrenota() {
-        Corso co = new Corso("prova",1,"10","11","carlo");
+        Corso co = new Corso("prova",1,"10","11","carlo","rossi");
         assertEquals(true,co.prenota());
 
         assertEquals(false,co.prenota());
     }
     @Test
     public void testRimuoviPrenotazione(){
-        Corso co = new Corso("prova",1,"10","11","carlo");
+        Corso co = new Corso("prova",1,"10","11","carlo","rossi");
         assertEquals(false,co.rimuoviPrenotazione());
 
         co.prenota();

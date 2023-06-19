@@ -9,10 +9,11 @@ public class GestorePTTest {
     GestorePT gestorePT;
     Istruttore i;
 
+    Calendario ca = new Calendario(2023);
     @Before
     public void setUp() throws Exception {
-        gestorePT = new GestorePT(1);
-        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),new GestoreRichiestaScheda());
+        gestorePT = new GestorePT(1,ca);
+        i=new Istruttore(new Generalita("www","mario","rossi"),ca);
     }
 
     @Test
@@ -55,13 +56,13 @@ public class GestorePTTest {
     public void getPTbyCF() {
         gestorePT.inserisciPT(i);
         assertEquals(i, gestorePT.getPtbyCF("www"));
-        assertEquals(null, gestorePT.getPtbyCF("www2"));
-        assertEquals(null, gestorePT.getPtbyCF(null));
+        assertNull(gestorePT.getPtbyCF("www2"));
+        assertNull(gestorePT.getPtbyCF(null));
     }
 
     @After
     public void tearDown() throws Exception {
-        gestorePT = new GestorePT(1);
-        i=new Istruttore(new Generalita("www","mario","rossi"),new Calendario(2022),new GestoreRichiestaScheda());
+        gestorePT = new GestorePT(1,ca);
+        i=new Istruttore(new Generalita("www","mario","rossi"),ca);
     }
 }

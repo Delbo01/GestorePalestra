@@ -16,14 +16,14 @@ public class ControllerIstruttoreTest {
     static Scanner sc;
     static ControllerIstruttore controllerIstruttore;
     static Calendario ca= new Calendario(2022);
-    static GestorePT gp = new GestorePT(10);
+    static GestorePT gp = new GestorePT(10,ca);
     static GestoreRichiestaScheda grs = new GestoreRichiestaScheda();
     static Istruttore istruttore;
     @BeforeClass
     public static void setUp() {
         sc = new Scanner(System.in);
         Generalita ge = new Generalita("dfs","pippo","poli");
-        istruttore = new Istruttore(ge,ca,grs);
+        istruttore = new Istruttore(ge,ca);
         controllerIstruttore = new ControllerIstruttore(istruttore,ca,grs,gp);
     }
     @Test
