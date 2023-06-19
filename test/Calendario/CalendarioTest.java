@@ -6,15 +6,16 @@ import static org.junit.Assert.*;
 public class CalendarioTest {
     @Test
     public void inserisciCorso() {
-        Corso co = new Corso("prova", 2, "10", "12", "Carlo","Rossi");
+        Corso co = new Corso("prova", 2, "10", "12", "luca","rossi");
         Calendario cal = new Calendario(2023);
         cal.inserisciCorso(1,12,co);
         assertEquals(true, cal.checkCorsiGiornalieri(1,12, co.getNome()));
+        cal.rimuoviCorso(1,12, co.getNome());
     }
 
     @Test
     public void rimuoviCorso() {
-        Corso co = new Corso("prova", 2, "10", "12", "Carlo","Rossi");
+        Corso co = new Corso("prova", 2, "10", "12", "luca","rossi");
         Calendario cal = new Calendario(2023);
         cal.inserisciCorso(1,12,co);
         assertEquals(true, cal.checkCorsiGiornalieri(1,12, co.getNome()));
