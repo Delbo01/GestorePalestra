@@ -13,7 +13,7 @@ public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
     }
     @Override
     public void createEsercizio(int idEs, int idProgramma, String nome, int serie, int ripetizioni, int carico, int recupero, String note) {
-        String query = "INSERT INTO \"Esercizi\" (id,idProgramma,nome,serie,ripetizioni,carico,recupero,note) VALUES (?,?,?,?,?,?,?;?)";
+        String query = "INSERT INTO \"Esercizi\"  VALUES (?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
             statement.setInt(1,idEs );

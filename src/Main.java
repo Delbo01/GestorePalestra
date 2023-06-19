@@ -34,8 +34,7 @@ public class Main {
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
         cliente.ottieniAbbonamento(sc);
-        cliente.richiediScheda(sc);
-        istruttore.ottieniRichiestaScheda(sc);
+        cliente.visualizzaScheda(sc);
         sc.close();
 
     }

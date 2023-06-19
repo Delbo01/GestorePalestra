@@ -46,7 +46,7 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
             ResultSet rs=statement.executeQuery();
             if (rs.next()){
                 Scheda scheda=new Scheda(rs.getString("istruttore"),rs.getString("obbiettivo"));
-                for (int i=0;i<rs.getInt("numeroProgrammi");i++){
+                for (int i=0;i<rs.getInt("nr_programmi");i++){
                     scheda.addProgramma(new Dao_Programma().getProgramma(id));
                 }
                 return scheda;

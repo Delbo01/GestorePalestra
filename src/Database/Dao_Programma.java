@@ -14,12 +14,13 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
     }
     @Override
     public void creaProgramma(int idProg, int idScheda, int nrEsercizio, String durata) {
-        String query = "INSERT INTO \"Programma\" (id,idScheda,nrEsercizio,durata) VALUES (?,?,?,?)";
+        String query = "INSERT INTO \"Programma\" VALUES (?,?,?,?)";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);
-            statement.setInt(1, idScheda);
-            statement.setInt(2, nrEsercizio);
-            statement.setString(3, durata);
+            statement.setInt(1, idProg);
+            statement.setInt(2, idScheda);
+            statement.setInt(3, nrEsercizio);
+            statement.setString(4, durata);
             statement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
