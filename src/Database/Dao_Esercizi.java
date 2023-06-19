@@ -79,11 +79,29 @@ public class Dao_Esercizi extends Base_Dao implements Dao_Esercizi_Interface{
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
             while (rs.next()){
-                return new Esercizio(rs.getString("nome"),rs.getInt("serie"),rs.getInt("ripetizioni"),rs.getInt("tempoRecupero"),rs.getString("note"));
+                Esercizio es= new Esercizio(rs.getString("nome"),rs.getInt("serie"),rs.getInt("ripetizioni"),rs.getInt("tempoRecupero"),rs.getString("note"));
+                es.setCarico(rs.getInt("carico"));
+                return es;
             }
         }catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+    public int getId(int idProgramma, int nEs){
+        String query = "SELECT id FROM \"Esercizi\" WHERE idprogramma=? And ((Select count(*) from \"Esercizi\" where idprogramma=? )=?)";
+        try {
+            PreparedStatement statement = super.connection.prepareStatement(query);
+            statement.setInt(1, idProgramma);
+            statement.setInt(2, idProgramma);
+            statement.setInt(3, nEs);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                return rs.getInt(1);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

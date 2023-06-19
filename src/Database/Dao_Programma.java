@@ -6,6 +6,7 @@ import Allenamento.ProgrammaAllenamento;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
 
@@ -55,7 +56,7 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
     }
 
     public ProgrammaAllenamento getProgramma(int id){
-        String query="Select \"Esercizi\".\"id\" from \"Programma\" join \"Esercizi\" ON \"Esercizi\".\"idProgramma\" = \"Programma\".\"id\" where \"Programma\".\"id\"=?";
+        String query="Select \"Esercizi\".\"id\" from \"Programma\" join \"Esercizi\" ON \"Esercizi\".\"idprogramma\" = \"Programma\".\"id\" where \"Programma\".\"id\"=?";
         try{
             PreparedStatement statement= super.connection.prepareStatement(query);
             statement.setInt(1,id);
@@ -85,5 +86,22 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
             e.printStackTrace();
         }
         return "";
+    }
+
+    public ArrayList<Integer> getIdbyIdScheda(int idScheda){
+        String query="Select \"id\" from \"Programma\" where \"idScheda\"=?";
+        try{
+            PreparedStatement statement= super.connection.prepareStatement(query);
+            statement.setInt(1,idScheda);
+            ResultSet rs=statement.executeQuery();
+            ArrayList<Integer> id=new ArrayList<>();
+            while(rs.next()){
+                id.add(rs.getInt("id"));
+            }
+            return id;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

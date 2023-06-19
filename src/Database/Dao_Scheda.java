@@ -4,6 +4,7 @@ import Allenamento.Scheda;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
     public Dao_Scheda() {
@@ -46,8 +47,9 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
             ResultSet rs=statement.executeQuery();
             if (rs.next()){
                 Scheda scheda=new Scheda(rs.getString("istruttore"),rs.getString("obbiettivo"));
+                ArrayList<Integer>ids= new Dao_Programma().getIdbyIdScheda(id);
                 for (int i=0;i<rs.getInt("nr_programmi");i++){
-                    scheda.addProgramma(new Dao_Programma().getProgramma(id));
+                    scheda.addProgramma(new Dao_Programma().getProgramma(ids.get(i)));
                 }
                 return scheda;
             }

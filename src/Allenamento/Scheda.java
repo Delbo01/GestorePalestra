@@ -22,25 +22,14 @@ public class Scheda {
         programma.remove(p);
         nProg--;
     }
-    public void visualizzaProgramma(int pos, Scanner sc){
-        programma.get(pos).visualizzaProgramma(sc);
-    }
     public void visualizzaScheda(Scanner sc){
         System.out.println("Obbiettivo scheda: "+obbiettivo);
         System.out.println("numero di programmi della scheda: "+nProg);
         for (int i=0;i<nProg; i++){
             System.out.println("Programma "+(i+1)+":");
-            programma.get(i).visualizzaProgramma(sc);
+            programma.get(i).visualizzaProgramma(sc,i+1);
         }
     }
-    public void setCarico(int prog, int es, int carico){
-        programma.get(prog).getEsercizio(es).setCarico(carico);
-    }
-
-    public void startTimer(int prog, int es) throws InterruptedException{
-        programma.get(prog).getEsercizio(es).startTimer();
-    }
-
     public int getnProg() {
         return nProg;
     }
