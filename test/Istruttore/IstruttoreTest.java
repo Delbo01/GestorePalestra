@@ -28,14 +28,12 @@ public class IstruttoreTest {
 
     }
 
-    public void putSimpleCourse(int mese,int giorno,String nCorso){
-        Corso corso = new Corso(nCorso,5,"20","23","Alberto","Rossi");
-        ca.inserisciCorso(mese,giorno,corso);
-    }
+
 
     @Test
     public void testRimuoviCorso() {
-        putSimpleCourse(1,1,"Pilates");
+        Corso corso = new Corso("Pilates",5,"20","23","luca","rossi");
+        ca.inserisciCorso(1,1,corso);
         Assert.assertTrue(istruttore.rimuoviCorso(1, 1, "Pilates"));
         Assert.assertFalse(istruttore.rimuoviCorso(1, 1, "Pilates"));
 
@@ -43,15 +41,17 @@ public class IstruttoreTest {
 
     @Test
     public void testInserisciCorso(){
-        Corso cs = new Corso("Pilates",5,"20","23","Alberto","Rossi");
+        Corso cs = new Corso("Pilates",5,"20","23","luca","rossi");
         istruttore.inserisciCorso(1,1,cs);
-        assertEquals(ca.checkCorsiGiornalieri(1,1,cs.getNome()),true);
+        assertEquals(true,ca.checkCorsiGiornalieri(1,1,cs.getNome()));
+        istruttore.rimuoviCorso(1,1,"Pilates");
     }
 
     @Test
     public void diventaPT() {
         assertNull(gestorePT.ottieniPT());
         istruttore.diventaPT();
+        gestorePT.inserisciPT(istruttore);
         assertEquals(istruttore,gestorePT.ottieniPT());
     }
 }

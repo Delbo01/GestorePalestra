@@ -155,7 +155,7 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
             rs.next();
             return rs.getInt(1);
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println("non è stato possibile trovare il corso");
         }
         return -1;
     }

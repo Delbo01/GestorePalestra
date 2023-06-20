@@ -19,7 +19,7 @@ public class ControllerCliente {
     private final GestoreAbbonamenti gestoreAbbonamenti;
     private final GestorePT gestorePT;
 
-    private final Dao_Corso_Interface corsi = new Dao_Corso();
+    private final Dao_Corso_Interface dao_corso = new Dao_Corso();
     private final Dao_Abbonamento_Interface dao_abbonamenti= new Dao_Abbonamento();
     private final Dao_Abbonamento_Cliente_Interface dao_abbonamento_cliente = new Dao_Abbonamento_Cliente();
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
@@ -251,6 +251,8 @@ public class ControllerCliente {
             System.out.println("Inserisci il nome del corso");
             String nomeCorso = sc.nextLine();
             cliente.prenotaCorso(mese, giorno, nomeCorso);
+            int id=dao_corso.getIdByNome(nomeCorso,mese,giorno);
+            dao_corso.addPrenotazione(id);
         } else
             System.out.println("Non hai un abbonamento attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
     }
