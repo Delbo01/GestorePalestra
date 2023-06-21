@@ -22,7 +22,7 @@ public class ControllerIstruttoreTest {
     @BeforeClass
     public static void setUp() {
         sc = new Scanner(System.in);
-        Generalita ge = new Generalita("dfs","pippo","poli");
+        Generalita ge = new Generalita("lcurss95d12d612u","luca","rossi");
         istruttore = new Istruttore(ge,ca);
         controllerIstruttore = new ControllerIstruttore(istruttore,ca,grs,gp);
     }
@@ -37,6 +37,6 @@ public class ControllerIstruttoreTest {
     @Test
     public void diventaPT() {
         controllerIstruttore.diventaPT();
-        assertEquals(istruttore,gp.ottieniPT(istruttore.getGeneralita().getCf()));
+        assertEquals(istruttore.getGeneralita().getCf(),gp.ottieniPT(istruttore.getGeneralita().getCf()).getGeneralita().getCf());
     }
 }

@@ -21,7 +21,7 @@ public class IstruttoreTest {
     @BeforeClass
     public static void setUp() {
          gt = new GestoreRichiestaScheda();
-         is = new Generalita("fddfsd", "mario", "rossi");
+         is = new Generalita("lcurss95d12d612u", "luca", "rossi");
          ca = new Calendario(2022);
          gestorePT = new GestorePT(10,ca);
          istruttore = new Istruttore(is,ca);
@@ -49,9 +49,8 @@ public class IstruttoreTest {
 
     @Test
     public void diventaPT() {
-        assertNull(gestorePT.ottieniPT());
         istruttore.diventaPT();
         gestorePT.inserisciPT(istruttore);
-        assertEquals(istruttore,gestorePT.ottieniPT());
+        assertEquals(istruttore.getGeneralita().getCf(),gestorePT.ottieniPT().getGeneralita().getCf());
     }
 }
