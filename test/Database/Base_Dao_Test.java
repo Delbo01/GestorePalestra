@@ -1,10 +1,9 @@
 package Database;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
-public class Base_Dao_test {
+public class Base_Dao_Test {
     static Base_Dao base_dao;
 
     @Test
