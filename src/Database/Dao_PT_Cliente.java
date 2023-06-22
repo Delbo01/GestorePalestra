@@ -1,6 +1,7 @@
 package Database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Dao_PT_Cliente extends Base_Dao implements Dao_PT_Cliente_Interface{
@@ -32,5 +33,20 @@ public class Dao_PT_Cliente extends Base_Dao implements Dao_PT_Cliente_Interface
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getIdPT(int idCliente) {
+        String query="SELECT idI FROM \"PT_Cliente\" WHERE idC=?";
+        try {
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1, idCliente);
+            ResultSet rs=statement.executeQuery();
+            if (rs.next())
+                return rs.getInt("idI");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }

@@ -11,6 +11,7 @@ public interface Dao_Istruttore_Interface {
     int getMaxId();
     int getIdByNomeCognome(String nome,String cognome);
     void setPt(int id,boolean pt);
+    Istruttore getIstruttore(int id);
     ArrayList<Istruttore> getAllPT();
     void deleteIstruttore(int id);
     int getNumeroAssistiti(int id);
