@@ -32,6 +32,7 @@ public class GestorePT {
     public Istruttore ottieniPT() {
         for (Istruttore allenatore : allenatori) {
             if (controlloDisponibilita(allenatore)) {
+                dao_istruttore.incrementaAssistiti(dao_istruttore.getIdByNomeCognome(allenatore.getGeneralita().getNome(),allenatore.getGeneralita().getCognome()));
                 allenatore.incrementaAssistiti();
                 return allenatore;
             }
@@ -42,6 +43,7 @@ public class GestorePT {
         for(Istruttore allenatore : allenatori){
             if(Objects.equals(allenatore.getGeneralita().getCf(), cf)){
                 if (controlloDisponibilita(allenatore)){
+                    dao_istruttore.incrementaAssistiti(dao_istruttore.getIdByNomeCognome(allenatore.getGeneralita().getNome(),allenatore.getGeneralita().getCognome()));
                     allenatore.incrementaAssistiti();
                     return allenatore;
                 }else
@@ -52,6 +54,7 @@ public class GestorePT {
     }
     public void rimuoviAssistito(Istruttore allenatore){
         int index = allenatori.indexOf(allenatore);
+        dao_istruttore.decrementaAssistiti(dao_istruttore.getIdByNomeCognome(allenatore.getGeneralita().getNome(),allenatore.getGeneralita().getCognome()));
         allenatori.get(index).rimuoviAssistito();
     }
 
