@@ -11,11 +11,11 @@ public class Dao_PT_Cliente extends Base_Dao implements Dao_PT_Cliente_Interface
 
     @Override
     public void createPT_Cliente(int idPT, int idCliente) {
-        String query="INSERT INTO \"PT_Cliente\" (idC,idI) VALUES (?,?)";
+        String query="INSERT INTO \"PT_Cliente\" (idc,idi) VALUES (?,?)";
         try {
             PreparedStatement statement=super.connection.prepareStatement(query);
-            statement.setInt(1, idPT);
-            statement.setInt(2, idCliente);
+            statement.setInt(1, idCliente);
+            statement.setInt(2, idPT);
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -25,7 +25,7 @@ public class Dao_PT_Cliente extends Base_Dao implements Dao_PT_Cliente_Interface
 
     @Override
     public void deletePT_Cliente(int idCliente) {
-        String query="DELETE FROM \"PT_Cliente\" WHERE idC=?";
+        String query="DELETE FROM \"PT_Cliente\" WHERE idc=?";
         try {
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1, idCliente);
@@ -37,7 +37,7 @@ public class Dao_PT_Cliente extends Base_Dao implements Dao_PT_Cliente_Interface
 
     @Override
     public int getIdPT(int idCliente) {
-        String query="SELECT idI FROM \"PT_Cliente\" WHERE idC=?";
+        String query="SELECT idi FROM \"PT_Cliente\" WHERE idc=?";
         try {
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1, idCliente);

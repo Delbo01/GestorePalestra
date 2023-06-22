@@ -164,12 +164,14 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1,id);
             ResultSet rs=statement.executeQuery();
-            rs.next();
-            Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
-            return new Istruttore(g,null);
+            if(rs.next()){
+                Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
+                return new Istruttore(g,null);
+            }
         }catch (SQLException e){
             e.printStackTrace();
         }
         return null;
     }
+
 }

@@ -33,8 +33,8 @@ public class Main {
         ControllerLogin controllerLogin= new ControllerLogin(gestoreLogin,gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
-        cliente.ottieniAbbonamento(sc);
-        cliente.visualizzaScheda(sc);
+
+        cliente.richiediPersonalTrainer(sc);
         sc.close();
 
     }
