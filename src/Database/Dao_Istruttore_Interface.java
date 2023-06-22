@@ -5,12 +5,15 @@ import Istruttore.Istruttore;
 import java.util.ArrayList;
 
 public interface Dao_Istruttore_Interface {
-    public void createIstruttore(int id, String nome, String cognome, String codiceFiscale,boolean pt,int nAssistiti);
-    public void updatePt(int id,boolean pt);
-    public void incrementaAssistiti(int id);
-    public void decrementaAssistiti(int id);
-    public int getMaxId();
-    public int getIdByNomeCognome(String nome,String cognome);
-    public void setPt(int id,boolean pt);
-    public ArrayList<Istruttore> getAllPT();
+    void createIstruttore(int id, String nome, String cognome, String codiceFiscale,boolean pt,int nAssistiti);
+    void incrementaAssistiti(int id);
+    void decrementaAssistiti(int id);
+    int getMaxId();
+    int getIdByNomeCognome(String nome,String cognome);
+    void setPt(int id,boolean pt);
+    ArrayList<Istruttore> getAllPT();
+    void deleteIstruttore(int id);
+    int getNumeroAssistiti(int id);
+    boolean isPT(int id);
+
 }
