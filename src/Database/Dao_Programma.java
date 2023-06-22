@@ -29,7 +29,7 @@ public class Dao_Programma extends Base_Dao implements Dao_Programma_Interface{
     }
 
     @Override
-    public void eliminaProgramma(int id) {
+    public void deleteProgramma(int id) {
         String query = "DELETE FROM \"Programma\" WHERE id=?";
         try {
             PreparedStatement statement = super.connection.prepareStatement(query);

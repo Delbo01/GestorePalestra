@@ -58,5 +58,17 @@ public class Dao_Scheda extends Base_Dao implements Dao_Scheda_Interface{
         }
         return null;
     }
+
+    @Override
+    public void deleteScheda(int id) {
+        String query = "DELETE FROM \"Scheda\" WHERE id = (?)";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
 
