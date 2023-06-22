@@ -61,4 +61,12 @@ public class Cliente {
     public void setGestoreRichiestaScheda(GestoreRichiestaScheda gestoreRichiestaScheda) {
         this.gestoreRichiestaScheda = gestoreRichiestaScheda;
     }
+
+    public float getAltezza() {
+        return altezza;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
 }

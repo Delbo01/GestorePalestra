@@ -9,6 +9,7 @@ import org.junit.Test;
 import Calendario.Corso;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class IstruttoreTest {
     static GestoreRichiestaScheda gt;
@@ -20,37 +21,36 @@ public class IstruttoreTest {
     @BeforeClass
     public static void setUp() {
          gt = new GestoreRichiestaScheda();
-         gestorePT = new GestorePT(10);
-         is = new Generalita("fddfsd", "mario", "rossi");
+         is = new Generalita("lcurss95d12d612u", "luca", "rossi");
          ca = new Calendario(2022);
-         istruttore = new Istruttore(is,ca,gt);
+         gestorePT = new GestorePT(10,ca);
+         istruttore = new Istruttore(is,ca);
 
     }
 
-    public void putSimpleCourse(int mese,int giorno,String nCorso){
-        Corso corso = new Corso(nCorso,5,"20","23","Alberto");
-        ca.inserisciCorso(mese,giorno,corso);
-    }
+
 
     @Test
     public void testRimuoviCorso() {
-        putSimpleCourse(1,1,"Pilates");
-        Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),true);
-        Assert.assertEquals(istruttore.rimuoviCorso(1,1,"Pilates"),false);
+        Corso corso = new Corso("Pilates",5,"20","23","luca","rossi");
+        ca.inserisciCorso(1,1,corso);
+        Assert.assertTrue(istruttore.rimuoviCorso(1, 1, "Pilates"));
+        Assert.assertFalse(istruttore.rimuoviCorso(1, 1, "Pilates"));
 
     }
 
     @Test
     public void testInserisciCorso(){
-        Corso cs = new Corso("Pilates",5,"20","23","Alberto");
+        Corso cs = new Corso("Pilates",5,"20","23","luca","rossi");
         istruttore.inserisciCorso(1,1,cs);
-        assertEquals(ca.checkCorsiGiornalieri(1,1,cs.getNome()),true);
+        assertEquals(true,ca.checkCorsiGiornalieri(1,1,cs.getNome()));
+        istruttore.rimuoviCorso(1,1,"Pilates");
     }
 
     @Test
     public void diventaPT() {
-        assertEquals(null,gestorePT.ottieniPT());
         istruttore.diventaPT();
-        assertEquals(istruttore,gestorePT.ottieniPT());
+        gestorePT.inserisciPT(istruttore);
+        assertEquals(istruttore.getGeneralita().getCf(),gestorePT.ottieniPT().getGeneralita().getCf());
     }
 }

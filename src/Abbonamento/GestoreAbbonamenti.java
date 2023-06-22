@@ -32,6 +32,8 @@ public class GestoreAbbonamenti {
         }
     }
     public Abbonamento getAbbonamento(int index, boolean corsi){
+        if(index<0 || index>=abbonamenti.size())
+            return null;
         Abbonamento abbonamento= new Abbonamento(abbonamenti.get(index));
         abbonamento.setCorsi(corsi);
         return abbonamento;

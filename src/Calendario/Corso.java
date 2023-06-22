@@ -69,4 +69,6 @@ public class Corso {
     public int getNumeroClientiPrenotati() {
         return numeroClientiPrenotati;
     }
+
+
 }

@@ -22,7 +22,7 @@ public class ProgrammaAllenamento {
         esercizi.remove(e);
         nEsercizi--;
     }
-    public void visualizzaEsercizio(int pos, Scanner sc){
+    public void visualizzaEsercizio(int id,int p,int pos, Scanner sc){
         System.out.print(esercizi.get(pos).getNome()+" : ");
         System.out.print(esercizi.get(pos).getSerie()+"X"+esercizi.get(pos).getReps()+" con ");
         System.out.print(esercizi.get(pos).getTempoRecupero()+" secondi di recupero");
@@ -37,7 +37,7 @@ public class ProgrammaAllenamento {
             System.out.println("Inserisci il nuovo carico");
             int carico=sc.nextInt();
             sc.nextLine();
-            esercizi.get(pos).setCarico(carico);
+            esercizi.get(pos).updateCarico(carico,p,id);
         }else if (Objects.equals(risposta, "no")){
             System.out.println("ok");
         }else System.out.println("risposta non valida");
@@ -54,10 +54,10 @@ public class ProgrammaAllenamento {
         }else System.out.println("risposta non valida");
     }
 
-    public void visualizzaProgramma(Scanner sc){
+    public void visualizzaProgramma(Scanner sc,int id){
         System.out.println("Programma di allenamento con "+getnEsercizi());
         for (int i=0;i<nEsercizi;i++){
-            visualizzaEsercizio(i,sc);
+            visualizzaEsercizio(id,i+1,i,sc);
         }
         System.out.println(" durata programma "+durata);
     }

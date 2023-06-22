@@ -14,7 +14,7 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
     }
     @Override
     public void createCorso(int id,String nome, int posti, String orarioInizio, String orarioFine, int idIstruttore, int numeroPrenotazioni, int mese, int giorno) {
-        String query = "INSERT INTO \"Corso\" (id,nome,posti,istruttore,numero_prenotazioni,mese,giorno,oraInizio,oraFine) VALUES(?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO \"Corso\"  VALUES(?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement statement=super.connection.prepareStatement(query);
             statement.setInt(1, id);
@@ -155,7 +155,7 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
             rs.next();
             return rs.getInt(1);
         }catch (SQLException e){
-            e.printStackTrace();
+            System.out.println("non è stato possibile trovare il corso");
         }
         return -1;
     }

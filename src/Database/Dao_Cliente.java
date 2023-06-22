@@ -53,8 +53,20 @@ public class Dao_Cliente extends Base_Dao implements Dao_Cliente_Interface{
             rs.next();
             return rs.getInt(1);
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Cliente non trovato");
         }
         return -1;
+    }
+
+    @Override
+    public void deleteCliente(int id) {
+        String query="DELETE FROM \"Cliente\" WHERE id=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

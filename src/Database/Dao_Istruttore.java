@@ -30,19 +30,6 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
     }
 
     @Override
-    public void updatePt(int id, boolean pt) {
-        String query= "UPDATE \"Istruttore\" SET pt=? where id=?";
-        try {
-            PreparedStatement statement=super.connection.prepareStatement(query);
-            statement.setBoolean(1,pt);
-            statement.setInt(2,id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
     public void incrementaAssistiti(int id) {
         String query= "UPDATE \"Istruttore\" SET \"numeroAssistiti\"=\"numeroAssistiti\"+1 where id=?";
         try {
@@ -126,4 +113,65 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
         }
         return null;
     }
+
+    @Override
+    public void deleteIstruttore(int id) {
+        String query="DELETE FROM \"Istruttore\" WHERE id=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public int getNumeroAssistiti(int id) {
+        String query="SELECT \"numeroAssistiti\" FROM \"Istruttore\" WHERE id=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
+
+    @Override
+    public boolean isPT(int id) {
+        String query="SELECT pt FROM \"Istruttore\" WHERE id=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+            rs.next();
+            return rs.getBoolean(1);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public Istruttore getIstruttore(int id) {
+        String query="SELECT * FROM \"Istruttore\" WHERE id=?";
+        try{
+            PreparedStatement statement=super.connection.prepareStatement(query);
+            statement.setInt(1,id);
+            ResultSet rs=statement.executeQuery();
+            if(rs.next()){
+                Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
+                return new Istruttore(g,null);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

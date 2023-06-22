@@ -1,5 +1,7 @@
 package Allenamento;
 
+import Database.Dao_Esercizi;
+
 public class Esercizio {
     private final String nome;
     private final int serie;
@@ -42,8 +44,15 @@ public class Esercizio {
         return note;
     }
 
-    public void setCarico(int carico) {
+    public void updateCarico(int carico, int pos, int id) {
         this.carico = carico;
+        Dao_Esercizi dao_esercizi=new Dao_Esercizi();
+        int i=dao_esercizi.getId(id,pos);
+        dao_esercizi.updateCarico(i,carico);
+    }
+
+    public void setCarico(int carico){
+        this.carico=carico;
     }
 
     public void startTimer() throws InterruptedException{
