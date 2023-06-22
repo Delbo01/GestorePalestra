@@ -31,7 +31,7 @@ public class ControllerCliente {
     public ControllerCliente(Cliente cliente, GestoreAbbonamenti gestoreAbbonamenti, GestorePT gestorePT,Calendario calendario) {
         this.cliente = cliente;
         this.calendario=calendario;
-        this.personalTrainerMapper = new PersonalTrainerMapper(cliente, null);
+        this.personalTrainerMapper = new PersonalTrainerMapper(cliente, dao_istruttore.getIstruttore(dao_pt_cliente.getIdPT(dao_cliente.getIdByCf(cliente.getGeneralita().getCf()))));
         System.out.println(cliente.getGeneralita().getCf());
         int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
         this.schedaMapper = dao_scheda_cliente.getScheda_Cliente(idC);
@@ -292,34 +292,6 @@ public class ControllerCliente {
             System.out.println("Non hai un abbonamneto attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
     }
 
-    public void vediCorsiEPrenotaOCancella(Scanner sc) {
-        System.out.println("Inserisre 1 per vedre i corsi dell'intero calendario, inserire 2 per vedere i corsi di un mese a scelta oppure inserire 3 per vedere i corsi di un giorno a scelta: ");
-        int scelta = sc.nextInt();
-        sc.nextLine();
-        boolean rip;
-        do {
-            rip = false;
-            if (scelta == 1) {
-                vediCalendario();
-            } else if (scelta == 2) {
-                vediCorsiMensili(sc);
-            } else if (scelta == 3) {
-                vediCorsiGiornalieri(sc);
-            } else {
-                System.out.println("Scelta non valida");
-                rip = true;
-            }
-        } while (rip);
-        System.out.println("Vuoi prenotare un corso o vuoi cancellare la prenotazione da un corso? (1/2)");
-        scelta = sc.nextInt();
-        sc.nextLine();
-        if (scelta == 1) {
-            prenotaCorso(sc);
-        } else if (scelta == 2) {
-            rimuoviPrenotazioneCorso(sc);
-        } else {
-            System.out.println("Scelta non valida");
-        }
-    }
+
 }
 

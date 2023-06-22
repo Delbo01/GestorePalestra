@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class DaoCorsoTest {
+public class Dao_CorsoTest {
 
     static Dao_Corso dao_corso = new Dao_Corso();
     static Dao_Istruttore dao_istruttore = new Dao_Istruttore();
