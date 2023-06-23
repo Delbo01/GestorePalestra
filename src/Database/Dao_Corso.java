@@ -59,7 +59,7 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
             statement.setInt(2,giorno);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                Corso corso=new Corso(rs.getString("nome"),rs.getInt("posti"),rs.getString("oraInizio"),rs.getString("oraFine"),rs.getString(11), rs.getString(12));
+                Corso corso=new Corso(rs.getString("nome"),rs.getInt("posti"),rs.getString("oraInizio"),rs.getString("oraFine"),rs.getString(11), rs.getString(12),rs.getInt("numero_prenotazioni"));
                 corsi.add(corso);
             }
             return corsi;
@@ -78,7 +78,7 @@ public class Dao_Corso extends Base_Dao implements Dao_Corso_Interface{
             statement.setInt(1,mese);
             ResultSet rs = statement.executeQuery();
             while(rs.next()){
-                Corso corso=new Corso(rs.getString("nome"),rs.getInt("posti"),rs.getString("oraInizio"),rs.getString("oraFine"),rs.getString(11), rs.getString(12));
+                Corso corso=new Corso(rs.getString("nome"),rs.getInt("posti"),rs.getString("oraInizio"),rs.getString("oraFine"),rs.getString(11), rs.getString(12),rs.getInt("numero_prenotazioni"));
                 corsi.add(corso);
             }
             return corsi;

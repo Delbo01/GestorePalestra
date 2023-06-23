@@ -163,7 +163,7 @@ public class ControllerCliente {
         }
     }
 
-    private void vediCorsiGiornalieri(Scanner sc) {
+    public void vediCorsiGiornalieri(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() != null) {
             System.out.println("Inserisci il mese");
             int mese = 0;
@@ -195,7 +195,7 @@ public class ControllerCliente {
         }
     }
 
-    private void vediCorsiMensili(Scanner sc) {
+    public void vediCorsiMensili(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() != null) {
             System.out.println("Inserisci il mese");
             int mese = 0;
@@ -214,13 +214,13 @@ public class ControllerCliente {
         }
     }
 
-    private void vediCalendario() {
+    public void vediCalendario() {
         if (abbonamentoMapper.getAbbonamento() != null) {
             cliente.vediCalendario();
         }
     }
 
-    private void prenotaCorso(Scanner sc) {
+    public void prenotaCorso(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() != null & abbonamentoMapper.getAbbonamento().isCorsi() == true) {
             System.out.println("Inserisci il mese");
             int mese = 0;
@@ -251,13 +251,11 @@ public class ControllerCliente {
             System.out.println("Inserisci il nome del corso");
             String nomeCorso = sc.nextLine();
             cliente.prenotaCorso(mese, giorno, nomeCorso);
-            int id=dao_corso.getIdByNome(nomeCorso,mese,giorno);
-            dao_corso.addPrenotazione(id);
         } else
             System.out.println("Non hai un abbonamento attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
     }
 
-    private void rimuoviPrenotazioneCorso(Scanner sc) {
+    public void rimuoviPrenotazioneCorso(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() != null & abbonamentoMapper.getAbbonamento().isCorsi() == true) {
             System.out.println("Inserisci il mese");
             int mese = 0;

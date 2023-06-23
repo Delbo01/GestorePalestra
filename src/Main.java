@@ -34,7 +34,10 @@ public class Main {
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
 
-        cliente.richiediPersonalTrainer(sc);
+
+        cliente.prenotaCorso(sc);
+        cliente.vediCorsiMensili(sc);
+
         sc.close();
 
     }

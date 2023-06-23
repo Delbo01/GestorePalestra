@@ -53,7 +53,11 @@ public class GestorePT {
         return null;
     }
     public void rimuoviAssistito(Istruttore allenatore){
-        int index = allenatori.indexOf(allenatore);
+        int index=0;
+        for (int i=0;i<allenatori.size();i++){
+            if (allenatori.get(i).getGeneralita().getCf()==allenatore.getGeneralita().getCf())
+                index=i;
+        }
         dao_istruttore.decrementaAssistiti(dao_istruttore.getIdByNomeCognome(allenatore.getGeneralita().getNome(),allenatore.getGeneralita().getCognome()));
         allenatori.get(index).rimuoviAssistito();
     }

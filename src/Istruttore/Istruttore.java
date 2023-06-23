@@ -15,6 +15,7 @@ public class Istruttore {
     public Istruttore(Generalita gen,Calendario calendario){
         generalita = gen;
         this.calendario = calendario;
+
     }
     public Generalita getGeneralita() {
         return generalita;

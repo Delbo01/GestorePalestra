@@ -35,30 +35,23 @@ public class Calendario {
     }
     public void vediCorsiGiornalieri(int mese,int giorno){
         ArrayList<Corso> corsi=dao_corso.vediCorsiGiornalieri(mese,giorno);
+        System.out.println("Giorno "+giorno);
         for(Corso c:corsi){
             System.out.println(c.getNome());
             System.out.println(c.getOrarioInizio());
             System.out.println(c.getOrarioFine());
             System.out.println("Istruttore del corso è :");
             System.out.println(c.getNomeIstruttore()+"  "+c.getCognomeIstruttore());
-            System.out.println("Numero di posti disponibili:");
+            System.out.println("Numero di posti massimi:");
             System.out.println(c.getPostiDisponibili());
             System.out.println("Numero di prenotazioni:");
             System.out.println(c.getNumeroPrenotazioni());
         }
     }
     public void vediCorsiMensili(int mese){
-        ArrayList<Corso> corsi=dao_corso.vediCorsiMensili(mese);
-        for(Corso c:corsi){
-            System.out.println(c.getNome());
-            System.out.println(c.getOrarioInizio());
-            System.out.println(c.getOrarioFine());
-            System.out.println("Istruttore del corso è :");
-            System.out.println(c.getNomeIstruttore()+"  "+c.getCognomeIstruttore());
-            System.out.println("Numero di posti disponibili:");
-            System.out.println(c.getPostiDisponibili());
-            System.out.println("Numero di prenotazioni:");
-            System.out.println(c.getNumeroPrenotazioni());
+        int[] duratamese={31,28,31,30,31,30,31,31,30,31,30,31};
+        for(int i=1;i<=duratamese[mese-1];i++){
+            vediCorsiGiornalieri(mese,i);
         }
     }
     public boolean prenotaCorso(int mese, int giorno, String nomeCorso){

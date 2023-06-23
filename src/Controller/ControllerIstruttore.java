@@ -19,7 +19,7 @@ public class ControllerIstruttore {
     private final Istruttore istruttore;
     private final Calendario calendario;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
-    //private GestoreRichiestaScheda gestoreRichiestaSchedaPT = null;
+
     private GestorePT gestorePT;
     private Dao_Scheda_Interface daoScheda = new Dao_Scheda();
     private Dao_Istruttore_Interface daoIstruttore = new Dao_Istruttore();
@@ -33,6 +33,8 @@ public class ControllerIstruttore {
 
     public ControllerIstruttore(Istruttore istruttore,Calendario calendario,GestoreRichiestaScheda gr,GestorePT gestorePT){
         this.istruttore = istruttore;
+        if (daoIstruttore.isPT(daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome())))
+            istruttore.diventaPT();
         this.calendario = calendario;
         gestoreRichiestaScheda = gr;
         this.gestorePT = gestorePT;
@@ -92,11 +94,7 @@ public class ControllerIstruttore {
         String oraInizio=sc.nextLine();
         System.out.println("Inserisci l'ora di fine del corso");
         String oraFine=sc.nextLine();
-        System.out.println("Inserisci il nome dell'istruttore del corso");
-        String nomeIstruttore=sc.nextLine();
-        System.out.println("Inserisci il cognome dell'istruttore del corso");
-        String cognomeIstruttore=sc.nextLine();
-        Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,nomeIstruttore,cognomeIstruttore);
+        Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome(),0);
         istruttore.inserisciCorso(mese,giorno,corso);
     }
 

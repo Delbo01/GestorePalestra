@@ -32,7 +32,7 @@ public class IstruttoreTest {
 
     @Test
     public void testRimuoviCorso() {
-        Corso corso = new Corso("Pilates",5,"20","23","luca","rossi");
+        Corso corso = new Corso("Pilates",5,"20","23","luca","rossi",0);
         ca.inserisciCorso(1,1,corso);
         Assert.assertTrue(istruttore.rimuoviCorso(1, 1, "Pilates"));
         Assert.assertFalse(istruttore.rimuoviCorso(1, 1, "Pilates"));
@@ -41,7 +41,7 @@ public class IstruttoreTest {
 
     @Test
     public void testInserisciCorso(){
-        Corso cs = new Corso("Pilates",5,"20","23","luca","rossi");
+        Corso cs = new Corso("Pilates",5,"20","23","luca","rossi",0);
         istruttore.inserisciCorso(1,1,cs);
         assertEquals(true,ca.checkCorsiGiornalieri(1,1,cs.getNome()));
         istruttore.rimuoviCorso(1,1,"Pilates");

@@ -10,7 +10,7 @@ public class Dao_CorsoTest {
 
     static Dao_Corso dao_corso = new Dao_Corso();
     static Dao_Istruttore dao_istruttore = new Dao_Istruttore();
-    static Corso co = new Corso("prova", 2, "10", "12", "luca","rossi");
+    static Corso co = new Corso("prova", 2, "10", "12", "luca","rossi",0);
     @Test
     public void createCorso() {
         dao_istruttore.createIstruttore(dao_istruttore.getMaxId()+1,"luca","rossi","LCR",true,10);
