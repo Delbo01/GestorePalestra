@@ -4,7 +4,6 @@ import Abbonamento.Abbonamento;
 
 public interface Dao_Abbonamento_Cliente_Interface {
     void creaAbbonamentoCliente(int idCliente, int idAbbonamento);
-    public void eliminaAbbonamentoCliente(int idCliente,int idAbbonamento);
-
-    public Abbonamento getAbbonamento(int idCliente);
+    void eliminaAbbonamentoCliente(int idCliente,int idAbbonamento);
+    Abbonamento getAbbonamento(int idCliente);
 }

@@ -7,6 +7,6 @@ public interface Dao_Esercizi_Interface {
     void deleteEsercizio(int id);
     void updateCarico(int id,int carico);
     int getMaxIdEsercizio();
-    public Esercizio getEsercizo(int id);
-    public int getId(int idProgramma,int nEs);
+    Esercizio getEsercizo(int id);
+    int getId(int idProgramma,int nEs);
 }
