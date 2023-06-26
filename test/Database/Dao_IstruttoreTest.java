@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class Dao_IstruttoreTest {
 
     static Dao_Istruttore dao_istruttore = new Dao_Istruttore();
-    static Istruttore istruttore = new Istruttore(new Generalita("MTTMTT95D12D612U","Matteo","Mattei"),null);
+    static Istruttore istruttore = new Istruttore(new Generalita("MTTMTT95D12D612U","Matteo","Mattei"));
     @Test
     public void createIstruttore() {
         dao_istruttore.createIstruttore(dao_istruttore.getMaxId()+1,istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome(),istruttore.getGeneralita().getCf(),false,0);

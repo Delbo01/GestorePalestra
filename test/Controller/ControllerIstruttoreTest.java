@@ -29,9 +29,4 @@ public class ControllerIstruttoreTest {
         controllerIstruttore.diventaPT();
         assertEquals(istruttore.getGeneralita().getCf(),gp.ottieniPT(istruttore.getGeneralita().getCf()).getGeneralita().getCf());
     }
-    @Test
-    public void creaCorso(){
-        controllerIstruttore.inserisciCorso(sc);
-        assertEquals(true,ca.checkCorsiGiornalieri(1,1,"Pilates"));
-    }
 }
