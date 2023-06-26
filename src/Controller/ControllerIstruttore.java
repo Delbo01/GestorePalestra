@@ -21,7 +21,6 @@ public class ControllerIstruttore {
     private GestorePT gestorePT;
     private Dao_Scheda_Interface daoScheda = new Dao_Scheda();
     private Dao_Istruttore_Interface daoIstruttore = new Dao_Istruttore();
-    private final Dao_PT_Cliente_Interface daoPT_Cliente = new Dao_PT_Cliente();
     private Dao_Programma_Interface daoProgramma = new Dao_Programma();
     private Dao_Esercizi_Interface daoEsercizio = new Dao_Esercizi();
     private Dao_Cliente_Interface daoCliente= new Dao_Cliente();

@@ -18,7 +18,6 @@ public class ControllerCliente {
     private final GestoreAbbonamenti gestoreAbbonamenti;
     private final GestorePT gestorePT;
 
-    private final Dao_Corso_Interface dao_corso = new Dao_Corso();
     private final Dao_Abbonamento_Interface dao_abbonamenti= new Dao_Abbonamento();
     private final Dao_Abbonamento_Cliente_Interface dao_abbonamento_cliente = new Dao_Abbonamento_Cliente();
     private final Dao_Cliente_Interface dao_cliente= new Dao_Cliente();
@@ -45,7 +44,7 @@ public class ControllerCliente {
         else System.out.println("Non hai una scheda");
     }
 
-    public void vediAbbonamento(Scanner sc) {
+    public void vediAbbonamento() {
         if (abbonamentoMapper.getAbbonamento() == null)
             System.out.println("Non hai un abbonamento");
         else abbonamentoMapper.getAbbonamento().visualizzaAbbonamento();

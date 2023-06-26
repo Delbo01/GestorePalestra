@@ -24,7 +24,7 @@ public class Main {
         GestoreRichiestaScheda gestoreRichiestaScheda = new GestoreRichiestaScheda();
 
         Scanner sc = new Scanner(System.in);
-        ControllerLogin controllerLogin= new ControllerLogin(gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
+        ControllerLogin controllerLogin= new ControllerLogin(gestoreRichiestaScheda);
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
 

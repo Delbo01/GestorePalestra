@@ -11,20 +11,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ControllerLogin {
-    private final GestoreAbbonamenti gestoreAbbonamenti;
     private final GestoreRichiestaScheda gestoreRichiestaScheda;
-    private final GestorePT gestorePT;
-    private final Calendario calendario;
     private final Dao_Cliente_Interface dao_cliente = new Dao_Cliente();
     private final Dao_Istruttore_Interface dao_istruttore = new Dao_Istruttore();
     private final Dao_CredenzialiCliente_Interface dao_credenzialiCliente = new Dao_CredenzialiCliente();
     private final Dao_CredenzialiIstruttore_Interface dao_credenzialiIstruttore = new Dao_CredenzialiIstruttore();
 
-    public ControllerLogin(GestoreAbbonamenti gestoreAbbonamenti, GestoreRichiestaScheda gestoreRichiestaScheda, GestorePT gestorePT, Calendario calendario) {
-        this.gestoreAbbonamenti = gestoreAbbonamenti;
+    public ControllerLogin(GestoreRichiestaScheda gestoreRichiestaScheda) {
         this.gestoreRichiestaScheda = gestoreRichiestaScheda;
-        this.gestorePT = gestorePT;
-        this.calendario = calendario;
     }
 
     public Cliente loginCliente(Scanner sc) {
