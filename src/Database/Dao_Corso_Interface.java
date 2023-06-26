@@ -14,7 +14,7 @@ public interface Dao_Corso_Interface {
     void deletePrenotazione(int idCorso);
 
     int getNumeroPrenotazioni(int idCorso);
-    public int getMaxId();
+    int getMaxId();
 
-    public int getIdByNome(String nome, int mese, int giorno);
+    int getIdByNome(String nome, int mese, int giorno);
 }
