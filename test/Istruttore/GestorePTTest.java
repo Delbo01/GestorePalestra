@@ -1,8 +1,9 @@
 package Istruttore;
-import Calendario.Calendario;
+import Controller.Calendario;
 import Cliente.Generalita;
+import Controller.GestorePT;
 import org.junit.*;
-import GestioneRichieste.GestoreRichiestaScheda;
+
 import static org.junit.Assert.*;
 
 public class GestorePTTest {
@@ -13,7 +14,7 @@ public class GestorePTTest {
     @Before
     public void setUp() throws Exception {
         gestorePT = new GestorePT(1,ca);
-        i=new Istruttore(new Generalita("www","mario","rossi"),ca);
+        i=new Istruttore(new Generalita("www","mario","rossi"));
     }
 
     @Test
@@ -63,6 +64,6 @@ public class GestorePTTest {
     @After
     public void tearDown() throws Exception {
         gestorePT = new GestorePT(1,ca);
-        i=new Istruttore(new Generalita("www","mario","rossi"),ca);
+        i=new Istruttore(new Generalita("www","mario","rossi"));
     }
 }

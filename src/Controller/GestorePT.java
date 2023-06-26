@@ -1,8 +1,9 @@
-package Istruttore;
+package Controller;
 
-import Calendario.Calendario;
+import Controller.Calendario;
 import Database.Dao_Istruttore;
 import Database.Dao_Istruttore_Interface;
+import Istruttore.Istruttore;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -17,9 +18,6 @@ public class GestorePT {
         this.maxAssistiti = maxAssistiti;
         this.calendario=c;
         allenatori = dao_istruttore.getAllPT();
-        for (int i=0;i<allenatori.size();i++){
-            allenatori.get(i).setCalendario(calendario);
-        }
     }
 
     public void inserisciPT(Istruttore allenatore) {

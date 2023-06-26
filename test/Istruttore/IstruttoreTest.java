@@ -1,7 +1,8 @@
 package Istruttore;
 
-import Calendario.Calendario;
+import Controller.Calendario;
 import Cliente.Generalita;
+import Controller.GestorePT;
 import GestioneRichieste.GestoreRichiestaScheda;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -22,31 +23,10 @@ public class IstruttoreTest {
     public static void setUp() {
          gt = new GestoreRichiestaScheda();
          is = new Generalita("lcurss95d12d612u", "luca", "rossi");
-         ca = new Calendario(2022);
          gestorePT = new GestorePT(10,ca);
-         istruttore = new Istruttore(is,ca);
+         istruttore = new Istruttore(is);
 
     }
-
-
-
-    @Test
-    public void testRimuoviCorso() {
-        Corso corso = new Corso("Pilates",5,"20","23","luca","rossi",0);
-        ca.inserisciCorso(1,1,corso);
-        Assert.assertTrue(istruttore.rimuoviCorso(1, 1, "Pilates"));
-        Assert.assertFalse(istruttore.rimuoviCorso(1, 1, "Pilates"));
-
-    }
-
-    @Test
-    public void testInserisciCorso(){
-        Corso cs = new Corso("Pilates",5,"20","23","luca","rossi",0);
-        istruttore.inserisciCorso(1,1,cs);
-        assertEquals(true,ca.checkCorsiGiornalieri(1,1,cs.getNome()));
-        istruttore.rimuoviCorso(1,1,"Pilates");
-    }
-
     @Test
     public void diventaPT() {
         istruttore.diventaPT();

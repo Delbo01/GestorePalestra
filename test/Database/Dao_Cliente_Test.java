@@ -1,6 +1,6 @@
 package Database;
 
-import Calendario.Calendario;
+import Controller.Calendario;
 import Cliente.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import org.junit.Test;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class Dao_Cliente_Test {
-    static Cliente cliente= new Cliente(new Generalita("MTTMTT95D12D612U","Matteo","Mattei"),180,82,new GestoreRichiestaScheda(), new Calendario(2023));
+    static Cliente cliente= new Cliente(new Generalita("MTTMTT95D12D612U","Matteo","Mattei"),180,82,new GestoreRichiestaScheda());
     static Dao_Cliente dao_cliente= new Dao_Cliente();
 
     @Test

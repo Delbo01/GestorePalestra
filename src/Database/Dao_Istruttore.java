@@ -105,7 +105,7 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
             ArrayList<Istruttore> istruttori=new ArrayList<>();
             while(rs.next()){
                 Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
-                istruttori.add(new Istruttore(g,null));
+                istruttori.add(new Istruttore(g));
             }
             return istruttori;
         }catch (SQLException e){
@@ -166,7 +166,7 @@ public class Dao_Istruttore extends Base_Dao implements Dao_Istruttore_Interface
             ResultSet rs=statement.executeQuery();
             if(rs.next()){
                 Generalita g=new Generalita(rs.getString("cf"),rs.getString("nome"),rs.getString("cognome"));
-                return new Istruttore(g,null);
+                return new Istruttore(g);
             }
         }catch (SQLException e){
             e.printStackTrace();

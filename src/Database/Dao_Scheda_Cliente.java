@@ -58,7 +58,7 @@ public class Dao_Scheda_Cliente extends Base_Dao implements Dao_Scheda_Cliente_I
             statement.setInt(1,idC);
             ResultSet rs=statement.executeQuery();
             if(rs.next()){
-                Cliente c= new Cliente(new Generalita(rs.getString(6),rs.getString(5),rs.getString(4)),rs.getFloat("altezza"),rs.getFloat("peso"),null,null);
+                Cliente c= new Cliente(new Generalita(rs.getString(6),rs.getString(5),rs.getString(4)),rs.getFloat("altezza"),rs.getFloat("peso"),null);
                 Scheda s= new Dao_Scheda().getScheda(rs.getInt(2));
                 return new SchedaMapper(c,s);
             }

@@ -1,9 +1,10 @@
-package Calendario;
+package Controller;
 
 import Database.Dao_Corso;
 import Database.Dao_Corso_Interface;
 import Database.Dao_Istruttore;
 import Database.Dao_Istruttore_Interface;
+import Calendario.Corso;
 
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class Calendario {
         this.anno=anno;
     }
 
-    public void inserisciCorso(int mese,int giorno,Corso corso){
+    public void inserisciCorso(int mese, int giorno, Corso corso){
        int id=dao_corso.getMaxId()+1;
        String nomeIstruttore=corso.getNomeIstruttore();
        String cogonmeIstruttore=corso.getCognomeIstruttore();

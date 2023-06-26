@@ -1,7 +1,8 @@
 package Cliente;
 
 import Abbonamento.GestoreAbbonamenti;
-import Calendario.*;
+import Controller.Calendario;
+import Controller.GestorePT;
 import GestioneRichieste.*;
 import Istruttore.*;
 import org.junit.*;
@@ -25,7 +26,7 @@ public class ClienteTest {
         gestoreAbbonamenti = new GestoreAbbonamenti();
         calendario = new Calendario(2023);
         gestoreRichiestaScheda = new GestoreRichiestaScheda();
-        cliente = new Cliente(is,altezza,peso,gestoreRichiestaScheda,calendario);
+        cliente = new Cliente(is,altezza,peso,gestoreRichiestaScheda);
     }
 
     @Test
@@ -36,7 +37,7 @@ public class ClienteTest {
         Istruttore pt=null;
         cliente.richiediScheda(obiettivo,nProg,duarta,pt);
         assertEquals(1,gestoreRichiestaScheda.getRichieste().size());
-        pt= new Istruttore(new Generalita("fddfsd", "mario", "rossi"),calendario);
+        pt= new Istruttore(new Generalita("fddfsd", "mario", "rossi"));
         pt.diventaPT();
         cliente.richiediScheda(obiettivo,nProg,duarta,pt);
         assertEquals(1,pt.getGestoreRichiestaSchedaPT().getRichieste().size());
@@ -44,7 +45,7 @@ public class ClienteTest {
 
     @After
     public void tearDown() throws Exception {
-        cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda,calendario);
+        cliente= new Cliente(is,altezza,peso,gestoreRichiestaScheda);
     }
 }
 

@@ -1,10 +1,7 @@
 package Controller;
 
-import Calendario.Calendario;
 import Cliente.*;
 import GestioneRichieste.GestoreRichiestaScheda;
-import GestioneRichieste.Richiesta;
-import  Istruttore.GestorePT;
 import Istruttore.Istruttore;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -24,7 +21,7 @@ public class ControllerIstruttoreTest {
     public static void setUp() {
         sc = new Scanner(System.in);
         Generalita ge = new Generalita("lcurss95d12d612u","luca","rossi");
-        istruttore = new Istruttore(ge,ca);
+        istruttore = new Istruttore(ge);
         controllerIstruttore = new ControllerIstruttore(istruttore,ca,grs,gp);
     }
     @Test

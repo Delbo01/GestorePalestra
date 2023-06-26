@@ -1,7 +1,5 @@
 import Abbonamento.GestoreAbbonamenti;
-import Calendario.Calendario;
-import Database.*;
-import Istruttore.*;
+import Controller.Calendario;
 import GestioneRichieste.*;
 import GestoreLogin.*;
 import Controller.*;
@@ -24,13 +22,9 @@ public class Main {
         gestoreAbbonamenti.addAbbonamenti(6,"semestrale",360,dateString);
         gestoreAbbonamenti.addAbbonamenti(12,"annuale",720,dateString);
         GestoreRichiestaScheda gestoreRichiestaScheda = new GestoreRichiestaScheda();
-        ListaCredenzialiCliente listaCredenzialiCliente = new ListaCredenzialiCliente();
-        ListaCredenzialiIstruttore listaCredenzialiIstruttore = new ListaCredenzialiIstruttore();
-        GestoreLogin gestoreLogin = new GestoreLogin(listaCredenzialiCliente, listaCredenzialiIstruttore);
-
 
         Scanner sc = new Scanner(System.in);
-        ControllerLogin controllerLogin= new ControllerLogin(gestoreLogin,gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
+        ControllerLogin controllerLogin= new ControllerLogin(gestoreAbbonamenti,gestoreRichiestaScheda,gestorePT,calendario);
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
 

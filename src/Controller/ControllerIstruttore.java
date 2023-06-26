@@ -3,8 +3,6 @@ package Controller;
 import Allenamento.Esercizio;
 import Allenamento.ProgrammaAllenamento;
 import Allenamento.Scheda;
-import Allenamento.SchedaMapper;
-import Calendario.Calendario;
 import Database.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
@@ -95,7 +93,7 @@ public class ControllerIstruttore {
         System.out.println("Inserisci l'ora di fine del corso");
         String oraFine=sc.nextLine();
         Corso corso= new Corso(nomeCorso,posti,oraInizio,oraFine,istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome(),0);
-        istruttore.inserisciCorso(mese,giorno,corso);
+        calendario.inserisciCorso(mese,giorno,corso);
     }
 
     public void rimuoviCorso(Scanner sc) {
@@ -127,7 +125,7 @@ public class ControllerIstruttore {
         }
         System.out.println("Inserisci il nome del corso");
         String nomeCorso = sc.nextLine();
-        istruttore.rimuoviCorso(mese, giorno, nomeCorso);
+        calendario.rimuoviCorso(mese, giorno, nomeCorso);
     }
     public void diventaPT(){
         gestorePT.inserisciPT(istruttore);

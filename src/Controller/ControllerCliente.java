@@ -2,7 +2,6 @@ package Controller;
 
 import Abbonamento.*;
 import Allenamento.*;
-import Calendario.Calendario;
 import Cliente.*;
 import Database.*;
 import Istruttore.*;
@@ -35,8 +34,6 @@ public class ControllerCliente {
         System.out.println(cliente.getGeneralita().getCf());
         int idC=dao_cliente.getIdByCf(cliente.getGeneralita().getCf());
         this.schedaMapper = dao_scheda_cliente.getScheda_Cliente(idC);
-        if(schedaMapper!= null)
-            schedaMapper.getCliente().setCalendario(calendario);
         this.gestoreAbbonamenti = gestoreAbbonamenti;
         this.gestorePT = gestorePT;
         abbonamentoMapper=new AbbonamentoMapper(cliente, dao_abbonamento_cliente.getAbbonamento(dao_cliente.getIdByCf(cliente.getGeneralita().getCf())));
@@ -191,7 +188,7 @@ public class ControllerCliente {
                     sc.nextLine();
                 }
             }
-            cliente.vediCorsiGiornalieri(mese, giorno);
+            calendario.vediCorsiGiornalieri(mese, giorno);
         }
     }
 
@@ -210,49 +207,54 @@ public class ControllerCliente {
                     sc.nextLine();
                 }
             }
-            cliente.vediCorsiMensili(mese);
+            calendario.vediCorsiMensili(mese);
         }
     }
 
     public void vediCalendario() {
         if (abbonamentoMapper.getAbbonamento() != null) {
-            cliente.vediCalendario();
+            calendario.vediCalendario();
         }
     }
 
     public void prenotaCorso(Scanner sc) {
-        if (abbonamentoMapper.getAbbonamento() != null & abbonamentoMapper.getAbbonamento().isCorsi() == true) {
-            System.out.println("Inserisci il mese");
-            int mese = 0;
-            boolean fine = false;
-            while (!fine) {
-                try {
-                    mese = sc.nextInt();
-                    sc.nextLine();
-                    fine = true;
-                } catch (InputMismatchException e) {
-                    System.out.println("per favore inserisci un intero");
-                    sc.nextLine();
+        if (abbonamentoMapper.getAbbonamento() != null){
+            if(abbonamentoMapper.getAbbonamento().isCorsi() == true) {
+                System.out.println("Inserisci il mese");
+                int mese = 0;
+                boolean fine = false;
+                while (!fine) {
+                    try {
+                        mese = sc.nextInt();
+                        sc.nextLine();
+                        fine = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("per favore inserisci un intero");
+                        sc.nextLine();
+                    }
                 }
-            }
-            fine = false;
-            int giorno = 0;
-            while (!fine) {
-                try {
-                    System.out.println("Inserisci il giorno");
-                    giorno = sc.nextInt();
-                    sc.nextLine();
-                    fine = true;
-                } catch (InputMismatchException e) {
-                    System.out.println("per favore inserisci un intero");
-                    sc.nextLine();
+                fine = false;
+                int giorno = 0;
+                while (!fine) {
+                    try {
+                        System.out.println("Inserisci il giorno");
+                        giorno = sc.nextInt();
+                        sc.nextLine();
+                        fine = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println("per favore inserisci un intero");
+                        sc.nextLine();
+                    }
                 }
-            }
-            System.out.println("Inserisci il nome del corso");
-            String nomeCorso = sc.nextLine();
-            cliente.prenotaCorso(mese, giorno, nomeCorso);
+                System.out.println("Inserisci il nome del corso");
+                String nomeCorso = sc.nextLine();
+                calendario.prenotaCorso(mese, giorno, nomeCorso);
         } else
-            System.out.println("Non hai un abbonamento attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
+            System.out.println("Non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
+        }
+        else {
+            System.out.println("Non hai un abbonamento attivo ");
+        }
     }
 
     public void rimuoviPrenotazioneCorso(Scanner sc) {
@@ -285,7 +287,7 @@ public class ControllerCliente {
             }
             System.out.println("Inserisci il nome del corso");
             String nomeCorso = sc.nextLine();
-            cliente.rimuoviPrenotazioneCorso(mese, giorno, nomeCorso);
+            calendario.rimuoviPrenotazioneCorso(mese, giorno, nomeCorso);
         } else
             System.out.println("Non hai un abbonamneto attivo oppure non hai un abbonamneto con la possibilità di accedere ai corsi della palestra");
     }
