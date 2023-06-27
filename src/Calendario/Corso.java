@@ -53,9 +53,7 @@ public class Corso {
         return cognomeIstruttore;
     }
 
-    public String getNome(
-
-    ) {
+    public String getNome() {
         return nome;
     }
 

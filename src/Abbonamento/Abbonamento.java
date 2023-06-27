@@ -25,10 +25,8 @@ public class Abbonamento {
             Calendar cal = Calendar.getInstance();
             cal.setTime(formatter.parse(dataInizio));
 
-            // Somma la durata alla data di inizio
             cal.add(Calendar.MONTH, durata);
 
-            // Ottieni la data finale
             String dataFine = formatter.format(cal.getTime());
             this.dataFine = dataFine;
         } catch (ParseException e) {

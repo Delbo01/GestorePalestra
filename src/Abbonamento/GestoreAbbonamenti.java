@@ -1,11 +1,10 @@
 package Abbonamento;
 
-import Database.Dao_Abbonamento;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
-import Database.Dao_Abbonamento_Interface;
-import Database.Dao_Programma_Interface;
+
 
 public class GestoreAbbonamenti {
     private ArrayList<Abbonamento> abbonamenti= new ArrayList<>();
