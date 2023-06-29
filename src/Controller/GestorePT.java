@@ -9,14 +9,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class GestorePT {
-    private final Calendario calendario;
     private ArrayList<Istruttore> allenatori;
     private final int maxAssistiti;
     private final Dao_Istruttore_Interface dao_istruttore=new Dao_Istruttore();
 
     public GestorePT(int maxAssistiti,Calendario c) {
         this.maxAssistiti = maxAssistiti;
-        this.calendario=c;
         allenatori = dao_istruttore.getAllPT();
     }
 
