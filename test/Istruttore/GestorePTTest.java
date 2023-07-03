@@ -1,5 +1,5 @@
 package Istruttore;
-import Controller.Calendario;
+import Controller.ControllerCorso;
 import Cliente.Generalita;
 import Controller.GestorePT;
 import org.junit.*;
@@ -10,7 +10,7 @@ public class GestorePTTest {
     GestorePT gestorePT;
     Istruttore i;
 
-    Calendario ca = new Calendario(2023);
+    ControllerCorso ca = new ControllerCorso(2023);
     @Before
     public void setUp() throws Exception {
         gestorePT = new GestorePT(1,ca);

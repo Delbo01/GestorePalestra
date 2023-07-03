@@ -1,7 +1,7 @@
 package Cliente;
 
 import Abbonamento.GestoreAbbonamenti;
-import Controller.Calendario;
+import Controller.ControllerCorso;
 import Controller.GestorePT;
 import GestioneRichieste.*;
 import Istruttore.*;
@@ -15,7 +15,7 @@ public class ClienteTest {
     static float altezza;
     static float peso;
     static GestoreAbbonamenti gestoreAbbonamenti;
-    static Calendario calendario;
+    static ControllerCorso calendario;
     static GestoreRichiestaScheda gestoreRichiestaScheda;
 
     @BeforeClass
@@ -24,7 +24,7 @@ public class ClienteTest {
         altezza = 180.0F;
         peso = 80.0F;
         gestoreAbbonamenti = new GestoreAbbonamenti();
-        calendario = new Calendario(2023);
+        calendario = new ControllerCorso(2023);
         gestoreRichiestaScheda = new GestoreRichiestaScheda();
         cliente = new Cliente(is,altezza,peso,gestoreRichiestaScheda);
     }

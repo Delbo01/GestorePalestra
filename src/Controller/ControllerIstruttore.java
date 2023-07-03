@@ -7,7 +7,7 @@ import Database.*;
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
 import Istruttore.*;
-import Calendario.Corso;
+import Corso.Corso;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class ControllerIstruttore {
     private final Istruttore istruttore;
-    private final Calendario calendario;
+    private final ControllerCorso calendario;
     private GestoreRichiestaScheda gestoreRichiestaScheda;
 
     private GestorePT gestorePT;
@@ -28,7 +28,7 @@ public class ControllerIstruttore {
     final Pattern pattern = Pattern.compile("[0-9]+",Pattern.CASE_INSENSITIVE);
 
 
-    public ControllerIstruttore(Istruttore istruttore,Calendario calendario,GestoreRichiestaScheda gr,GestorePT gestorePT){
+    public ControllerIstruttore(Istruttore istruttore, ControllerCorso calendario, GestoreRichiestaScheda gr, GestorePT gestorePT){
         this.istruttore = istruttore;
         if (daoIstruttore.isPT(daoIstruttore.getIdByNomeCognome(istruttore.getGeneralita().getNome(),istruttore.getGeneralita().getCognome())))
             istruttore.diventaPT();

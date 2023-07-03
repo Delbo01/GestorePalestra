@@ -1,6 +1,6 @@
 package Database;
 
-import Calendario.Corso;
+import Corso.Corso;
 import org.junit.After;
 import org.junit.Test;
 

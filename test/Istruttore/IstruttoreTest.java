@@ -1,13 +1,11 @@
 package Istruttore;
 
-import Controller.Calendario;
+import Controller.ControllerCorso;
 import Cliente.Generalita;
 import Controller.GestorePT;
 import GestioneRichieste.GestoreRichiestaScheda;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import Calendario.Corso;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -18,7 +16,7 @@ public class IstruttoreTest {
     static Generalita is;
 
     static Istruttore istruttore;
-    static Calendario ca;
+    static ControllerCorso ca;
     @BeforeClass
     public static void setUp() {
          gt = new GestoreRichiestaScheda();

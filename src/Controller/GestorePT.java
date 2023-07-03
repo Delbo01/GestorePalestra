@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.Calendario;
 import Database.Dao_Istruttore;
 import Database.Dao_Istruttore_Interface;
 import Istruttore.Istruttore;
@@ -13,7 +12,7 @@ public class GestorePT {
     private final int maxAssistiti;
     private final Dao_Istruttore_Interface dao_istruttore=new Dao_Istruttore();
 
-    public GestorePT(int maxAssistiti,Calendario c) {
+    public GestorePT(int maxAssistiti, ControllerCorso c) {
         this.maxAssistiti = maxAssistiti;
         allenatori = dao_istruttore.getAllPT();
     }

@@ -1,4 +1,4 @@
-package Calendario;
+package Corso;
 
 public class Corso {
     private final String nome;

@@ -2,7 +2,6 @@ package Cliente;
 
 import GestioneRichieste.GestoreRichiestaScheda;
 import GestioneRichieste.Richiesta;
-import Controller.Calendario;
 import Istruttore.Istruttore;
 
 public class Cliente {

@@ -4,16 +4,16 @@ import Database.Dao_Corso;
 import Database.Dao_Corso_Interface;
 import Database.Dao_Istruttore;
 import Database.Dao_Istruttore_Interface;
-import Calendario.Corso;
+import Corso.Corso;
 
 import java.util.ArrayList;
 
-public class Calendario {
+public class ControllerCorso {
     private  int anno;
     private Dao_Corso_Interface dao_corso= new Dao_Corso();
     private Dao_Istruttore_Interface dao_istruttore= new Dao_Istruttore();
 
-    public Calendario(int anno){
+    public ControllerCorso(int anno){
         this.anno=anno;
     }
 

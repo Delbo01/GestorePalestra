@@ -1,8 +1,6 @@
 package Istruttore;
 
-import Controller.Calendario;
 import Cliente.Generalita;
-import Calendario.Corso;
 import GestioneRichieste.GestoreRichiestaScheda;
 
 public class Istruttore {

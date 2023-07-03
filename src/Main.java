@@ -1,7 +1,6 @@
 import Abbonamento.GestoreAbbonamenti;
-import Controller.Calendario;
+import Controller.ControllerCorso;
 import GestioneRichieste.*;
-import GestoreLogin.*;
 import Controller.*;
 
 import java.time.LocalDate;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Calendario calendario = new Calendario(2023);
+        ControllerCorso calendario = new ControllerCorso(2023);
         GestorePT gestorePT = new GestorePT(10,calendario);
         GestoreAbbonamenti gestoreAbbonamenti = new GestoreAbbonamenti();
         LocalDate currentDate = LocalDate.now();
