@@ -1,7 +1,8 @@
-package Istruttore;
+package Controller;
 import Controller.ControllerCorso;
 import Cliente.Generalita;
 import Controller.GestorePT;
+import Istruttore.Istruttore;
 import org.junit.*;
 
 import static org.junit.Assert.*;
