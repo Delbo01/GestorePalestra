@@ -33,13 +33,13 @@ public class ClienteTest {
     public void richiediScheda() {
         String obiettivo="ipertrofia";
         int nProg=1;
-        String duarta="1 ora";
+        String durata="1 ora";
         Istruttore pt=null;
-        cliente.richiediScheda(obiettivo,nProg,duarta,pt);
+        cliente.richiediScheda(obiettivo,nProg,durata,pt);
         assertEquals(1,gestoreRichiestaScheda.getRichieste().size());
         pt= new Istruttore(new Generalita("fddfsd", "mario", "rossi"));
         pt.diventaPT();
-        cliente.richiediScheda(obiettivo,nProg,duarta,pt);
+        cliente.richiediScheda(obiettivo,nProg,durata,pt);
         assertEquals(1,pt.getGestoreRichiestaSchedaPT().getRichieste().size());
     }
 
