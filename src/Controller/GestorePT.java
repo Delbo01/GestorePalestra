@@ -71,4 +71,8 @@ public class GestorePT {
     public ArrayList<Istruttore> getAllenatori() {
         return allenatori;
     }
+
+    public void setAllenatori(ArrayList<Istruttore> allenatori) {
+        this.allenatori = allenatori;
+    }
 }

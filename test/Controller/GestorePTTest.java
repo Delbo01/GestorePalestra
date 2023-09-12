@@ -5,6 +5,8 @@ import Controller.GestorePT;
 import Istruttore.Istruttore;
 import org.junit.*;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class GestorePTTest {
@@ -15,11 +17,13 @@ public class GestorePTTest {
     @Before
     public void setUp() throws Exception {
         gestorePT = new GestorePT(1,ca);
+        gestorePT.setAllenatori(new ArrayList<Istruttore>());
         i=new Istruttore(new Generalita("www","mario","rossi"));
     }
 
     @Test
     public void inserisciPT() {
+
         assertEquals(0, gestorePT.getAllenatori().size());
         gestorePT.inserisciPT(i);
         assertEquals(1, gestorePT.getAllenatori().size());
@@ -65,6 +69,7 @@ public class GestorePTTest {
     @After
     public void tearDown() throws Exception {
         gestorePT = new GestorePT(1,ca);
+        gestorePT.setAllenatori(new ArrayList<Istruttore>());
         i=new Istruttore(new Generalita("www","mario","rossi"));
     }
 }

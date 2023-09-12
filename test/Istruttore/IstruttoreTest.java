@@ -7,8 +7,7 @@ import GestioneRichieste.GestoreRichiestaScheda;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class IstruttoreTest {
     static GestoreRichiestaScheda gt;
@@ -28,7 +27,6 @@ public class IstruttoreTest {
     @Test
     public void diventaPT() {
         istruttore.diventaPT();
-        gestorePT.inserisciPT(istruttore);
-        assertEquals(istruttore.getGeneralita().getCf(),gestorePT.ottieniPT().getGeneralita().getCf());
+        assertNotNull(istruttore.getGestoreRichiestaSchedaPT());
     }
 }
