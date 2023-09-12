@@ -223,7 +223,7 @@ public class ControllerIstruttore {
                     int tempoRecupero=prog.getEsercizio(j).getTempoRecupero();
                     String note=prog.getEsercizio(j).getNote();
                     int carico=prog.getEsercizio(j).getCarico();
-                    daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,tempoRecupero,carico,note);
+                    daoEsercizio.createEsercizio(idEsercizio,idProgr,nomeEsercizio,serie,ripetizioni,carico,tempoRecupero,note);
                 }
                 scheda.addProgramma(prog);
             }

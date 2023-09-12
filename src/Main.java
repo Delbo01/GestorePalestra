@@ -24,13 +24,19 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         ControllerLogin controllerLogin= new ControllerLogin(gestoreRichiestaScheda);
+        controllerLogin.registraCliente(sc);
         ControllerCliente cliente=new ControllerCliente(controllerLogin.loginCliente(sc),gestoreAbbonamenti,gestorePT,calendario);
+        controllerLogin.registraIstruttore(sc);
         ControllerIstruttore istruttore=new ControllerIstruttore(controllerLogin.loginIstruttore(sc),calendario,gestoreRichiestaScheda,gestorePT);
 
-
+        cliente.ottieniAbbonamento(sc);
+        cliente.richiediScheda(sc);
+        istruttore.ottieniRichiestaScheda(sc);
+        istruttore.inserisciCorso(sc);
+        cliente.vediCalendario();
         cliente.prenotaCorso(sc);
-        cliente.vediCorsiMensili(sc);
-
+        cliente.vediAbbonamento();
+        cliente.visualizzaScheda(sc);
         sc.close();
 
     }

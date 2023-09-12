@@ -39,7 +39,9 @@ public class ControllerCliente {
     }
 
     public void visualizzaScheda(Scanner sc) {
-        if (schedaMapper.getScheda() != null)
+        if(schedaMapper==null)
+            System.out.println("Non hai una scheda");
+        else if (schedaMapper.getScheda() != null)
             schedaMapper.getScheda().visualizzaScheda(sc);
         else System.out.println("Non hai una scheda");
     }
@@ -97,7 +99,7 @@ public class ControllerCliente {
                     sc.nextLine();
                 }
             }
-            System.out.println("Vuoi poter frequentare i corsi ?");
+            System.out.println("Vuoi poter frequentare i corsi ?(true/false)");
             fine = false;
             boolean corsi = true;
             while (!fine) {
@@ -135,7 +137,7 @@ public class ControllerCliente {
 
     public void richiediPersonalTrainer(Scanner sc) {
         if (abbonamentoMapper.getAbbonamento() != null) {
-            System.out.println("Chi vorresti come PT ?");
+            System.out.println("Chi vorresti come PT ? (inserire il codice fiscale)");
             String nomePt = sc.nextLine();
             Istruttore pt = gestorePT.ottieniPT(nomePt);
             if (pt != null) {

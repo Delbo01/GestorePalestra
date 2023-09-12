@@ -7,7 +7,7 @@ public class Istruttore {
     private final Generalita generalita;
     private int numeroAssistiti = 0;
 
-    private GestoreRichiestaScheda gestoreRichiestaSchedaPT=null;
+    private GestoreRichiestaScheda gestoreRichiestaSchedaPT=new GestoreRichiestaScheda();
 
     public Istruttore(Generalita gen){
         generalita = gen;
